@@ -1,0 +1,19 @@
+Job Description: Senior ML Engineer / Data Scientist
+
+We are looking for a Senior Machine Learning Engineer to join our team in India (Bangalore, Pune, Gurugram, or Noida preferred).
+
+Responsibilities:
+- Build and deploy scalable machine learning and deep learning models to production.
+- Work closely with backend engineers to deploy models and maintain ML pipelines.
+- Manage and monitor production systems, ensuring high availability.
+
+Requirements:
+- 5 to 9 years of hands-on experience in software development and machine learning.
+- Strong proficiency in Python and deep learning frameworks (PyTorch or TensorFlow).
+- Experience with Cloud platforms (AWS, GCP, or Azure) and containerization (Docker, Kubernetes).
+- Strong track record of shipping production code and real-world system deployments.
+
+Nice-to-Have:
+- Experience with MLOps pipelines (Airflow, MLflow, or Kubeflow).
+- Knowledge of NLP, computer vision, and Large Language Models (LLMs).
+- Technical leadership or mentoring experience.
