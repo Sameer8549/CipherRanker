@@ -1,117 +1,72 @@
 """
-scorer.py — 5-component weighted scorer for CipherRanker.
+scorer.py — Rubric-driven weighted scorer for CipherRanker.
 
-Provides:
-  - score_candidate(candidate: dict, weights: dict | None, current_year: int | None)
-        -> dict  (all component scores + final_score)
-
-Components
-----------
-  skill      (default 30%) — log-scaled keyword density, stuffing-resistant
-  experience (default 25%) — seniority titles + explicit year counts
-  education  (default 15%) — highest degree signal
-  activity   (default 20%) — recency of year mentions in profile
-  diversity  (default 10%) — fraction of 8 domains touched
-
-Behavioral multiplier: ∈ [0.5, 1.5]
-  Boosts: GitHub, publications, certifications, open source, portfolio
-  Penalises: employment gaps, extremely thin profiles
+Uses rubric.json to extract weights, skill lists, experience ranges, locations, and red flags.
+If rubric.json is not found, falls back to default values.
 """
 
-import math
+import os
+import json
 import re
 import time
 from typing import Any
 
 # ---------------------------------------------------------------------------
-# Default weights (must sum to 1.0)
+# Default Fallback Rubric
 # ---------------------------------------------------------------------------
-DEFAULT_WEIGHTS: dict[str, float] = {
-    "skill"      : 0.30,
-    "experience" : 0.25,
-    "education"  : 0.15,
-    "activity"   : 0.20,
-    "diversity"  : 0.10,
+DEFAULT_RUBRIC = {
+  "weights": {
+    "career_track": 0.30,
+    "skill_match": 0.25,
+    "experience_years": 0.15,
+    "location": 0.15,
+    "education": 0.15
+  },
+  "must_have_skills": ["python", "pytorch", "tensorflow", "machine learning", "deep learning"],
+  "nice_to_have_skills": ["aws", "gcp", "azure", "mlops", "docker", "kubernetes", "fastapi", "flask"],
+  "ideal_experience_years": { "min": 5, "max": 9 },
+  "preferred_locations": ["bangalore", "pune", "noida", "gurugram", "india"],
+  "red_flag_titles": ["recruiter", "hr", "sales", "marketing", "accountant"],
+  "red_flag_skills": ["typing", "accounting", "photoshop"],
+  "career_track_keywords": ["shipped", "production", "real users", "deployment", "ml engineer", "data scientist", "backend engineer"],
+  "notes": "Fallback default rubric"
 }
 
+# Load rubric
+rubric = DEFAULT_RUBRIC
+rubric_path = "rubric.json"
+if os.path.exists(rubric_path):
+    try:
+        with open(rubric_path, "r", encoding="utf-8") as f:
+            rubric = json.load(f)
+        print(f"[INFO] Loaded AI-generated rubric from {rubric_path}")
+    except Exception as e:
+        print(f"[WARN] Error loading {rubric_path}: {e}. Using fallback.")
+
+weights = rubric.get("weights", DEFAULT_RUBRIC["weights"])
+
+# Ensure weights sum to 1.0
+total_w = sum(weights.values())
+if abs(total_w - 1.0) > 1e-9:
+    weights = {k: v / total_w for k, v in weights.items()}
+
+# Constants for behavioral multiplier
 BEH_MIN = 0.5
 BEH_MAX = 1.5
-
-# ---------------------------------------------------------------------------
-# Keyword dictionaries
-# ---------------------------------------------------------------------------
-
-SKILL_KEYWORDS: set[str] = {
-    # Languages
-    "python", "java", "javascript", "typescript", "c++", "c#", "go", "rust",
-    "kotlin", "swift", "scala", "r", "julia", "sql", "bash", "perl", "ruby",
-    "php", "elixir", "haskell", "dart", "matlab", "groovy",
-    # Frameworks / libraries
-    "tensorflow", "pytorch", "keras", "scikit-learn", "sklearn", "pandas",
-    "numpy", "spark", "hadoop", "kafka", "airflow", "dbt", "fastapi",
-    "django", "flask", "react", "angular", "vue", "node", "spring", "rails",
-    "nextjs", "svelte", "express", "graphql", "grpc",
-    # Cloud / infra
-    "aws", "gcp", "azure", "docker", "kubernetes", "k8s", "terraform",
-    "ansible", "jenkins", "ci/cd", "github actions", "gitlab", "helm",
-    "prometheus", "grafana", "datadog", "splunk",
-    # Data / ML
-    "machine learning", "deep learning", "nlp", "computer vision",
-    "reinforcement learning", "llm", "transformer", "bert", "gpt",
-    "data engineering", "data science", "mlops", "feature engineering",
-    "a/b testing", "statistics", "probability", "time series",
-    "recommendation system", "data pipeline", "etl",
-    # Databases
-    "postgresql", "mysql", "mongodb", "redis", "elasticsearch", "cassandra",
-    "bigquery", "snowflake", "redshift", "dynamodb", "neo4j", "sqlite",
-}
-
-_MAX_SKILL_HITS = 40  # log-scale cap
-
-EXPERIENCE_TITLES: dict[str, float] = {
-    "cto": 6, "vp of engineering": 6, "vp engineering": 6,
-    "director": 5, "head of": 5, "principal": 4, "staff": 4,
-    "architect": 4, "lead": 3, "senior": 3, "manager": 3,
-    "mid": 2, "mid-level": 2, "associate": 1, "junior": 1,
-    "entry": 1, "intern": 0,
-}
 
 _YR_RE = re.compile(
     r"(\d+)\s*(?:\+|-)?\s*(?:\d+\s*)?year[s]?\s*(?:of\s+)?(?:experience)?",
     re.IGNORECASE,
 )
 
-EDUCATION_MAP: dict[str, float] = {
+EDUCATION_MAP = {
     "phd": 1.0, "ph.d": 1.0, "ph.d.": 1.0, "doctorate": 1.0, "doctoral": 1.0,
-    "master": 0.75, "msc": 0.75, "m.sc": 0.75, " ms ": 0.75, "mba": 0.70,
-    "bachelor": 0.50, "bsc": 0.50, "b.sc": 0.50, "b.e": 0.50, "b.tech": 0.50,
-    "b.s.": 0.50, "undergraduate": 0.45,
-    "associate": 0.25, "diploma": 0.20, "a.a.": 0.20,
-    "bootcamp": 0.15, "self-taught": 0.10, "online course": 0.10,
-    "coursera": 0.12, "udemy": 0.10, "edx": 0.12,
+    "master": 0.85, "msc": 0.85, "m.sc": 0.85, " ms ": 0.85, "mba": 0.80,
+    "bachelor": 0.65, "bsc": 0.65, "b.sc": 0.65, "b.e": 0.65, "b.tech": 0.65,
+    "b.s.": 0.65, "undergraduate": 0.55,
+    "associate": 0.35, "diploma": 0.30, "a.a.": 0.30,
+    "bootcamp": 0.20, "self-taught": 0.15, "online course": 0.15,
 }
-
-ACTIVITY_RECENCY: dict[int, float] = {
-    0: 1.00,  # current year
-    1: 0.90,
-    2: 0.75,
-    3: 0.55,
-    4: 0.35,
-    5: 0.20,
-}
-_ACTIVITY_FALLBACK = 0.10
-
-DIVERSITY_DOMAINS: list[set[str]] = [
-    {"frontend", "ui", "ux", "css", "html", "design", "figma", "tailwind"},
-    {"backend", "server", "api", "rest", "graphql", "microservice", "grpc"},
-    {"data", "analytics", "bi", "reporting", "dashboard", "warehouse"},
-    {"machine learning", "ml", "ai", "model", "training", "inference", "nlp"},
-    {"devops", "sre", "infra", "infrastructure", "cloud", "deployment", "ci/cd"},
-    {"mobile", "android", "ios", "flutter", "react native", "swift", "kotlin"},
-    {"security", "cybersecurity", "pentest", "soc", "devsecops", "compliance"},
-    {"blockchain", "web3", "smart contract", "defi", "solidity"},
-]
-
 
 # ---------------------------------------------------------------------------
 # Text helpers
@@ -136,20 +91,123 @@ def _flatten(candidate: dict) -> str:
     _collect(candidate)
     return " ".join(parts).lower()
 
-
 # ---------------------------------------------------------------------------
 # Component scorers
 # ---------------------------------------------------------------------------
 
-def score_skill(text: str) -> float:
-    """Log-scaled keyword density — diminishing returns past ~20 hits."""
-    hits = sum(1 for kw in SKILL_KEYWORDS if kw in text)
-    return round(min(math.log1p(hits) / math.log1p(_MAX_SKILL_HITS), 1.0), 6)
+def score_career_track(text: str, candidate: dict) -> float:
+    """
+    Score the career track component based on keywords and titles.
+    Matches against career_track_keywords and applies penalties for red_flag_titles.
+    """
+    keywords = rubric.get("career_track_keywords", DEFAULT_RUBRIC["career_track_keywords"])
+    red_flags = rubric.get("red_flag_titles", DEFAULT_RUBRIC["red_flag_titles"])
+    
+    title_raw = str(candidate.get("current_title", "") or candidate.get("title", "") or "").lower()
+    profile_text = title_raw + " " + text
+    
+    # Keyword hits
+    hits = sum(1 for kw in keywords if kw.lower() in profile_text)
+    score = min(hits / 5.0, 1.0)
+    
+    # Red flags
+    for rf in red_flags:
+        if rf.lower() in title_raw:
+            score *= 0.1
+            break
+            
+    return round(score, 6)
 
+def score_skill_match(text: str, candidate: dict) -> float:
+    """
+    Score the skills match component by checking both must-have and nice-to-have skills.
+    Skill weightings are based on proficiency level, duration of use, and endorsements.
+    Penalizes for any red_flag_skills.
+    """
+    must_haves = rubric.get("must_have_skills", DEFAULT_RUBRIC["must_have_skills"])
+    nice_to_haves = rubric.get("nice_to_have_skills", DEFAULT_RUBRIC["nice_to_have_skills"])
+    red_flags = rubric.get("red_flag_skills", DEFAULT_RUBRIC["red_flag_skills"])
+    
+    candidate_skills = candidate.get("skills", [])
+    if not isinstance(candidate_skills, list):
+        candidate_skills = []
+        
+    # Build a lookup of candidate skills
+    c_skills_dict = {}
+    for cs in candidate_skills:
+        if isinstance(cs, dict) and "name" in cs:
+            c_skills_dict[cs["name"].lower().strip()] = cs
+            
+    # Check red flags in candidate skills
+    for rf in red_flags:
+        if rf.lower() in c_skills_dict or rf.lower() in text:
+            return 0.0
 
-def score_experience(text: str, candidate: dict) -> float:
-    """Combines seniority title signal with explicit year-count extraction."""
-    # Check structured fields first
+    def score_skill_list(skill_list):
+        if not skill_list:
+            return 1.0
+        scores = []
+        for sk in skill_list:
+            sk_lower = sk.lower().strip()
+            # Direct match or partial string match
+            matched_cs = None
+            if sk_lower in c_skills_dict:
+                matched_cs = c_skills_dict[sk_lower]
+            else:
+                for name, cs in c_skills_dict.items():
+                    if sk_lower in name or name in sk_lower:
+                        matched_cs = cs
+                        break
+            
+            if matched_cs:
+                prof = str(matched_cs.get("proficiency", "beginner")).lower()
+                dur = float(matched_cs.get("duration_months") or 0)
+                endorse = float(matched_cs.get("endorsements") or 0)
+                assessment = float(matched_cs.get("assessment_score") or 100)
+                
+                # Zero duration expert bypass
+                if prof == "expert" and dur == 0:
+                    scores.append(0.1)
+                    continue
+                    
+                # Proficiency base score
+                prof_scores = {"expert": 0.8, "advanced": 0.6, "intermediate": 0.4, "beginner": 0.2}
+                base = prof_scores.get(prof, 0.2)
+                
+                # Duration and endorsement boosts
+                dur_boost = min(dur / 36.0, 1.0) * 0.15
+                endorse_boost = min(endorse / 10.0, 1.0) * 0.05
+                
+                s_score = base + dur_boost + endorse_boost
+                
+                # Assessment penalty
+                if assessment < 40:
+                    s_score *= 0.5
+                    
+                scores.append(min(s_score, 1.0))
+            else:
+                # Fallback to simple keyword search in flattened profile text
+                if sk_lower in text:
+                    scores.append(0.2)
+                else:
+                    scores.append(0.0)
+        return sum(scores) / len(skill_list)
+
+    must_have_score = score_skill_list(must_haves)
+    nice_to_have_score = score_skill_list(nice_to_haves)
+    
+    final_score = must_have_score * 0.7 + nice_to_have_score * 0.3
+    return round(final_score, 6)
+
+def score_experience_years(text: str, candidate: dict) -> float:
+    """
+    Score candidate experience years against the ideal range.
+    Ideal range scores 1.0, with linear penalties applied for under or over-seniority.
+    """
+    ideal = rubric.get("ideal_experience_years", DEFAULT_RUBRIC["ideal_experience_years"])
+    min_exp = ideal.get("min", 5)
+    max_exp = ideal.get("max", 9)
+    
     explicit_years = None
     for field in ("years_of_experience", "years_experience", "experience_years", "years"):
         val = candidate.get(field)
@@ -159,62 +217,81 @@ def score_experience(text: str, candidate: dict) -> float:
                 break
             except ValueError:
                 pass
-
-    # Title signal from structured field or text
-    title_raw = candidate.get("current_title", "") or candidate.get("title", "") or ""
-    title_text = (title_raw + " " + text).lower()
-    title_score = 0.0
-    for kw, weight in EXPERIENCE_TITLES.items():
-        if kw in title_text:
-            title_score = max(title_score, weight / 6.0)
-
-    # Year count from text if not in structured field
+                
     if explicit_years is None:
         years = [int(m) for m in _YR_RE.findall(text)]
         explicit_years = min(max(years), 25) if years else 0.0
     else:
         explicit_years = min(explicit_years, 25)
+        
+    yoe = explicit_years
+    
+    if min_exp <= yoe <= max_exp:
+        score = 1.0
+    elif yoe < min_exp:
+        # Linear scale up to min
+        score = yoe / float(min_exp) if min_exp > 0 else 1.0
+    else:
+        # Gradual penalty for overexperience
+        score = max(0.5, 1.0 - (yoe - max_exp) * 0.05)
+        
+    return round(score, 6)
 
-    yr_score = explicit_years / 25.0
-    combined = min(title_score * 0.4 + yr_score * 0.6, 1.0)
-    return round(combined, 6)
-
+def score_location(text: str, candidate: dict) -> float:
+    """
+    Score the location component based on preferred locations.
+    Willing to relocate earns a partial score.
+    """
+    pref_locs = rubric.get("preferred_locations", DEFAULT_RUBRIC["preferred_locations"])
+    profile_loc = str(candidate.get("location", "")).lower()
+    
+    # Direct match or partial match
+    matched = False
+    for loc in pref_locs:
+        if loc.lower().strip() in profile_loc or loc.lower().strip() in text:
+            matched = True
+            break
+            
+    if matched:
+        return 1.0
+        
+    # Relocation flag
+    signals = candidate.get("redrob_signals", {})
+    if signals.get("willing_to_relocate_flag") or "willing to relocate" in text:
+        return 0.5
+        
+    return 0.1
 
 def score_education(text: str, candidate: dict) -> float:
-    """Highest education level found."""
-    # Prefer structured field
+    """
+    Score the education component by finding the highest degree attained.
+    Relevance to job domain adds a bonus or maintains the score.
+    """
     edu_field = str(candidate.get("education", "") or candidate.get("highest_education", "") or "").lower()
     search_text = edu_field + " " + text
-    best = 0.0
+    
+    best = 0.15 # Minimum fallback score for any education
     for kw, val in EDUCATION_MAP.items():
         if kw in search_text:
             best = max(best, val)
+            
+    # Domain relevance check (CS, IT, engineering)
+    relevant = False
+    for kw in ["computer science", "software", "information technology", "engineering", "data science", "statistics", "mathematics"]:
+        if kw in search_text:
+            relevant = True
+            break
+            
+    if not relevant and best > 0.3:
+        best *= 0.8 # Apply penalty for unrelated degree field
+        
     return round(best, 6)
 
-
-def score_activity(text: str, current_year: int) -> float:
-    """Recency score based on the most recent 4-digit year found in profile."""
-    year_mentions = [
-        int(y) for y in re.findall(r"\b(20[0-2]\d|19[89]\d)\b", text)
-    ]
-    if not year_mentions:
-        return 0.30  # neutral default
-    most_recent = max(year_mentions)
-    age = max(current_year - most_recent, 0)
-    return round(ACTIVITY_RECENCY.get(age, _ACTIVITY_FALLBACK), 6)
-
-
-def score_diversity(text: str) -> float:
-    """Fraction of 8 industry domains touched."""
-    touched = sum(
-        1 for domain in DIVERSITY_DOMAINS
-        if any(kw in text for kw in domain)
-    )
-    return round(touched / len(DIVERSITY_DOMAINS), 6)
-
-
 def behavioral_multiplier(text: str) -> float:
-    """Quality multiplier ∈ [BEH_MIN, BEH_MAX]."""
+    """
+    Compute a behavioral multiplier based on profile completeness, recency of updates,
+    and positive/negative professional indicators. Clamps the score between 0.5 and 1.5.
+    """
     mult = 1.0
 
     # Boosts
@@ -239,32 +316,18 @@ def behavioral_multiplier(text: str) -> float:
 
     return round(max(BEH_MIN, min(BEH_MAX, mult)), 4)
 
-
 # ---------------------------------------------------------------------------
 # Public API
 # ---------------------------------------------------------------------------
 
-def normalize_weights(weights: dict[str, float]) -> dict[str, float]:
-    """Ensure weights sum to 1.0 — renormalises if they don't."""
-    total = sum(weights.values())
-    if abs(total - 1.0) < 1e-9:
-        return dict(weights)
-    return {k: v / total for k, v in weights.items()}
-
-
-def score_candidate(
-    candidate: dict,
-    weights: dict[str, float] | None = None,
-    current_year: int | None = None,
-) -> dict:
+def score_candidate(candidate: dict, current_year: int | None = None) -> dict:
     """
     Score a single candidate.
 
     Parameters
     ----------
     candidate   : dict — raw candidate JSON object
-    weights     : component weight override (subset OK; auto-renormalised)
-    current_year: override for activity recency (default: system year)
+    current_year: unused, kept for compatibility
 
     Returns
     -------
@@ -273,33 +336,23 @@ def score_candidate(
       skill, experience, education, activity, diversity,
       beh_mult, raw_score, final_score
     """
-    if current_year is None:
-        current_year = time.localtime().tm_year
-
-    # Merge provided weights with defaults, then normalise
-    w = dict(DEFAULT_WEIGHTS)
-    if weights:
-        for k, v in weights.items():
-            if k in w:
-                w[k] = v
-    w = normalize_weights(w)
-
     text = _flatten(candidate)
 
-    s_skill  = score_skill(text)
-    s_exp    = score_experience(text, candidate)
+    s_career = score_career_track(text, candidate)
+    s_skill  = score_skill_match(text, candidate)
+    s_exp    = score_experience_years(text, candidate)
+    s_loc    = score_location(text, candidate)
     s_edu    = score_education(text, candidate)
-    s_act    = score_activity(text, current_year)
-    s_div    = score_diversity(text)
     mult     = behavioral_multiplier(text)
 
     raw = (
-        w["skill"]      * s_skill  +
-        w["experience"] * s_exp    +
-        w["education"]  * s_edu    +
-        w["activity"]   * s_act    +
-        w["diversity"]  * s_div
+        weights.get("career_track", 0.3)      * s_career +
+        weights.get("skill_match", 0.25)      * s_skill  +
+        weights.get("experience_years", 0.15) * s_exp    +
+        weights.get("location", 0.15)         * s_loc    +
+        weights.get("education", 0.15)        * s_edu
     )
+    
     final = round(min(max(raw * mult, 0.0), 1.0), 6)
 
     # Extract human-readable structured fields
@@ -326,30 +379,25 @@ def score_candidate(
         "candidate_id"        : str(cid),
         "current_title"       : str(title),
         "years_of_experience" : yoe,
-        # Component scores
+        # Component scores mapping to original front-end labels
         "skill"               : s_skill,
         "experience"          : s_exp,
         "education"           : s_edu,
-        "activity"            : s_act,
-        "diversity"           : s_div,
+        "activity"            : s_loc,
+        "diversity"           : s_career,
         # Multiplier & finals
         "beh_mult"            : mult,
         "raw_score"           : round(raw, 6),
         "final_score"         : final,
         # Active weights (for explain)
-        "_weights"            : w,
+        "_weights"            : weights,
     }
 
-
-def score_batch(
-    candidates: list[dict],
-    weights: dict[str, float] | None = None,
-    current_year: int | None = None,
-) -> list[dict]:
+def score_batch(candidates: list[dict]) -> list[dict]:
     """Score a list of candidates and return sorted results (score DESC, id ASC)."""
     results = []
     for c in candidates:
-        result = score_candidate(c, weights=weights, current_year=current_year)
+        result = score_candidate(c)
         results.append(result)
     results.sort(key=lambda r: (-r["final_score"], r["candidate_id"]))
     return results
