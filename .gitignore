@@ -2,6 +2,11 @@
 candidates.jsonl
 candidates.jsonl.gz
 sample_candidates.json
+webapp/sample_candidates.json
+
+# Node modules
+webapp/node_modules/
+node_modules/
 
 # Generated outputs — reproducible
 team_cipher.csv
@@ -28,5 +33,5 @@ visualize.py
 report.md
 app.py
 
-# Website build — separate repo concern
+# Old static website (Stitch-generated)
 website/
