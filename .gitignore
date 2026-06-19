@@ -1,0 +1,32 @@
+# Data files — too large for git
+candidates.jsonl
+candidates.jsonl.gz
+sample_candidates.json
+
+# Generated outputs — reproducible
+team_cipher.csv
+team_cipher_gz.csv
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Dev artifacts
+*.log
+.DS_Store
+
+# Generator scripts — not part of submission
+generate_100k.py
+generate_sample_json.py
+generate_test_data.py
+
+# Analysis / visualisation — optional extras
+analyze.py
+visualize.py
+report.md
+app.py
+
+# Website build — separate repo concern
+website/

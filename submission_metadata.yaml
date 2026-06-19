@@ -1,0 +1,33 @@
+team: Team Cipher
+members:
+  - name: Abdul Sameer
+    institution: HKBK College of Engineering, Bengaluru
+
+hackathon: Redrob Hackathon 2026
+submission_file: team_cipher.csv
+
+pipeline:
+  input_format: jsonl
+  candidates_processed: 100000
+  honeypots_detected: 500
+  top_n: 100
+  wall_time_seconds: 29.58
+  validation_status: PASSED
+
+scoring:
+  components:
+    career_track: 0.30
+    skill_match: 0.25
+    experience_years: 0.15
+    location: 0.15
+    education: 0.05
+  behavioral_multiplier_range: [0.4, 1.0]
+  final_score_range_top100: [0.795518, 0.879193]
+
+tech:
+  language: Python 3.10+
+  dependencies:
+    - python-dateutil>=2.8.2
+  gpu_required: false
+  api_calls: false
+  external_services: false
