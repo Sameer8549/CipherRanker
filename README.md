@@ -55,6 +55,19 @@ text, and implausible experience totals.
 
 ---
 
+## AI Pipeline
+
+Traditional ranking systems use hardcoded weights. CipherRanker uses AI to generate the weights from the JD itself.
+
+1. Groq/Mistral reads the JD -> extracts criteria, weights, red flags
+2. Scoring engine applies AI-generated rubric across 100K candidates
+3. Groq/Mistral explains each top-100 result in natural language
+4. Judges can chat with the results live
+
+The ranking intelligence comes from the JD, not from us. Different JD -> different rubric -> different rankings. Automatically.
+
+---
+
 ## Design Decisions
 
 **No embeddings.**
