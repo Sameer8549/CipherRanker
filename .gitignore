@@ -1,3 +1,7 @@
+# Environments
+.env
+.env.local
+
 # Data files — too large for git
 candidates.jsonl
 candidates.jsonl.gz
@@ -9,6 +13,8 @@ node_modules/
 # Generated outputs — reproducible
 team_cipher.csv
 team_cipher_gz.csv
+rubric.json
+explanations.json
 
 # Python cache
 __pycache__/
