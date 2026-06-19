@@ -2,6 +2,8 @@
 
 Candidate ranking engine for the Redrob Hackathon. Ranks 100k profiles in ~30 seconds on CPU.
 
+Interactive UI live at: https://rankker.netlify.app/
+
 ---
 
 ## The Problem With Keyword Rankers
