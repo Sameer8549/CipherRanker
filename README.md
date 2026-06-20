@@ -64,9 +64,13 @@ npm run dev
 
 Open `http://127.0.0.1:5173`, paste the target JD, and upload JSON or JSONL candidate data.
 
-## Netlify Drag-And-Drop UI
+## Deployed Web UI
 
-The static UI build is available in `netlify-deploy/`. Drag that folder into Netlify Drop to publish the frontend.
+The public static UI is deployed at:
+
+https://rankker.netlify.app/
+
+For local drag-and-drop deployment, the static UI build is available in `netlify-deploy/`.
 
 Important: Netlify static hosting only serves the React interface. The full 100,000-record ranking engine, worker threads, local caches, Groq/Mistral calls, and validator exports run through the local Node API with `node server.mjs`.
 
