@@ -1,0 +1,5038 @@
+[
+  {
+    "candidate_id": "HP_0000052",
+    "profile": {
+      "current_title": "Ranking Engineer",
+      "location": "Mumbai",
+      "country": "India",
+      "years_of_experience": 7.3,
+      "headline": "Ranking Engineer at Google"
+    },
+    "skills": [
+      {
+        "name": "Java",
+        "proficiency": "expert",
+        "duration_months": 36,
+        "endorsements": 0
+      },
+      {
+        "name": "Qdrant",
+        "proficiency": "expert",
+        "duration_months": 8,
+        "endorsements": 0
+      },
+      {
+        "name": "Pinecone",
+        "proficiency": "expert",
+        "duration_months": 10,
+        "endorsements": 0
+      },
+      {
+        "name": "PyTorch",
+        "proficiency": "expert",
+        "duration_months": 36,
+        "endorsements": 0
+      },
+      {
+        "name": "Elasticsearch",
+        "proficiency": "expert",
+        "duration_months": 30,
+        "endorsements": 0
+      },
+      {
+        "name": "Docker",
+        "proficiency": "expert",
+        "duration_months": 0,
+        "endorsements": 0
+      },
+      {
+        "name": "BM25",
+        "proficiency": "expert",
+        "duration_months": 8,
+        "endorsements": 0
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.Tech",
+        "field_of_study": "Computer Science",
+        "institution": "IIT Bombay",
+        "tier": "tier_1"
+      }
+    ],
+    "career_history": [
+      {
+        "company": "Google",
+        "title": "Ranking Engineer",
+        "duration_months": 87,
+        "description": "Built retrieval and ranking systems using embeddings, vector search, and production ML pipelines. Shipped features to millions of users."
+      }
+    ],
+    "redrob_signals": {
+      "last_active_date": "2026-05-21",
+      "open_to_work_flag": true,
+      "notice_period_days": 45,
+      "github_activity_score": 45,
+      "recruiter_response_rate": 0.34,
+      "interview_completion_rate": 0.81,
+      "offer_acceptance_rate": 0.54,
+      "verified_email": true,
+      "verified_phone": true,
+      "willing_to_relocate": true,
+      "expected_salary_range_inr_lpa": {
+        "min": 35,
+        "max": 49
+      },
+      "skill_assessment_scores": {
+        "Java": 53,
+        "Qdrant": 59,
+        "Pinecone": 100,
+        "PyTorch": 53,
+        "Elasticsearch": 89,
+        "Docker": 48,
+        "BM25": 88
+      }
+    }
+  },
+  {
+    "candidate_id": "CAND_0000040",
+    "profile": {
+      "current_title": "Backend Engineer",
+      "location": "New Delhi",
+      "country": "India",
+      "years_of_experience": 3.7,
+      "headline": "Backend Engineer at HashedIn"
+    },
+    "skills": [
+      {
+        "name": "BM25",
+        "proficiency": "expert",
+        "duration_months": 8,
+        "endorsements": 0
+      },
+      {
+        "name": "Qdrant",
+        "proficiency": "expert",
+        "duration_months": 8,
+        "endorsements": 0
+      },
+      {
+        "name": "A/B Testing",
+        "proficiency": "intermediate",
+        "duration_months": 18,
+        "endorsements": 6
+      },
+      {
+        "name": "MLflow",
+        "proficiency": "intermediate",
+        "duration_months": 14,
+        "endorsements": 4
+      },
+      {
+        "name": "Python",
+        "proficiency": "expert",
+        "duration_months": 60,
+        "endorsements": 45
+      },
+      {
+        "name": "Docker",
+        "proficiency": "expert",
+        "duration_months": 0,
+        "endorsements": 0
+      },
+      {
+        "name": "LLM fine-tuning",
+        "proficiency": "advanced",
+        "duration_months": 12,
+        "endorsements": 9
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.E",
+        "field_of_study": "Computer Science",
+        "institution": "NIT Trichy",
+        "tier": "tier_2"
+      }
+    ],
+    "career_history": [
+      {
+        "company": "HashedIn",
+        "title": "Backend Engineer",
+        "duration_months": 39,
+        "description": "Built retrieval and ranking systems using embeddings, vector search, and production ML pipelines. Shipped features to millions of users."
+      }
+    ],
+    "redrob_signals": {
+      "last_active_date": "2026-05-09",
+      "open_to_work_flag": true,
+      "notice_period_days": 120,
+      "github_activity_score": 62,
+      "recruiter_response_rate": 0.16,
+      "interview_completion_rate": 0.97,
+      "offer_acceptance_rate": 0.71,
+      "verified_email": true,
+      "verified_phone": false,
+      "willing_to_relocate": false,
+      "expected_salary_range_inr_lpa": {
+        "min": 42,
+        "max": 56
+      },
+      "skill_assessment_scores": {
+        "BM25": 52,
+        "Qdrant": 64,
+        "A/B Testing": 94,
+        "MLflow": 70,
+        "Python": 46,
+        "Docker": 55,
+        "LLM fine-tuning": 64
+      }
+    }
+  },
+  {
+    "candidate_id": "CAND_0000032",
+    "profile": {
+      "current_title": "Search Engineer",
+      "location": "Mumbai",
+      "country": "India",
+      "years_of_experience": 10.4,
+      "headline": "Search Engineer at Meesho"
+    },
+    "skills": [
+      {
+        "name": "FAISS",
+        "proficiency": "expert",
+        "duration_months": 18,
+        "endorsements": 0
+      },
+      {
+        "name": "LLM fine-tuning",
+        "proficiency": "advanced",
+        "duration_months": 12,
+        "endorsements": 9
+      },
+      {
+        "name": "BM25",
+        "proficiency": "expert",
+        "duration_months": 8,
+        "endorsements": 0
+      },
+      {
+        "name": "Docker",
+        "proficiency": "expert",
+        "duration_months": 0,
+        "endorsements": 0
+      },
+      {
+        "name": "Qdrant",
+        "proficiency": "expert",
+        "duration_months": 8,
+        "endorsements": 0
+      },
+      {
+        "name": "MLflow",
+        "proficiency": "intermediate",
+        "duration_months": 14,
+        "endorsements": 4
+      },
+      {
+        "name": "Kubernetes",
+        "proficiency": "expert",
+        "duration_months": 18,
+        "endorsements": 0
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.Tech",
+        "field_of_study": "Electronics",
+        "institution": "VIT",
+        "tier": "tier_3"
+      }
+    ],
+    "career_history": [
+      {
+        "company": "Meesho",
+        "title": "Search Engineer",
+        "duration_months": 124,
+        "description": "Built retrieval and ranking systems using embeddings, vector search, and production ML pipelines. Shipped features to millions of users."
+      }
+    ],
+    "redrob_signals": {
+      "last_active_date": "2026-05-20",
+      "open_to_work_flag": true,
+      "notice_period_days": 30,
+      "github_activity_score": 45,
+      "recruiter_response_rate": 0.56,
+      "interview_completion_rate": 0.79,
+      "offer_acceptance_rate": 0.4,
+      "verified_email": true,
+      "verified_phone": false,
+      "willing_to_relocate": false,
+      "expected_salary_range_inr_lpa": {
+        "min": 28,
+        "max": 37
+      },
+      "skill_assessment_scores": {
+        "FAISS": 68,
+        "LLM fine-tuning": 47,
+        "BM25": 69,
+        "Docker": 84,
+        "Qdrant": 59,
+        "MLflow": 84,
+        "Kubernetes": 65
+      }
+    }
+  },
+  {
+    "candidate_id": "CAND_0000001",
+    "profile": {
+      "current_title": "Ranking Engineer",
+      "location": "Bangalore",
+      "country": "India",
+      "years_of_experience": 10.9,
+      "headline": "Ranking Engineer at Google"
+    },
+    "skills": [
+      {
+        "name": "LLM fine-tuning",
+        "proficiency": "advanced",
+        "duration_months": 12,
+        "endorsements": 9
+      },
+      {
+        "name": "PyTorch",
+        "proficiency": "expert",
+        "duration_months": 36,
+        "endorsements": 0
+      },
+      {
+        "name": "Elasticsearch",
+        "proficiency": "expert",
+        "duration_months": 30,
+        "endorsements": 0
+      },
+      {
+        "name": "MLflow",
+        "proficiency": "intermediate",
+        "duration_months": 14,
+        "endorsements": 4
+      },
+      {
+        "name": "XGBoost",
+        "proficiency": "advanced",
+        "duration_months": 24,
+        "endorsements": 11
+      }
+    ],
+    "education": [
+      {
+        "degree": "M.Sc",
+        "field_of_study": "Machine Learning",
+        "institution": "IISc",
+        "tier": "tier_1"
+      }
+    ],
+    "career_history": [
+      {
+        "company": "Google",
+        "title": "Ranking Engineer",
+        "duration_months": 126,
+        "description": "Built retrieval and ranking systems using embeddings, vector search, and production ML pipelines. Shipped features to millions of users."
+      }
+    ],
+    "redrob_signals": {
+      "last_active_date": "2026-03-02",
+      "open_to_work_flag": true,
+      "notice_period_days": 15,
+      "github_activity_score": 62,
+      "recruiter_response_rate": 0.13,
+      "interview_completion_rate": 0.46,
+      "offer_acceptance_rate": 0.73,
+      "verified_email": true,
+      "verified_phone": false,
+      "willing_to_relocate": true,
+      "expected_salary_range_inr_lpa": {
+        "min": 22,
+        "max": 27
+      },
+      "skill_assessment_scores": {
+        "LLM fine-tuning": 68,
+        "PyTorch": 77,
+        "Elasticsearch": 57,
+        "MLflow": 91,
+        "XGBoost": 95
+      }
+    }
+  },
+  {
+    "candidate_id": "CAND_0000014",
+    "profile": {
+      "current_title": "ML Research Engineer",
+      "location": "Delhi",
+      "country": "India",
+      "years_of_experience": 5.0,
+      "headline": "ML Research Engineer at TCS"
+    },
+    "skills": [
+      {
+        "name": "sentence-transformers",
+        "proficiency": "advanced",
+        "duration_months": 24,
+        "endorsements": 12
+      },
+      {
+        "name": "FAISS",
+        "proficiency": "expert",
+        "duration_months": 18,
+        "endorsements": 0
+      },
+      {
+        "name": "Pinecone",
+        "proficiency": "expert",
+        "duration_months": 10,
+        "endorsements": 0
+      },
+      {
+        "name": "Java",
+        "proficiency": "expert",
+        "duration_months": 36,
+        "endorsements": 0
+      },
+      {
+        "name": "PyTorch",
+        "proficiency": "expert",
+        "duration_months": 36,
+        "endorsements": 0
+      },
+      {
+        "name": "Python",
+        "proficiency": "expert",
+        "duration_months": 60,
+        "endorsements": 45
+      },
+      {
+        "name": "Docker",
+        "proficiency": "expert",
+        "duration_months": 0,
+        "endorsements": 0
+      },
+      {
+        "name": "Transformers (HF)",
+        "proficiency": "expert",
+        "duration_months": 0,
+        "endorsements": 0
+      },
+      {
+        "name": "Spark",
+        "proficiency": "intermediate",
+        "duration_months": 24,
+        "endorsements": 8
+      },
+      {
+        "name": "Qdrant",
+        "proficiency": "expert",
+        "duration_months": 8,
+        "endorsements": 0
+      }
+    ],
+    "education": [
+      {
+        "degree": "M.Tech",
+        "field_of_study": "Data Science",
+        "institution": "IIT Delhi",
+        "tier": "tier_1"
+      }
+    ],
+    "career_history": [
+      {
+        "company": "TCS",
+        "title": "ML Research Engineer",
+        "duration_months": 55,
+        "description": "Built retrieval and ranking systems using embeddings, vector search, and production ML pipelines. Shipped features to millions of users."
+      }
+    ],
+    "redrob_signals": {
+      "last_active_date": "2026-01-28",
+      "open_to_work_flag": true,
+      "notice_period_days": 120,
+      "github_activity_score": 45,
+      "recruiter_response_rate": 0.7,
+      "interview_completion_rate": 0.74,
+      "offer_acceptance_rate": 0.63,
+      "verified_email": true,
+      "verified_phone": false,
+      "willing_to_relocate": true,
+      "expected_salary_range_inr_lpa": {
+        "min": 18,
+        "max": 25
+      },
+      "skill_assessment_scores": {
+        "sentence-transformers": 67,
+        "FAISS": 48,
+        "Pinecone": 42,
+        "Java": 59,
+        "PyTorch": 63,
+        "Python": 97,
+        "Docker": 99,
+        "Transformers (HF)": 90,
+        "Spark": 95,
+        "Qdrant": 42
+      }
+    }
+  },
+  {
+    "candidate_id": "CAND_0000012",
+    "profile": {
+      "current_title": "DevOps Engineer",
+      "location": "New Delhi",
+      "country": "India",
+      "years_of_experience": 9.1,
+      "headline": "DevOps Engineer at Amazon"
+    },
+    "skills": [
+      {
+        "name": "FAISS",
+        "proficiency": "expert",
+        "duration_months": 18,
+        "endorsements": 0
+      },
+      {
+        "name": "Pinecone",
+        "proficiency": "expert",
+        "duration_months": 10,
+        "endorsements": 0
+      },
+      {
+        "name": "MLflow",
+        "proficiency": "intermediate",
+        "duration_months": 14,
+        "endorsements": 4
+      },
+      {
+        "name": "Qdrant",
+        "proficiency": "expert",
+        "duration_months": 8,
+        "endorsements": 0
+      },
+      {
+        "name": "PyTorch",
+        "proficiency": "expert",
+        "duration_months": 36,
+        "endorsements": 0
+      },
+      {
+        "name": "Elasticsearch",
+        "proficiency": "expert",
+        "duration_months": 30,
+        "endorsements": 0
+      },
+      {
+        "name": "Java",
+        "proficiency": "expert",
+        "duration_months": 36,
+        "endorsements": 0
+      },
+      {
+        "name": "Transformers (HF)",
+        "proficiency": "expert",
+        "duration_months": 0,
+        "endorsements": 0
+      }
+    ],
+    "education": [
+      {
+        "degree": "M.Tech",
+        "field_of_study": "Data Science",
+        "institution": "IIT Delhi",
+        "tier": "tier_1"
+      }
+    ],
+    "career_history": [
+      {
+        "company": "Amazon",
+        "title": "DevOps Engineer",
+        "duration_months": 109,
+        "description": "Built retrieval and ranking systems using embeddings, vector search, and production ML pipelines. Shipped features to millions of users."
+      }
+    ],
+    "redrob_signals": {
+      "last_active_date": "2026-05-16",
+      "open_to_work_flag": true,
+      "notice_period_days": 45,
+      "github_activity_score": 45,
+      "recruiter_response_rate": 0.67,
+      "interview_completion_rate": 0.58,
+      "offer_acceptance_rate": 0.67,
+      "verified_email": true,
+      "verified_phone": true,
+      "willing_to_relocate": true,
+      "expected_salary_range_inr_lpa": {
+        "min": 28,
+        "max": 35
+      },
+      "skill_assessment_scores": {
+        "FAISS": 74,
+        "Pinecone": 53,
+        "MLflow": 72,
+        "Qdrant": 56,
+        "PyTorch": 48,
+        "Elasticsearch": 99,
+        "Java": 62,
+        "Transformers (HF)": 96
+      }
+    }
+  },
+  {
+    "candidate_id": "HP_0000055",
+    "profile": {
+      "current_title": "AI Engineer",
+      "location": "Hyderabad",
+      "country": "India",
+      "years_of_experience": 4.8,
+      "headline": "AI Engineer at Swiggy"
+    },
+    "skills": [
+      {
+        "name": "BM25",
+        "proficiency": "expert",
+        "duration_months": 8,
+        "endorsements": 0
+      },
+      {
+        "name": "RAG",
+        "proficiency": "expert",
+        "duration_months": 12,
+        "endorsements": 0
+      },
+      {
+        "name": "Transformers (HF)",
+        "proficiency": "expert",
+        "duration_months": 0,
+        "endorsements": 0
+      },
+      {
+        "name": "Kubernetes",
+        "proficiency": "expert",
+        "duration_months": 18,
+        "endorsements": 0
+      },
+      {
+        "name": "FAISS",
+        "proficiency": "expert",
+        "duration_months": 18,
+        "endorsements": 0
+      }
+    ],
+    "education": [
+      {
+        "degree": "MBA",
+        "field_of_study": "Information Systems",
+        "institution": "IIM Ahmedabad",
+        "tier": "tier_1"
+      }
+    ],
+    "career_history": [
+      {
+        "company": "Swiggy",
+        "title": "AI Engineer",
+        "duration_months": 52,
+        "description": "Built retrieval and ranking systems using embeddings, vector search, and production ML pipelines. Shipped features to millions of users."
+      }
+    ],
+    "redrob_signals": {
+      "last_active_date": "2026-05-04",
+      "open_to_work_flag": false,
+      "notice_period_days": 120,
+      "github_activity_score": -1,
+      "recruiter_response_rate": 0.91,
+      "interview_completion_rate": 0.78,
+      "offer_acceptance_rate": 0.69,
+      "verified_email": true,
+      "verified_phone": false,
+      "willing_to_relocate": false,
+      "expected_salary_range_inr_lpa": {
+        "min": 35,
+        "max": 54
+      },
+      "skill_assessment_scores": {
+        "BM25": 49,
+        "RAG": 68,
+        "Transformers (HF)": 44,
+        "Kubernetes": 70,
+        "FAISS": 68
+      }
+    }
+  },
+  {
+    "candidate_id": "CAND_0000007",
+    "profile": {
+      "current_title": "Senior ML Engineer",
+      "location": "New Delhi",
+      "country": "India",
+      "years_of_experience": 13.4,
+      "headline": "Senior ML Engineer at Amazon"
+    },
+    "skills": [
+      {
+        "name": "Java",
+        "proficiency": "expert",
+        "duration_months": 36,
+        "endorsements": 0
+      },
+      {
+        "name": "FAISS",
+        "proficiency": "expert",
+        "duration_months": 18,
+        "endorsements": 0
+      },
+      {
+        "name": "PyTorch",
+        "proficiency": "expert",
+        "duration_months": 36,
+        "endorsements": 0
+      },
+      {
+        "name": "Spark",
+        "proficiency": "intermediate",
+        "duration_months": 24,
+        "endorsements": 8
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.Tech",
+        "field_of_study": "Electronics",
+        "institution": "VIT",
+        "tier": "tier_3"
+      }
+    ],
+    "career_history": [
+      {
+        "company": "Amazon",
+        "title": "Senior ML Engineer",
+        "duration_months": 156,
+        "description": "Built retrieval and ranking systems using embeddings, vector search, and production ML pipelines. Shipped features to millions of users."
+      }
+    ],
+    "redrob_signals": {
+      "last_active_date": "2026-05-07",
+      "open_to_work_flag": false,
+      "notice_period_days": 60,
+      "github_activity_score": 62,
+      "recruiter_response_rate": 0.33,
+      "interview_completion_rate": 0.92,
+      "offer_acceptance_rate": 0.71,
+      "verified_email": true,
+      "verified_phone": false,
+      "willing_to_relocate": false,
+      "expected_salary_range_inr_lpa": {
+        "min": 35,
+        "max": 46
+      },
+      "skill_assessment_scores": {
+        "Java": 82,
+        "FAISS": 81,
+        "PyTorch": 63,
+        "Spark": 68
+      }
+    }
+  },
+  {
+    "candidate_id": "CAND_0000027",
+    "profile": {
+      "current_title": "NLP Engineer",
+      "location": "Delhi",
+      "country": "India",
+      "years_of_experience": 4.9,
+      "headline": "NLP Engineer at Meesho"
+    },
+    "skills": [
+      {
+        "name": "Docker",
+        "proficiency": "expert",
+        "duration_months": 0,
+        "endorsements": 0
+      },
+      {
+        "name": "MLflow",
+        "proficiency": "intermediate",
+        "duration_months": 14,
+        "endorsements": 4
+      },
+      {
+        "name": "Python",
+        "proficiency": "expert",
+        "duration_months": 60,
+        "endorsements": 45
+      },
+      {
+        "name": "LLM fine-tuning",
+        "proficiency": "advanced",
+        "duration_months": 12,
+        "endorsements": 9
+      },
+      {
+        "name": "Pinecone",
+        "proficiency": "expert",
+        "duration_months": 10,
+        "endorsements": 0
+      },
+      {
+        "name": "Transformers (HF)",
+        "proficiency": "expert",
+        "duration_months": 0,
+        "endorsements": 0
+      },
+      {
+        "name": "FAISS",
+        "proficiency": "expert",
+        "duration_months": 18,
+        "endorsements": 0
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.Tech",
+        "field_of_study": "Information Technology",
+        "institution": "BITS",
+        "tier": "tier_2"
+      }
+    ],
+    "career_history": [
+      {
+        "company": "Meesho",
+        "title": "NLP Engineer",
+        "duration_months": 54,
+        "description": "Built retrieval and ranking systems using embeddings, vector search, and production ML pipelines. Shipped features to millions of users."
+      }
+    ],
+    "redrob_signals": {
+      "last_active_date": "2026-04-13",
+      "open_to_work_flag": true,
+      "notice_period_days": 30,
+      "github_activity_score": 20,
+      "recruiter_response_rate": 0.39,
+      "interview_completion_rate": 0.93,
+      "offer_acceptance_rate": 0.61,
+      "verified_email": true,
+      "verified_phone": true,
+      "willing_to_relocate": true,
+      "expected_salary_range_inr_lpa": {
+        "min": 50,
+        "max": 63
+      },
+      "skill_assessment_scores": {
+        "Docker": 55,
+        "MLflow": 86,
+        "Python": 66,
+        "LLM fine-tuning": 71,
+        "Pinecone": 75,
+        "Transformers (HF)": 88,
+        "FAISS": 55
+      }
+    }
+  },
+  {
+    "candidate_id": "CAND_0000049",
+    "profile": {
+      "current_title": "AI Engineer",
+      "location": "Delhi",
+      "country": "India",
+      "years_of_experience": 6.8,
+      "headline": "AI Engineer at BrowserStack"
+    },
+    "skills": [
+      {
+        "name": "Elasticsearch",
+        "proficiency": "expert",
+        "duration_months": 30,
+        "endorsements": 0
+      },
+      {
+        "name": "MLflow",
+        "proficiency": "intermediate",
+        "duration_months": 14,
+        "endorsements": 4
+      },
+      {
+        "name": "Pinecone",
+        "proficiency": "expert",
+        "duration_months": 10,
+        "endorsements": 0
+      },
+      {
+        "name": "Transformers (HF)",
+        "proficiency": "expert",
+        "duration_months": 0,
+        "endorsements": 0
+      },
+      {
+        "name": "Spark",
+        "proficiency": "intermediate",
+        "duration_months": 24,
+        "endorsements": 8
+      },
+      {
+        "name": "PyTorch",
+        "proficiency": "expert",
+        "duration_months": 36,
+        "endorsements": 0
+      },
+      {
+        "name": "Qdrant",
+        "proficiency": "expert",
+        "duration_months": 8,
+        "endorsements": 0
+      },
+      {
+        "name": "FAISS",
+        "proficiency": "expert",
+        "duration_months": 18,
+        "endorsements": 0
+      },
+      {
+        "name": "LLM fine-tuning",
+        "proficiency": "advanced",
+        "duration_months": 12,
+        "endorsements": 9
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.Tech",
+        "field_of_study": "Computer Science",
+        "institution": "IIT Bombay",
+        "tier": "tier_1"
+      }
+    ],
+    "career_history": [
+      {
+        "company": "BrowserStack",
+        "title": "AI Engineer",
+        "duration_months": 75,
+        "description": "Built retrieval and ranking systems using embeddings, vector search, and production ML pipelines. Shipped features to millions of users."
+      }
+    ],
+    "redrob_signals": {
+      "last_active_date": "2026-05-28",
+      "open_to_work_flag": true,
+      "notice_period_days": 15,
+      "github_activity_score": 90,
+      "recruiter_response_rate": 0.18,
+      "interview_completion_rate": 0.46,
+      "offer_acceptance_rate": 0.63,
+      "verified_email": true,
+      "verified_phone": false,
+      "willing_to_relocate": true,
+      "expected_salary_range_inr_lpa": {
+        "min": 50,
+        "max": 66
+      },
+      "skill_assessment_scores": {
+        "Elasticsearch": 66,
+        "MLflow": 62,
+        "Pinecone": 95,
+        "Transformers (HF)": 82,
+        "Spark": 100,
+        "PyTorch": 88,
+        "Qdrant": 67,
+        "FAISS": 95,
+        "LLM fine-tuning": 98
+      }
+    }
+  },
+  {
+    "candidate_id": "CAND_0000035",
+    "profile": {
+      "current_title": "Data Scientist",
+      "location": "Noida",
+      "country": "India",
+      "years_of_experience": 8.2,
+      "headline": "Data Scientist at Flipkart"
+    },
+    "skills": [
+      {
+        "name": "Java",
+        "proficiency": "expert",
+        "duration_months": 36,
+        "endorsements": 0
+      },
+      {
+        "name": "Qdrant",
+        "proficiency": "expert",
+        "duration_months": 8,
+        "endorsements": 0
+      },
+      {
+        "name": "sentence-transformers",
+        "proficiency": "advanced",
+        "duration_months": 24,
+        "endorsements": 12
+      },
+      {
+        "name": "Elasticsearch",
+        "proficiency": "expert",
+        "duration_months": 30,
+        "endorsements": 0
+      },
+      {
+        "name": "PyTorch",
+        "proficiency": "expert",
+        "duration_months": 36,
+        "endorsements": 0
+      },
+      {
+        "name": "BM25",
+        "proficiency": "expert",
+        "duration_months": 8,
+        "endorsements": 0
+      },
+      {
+        "name": "FAISS",
+        "proficiency": "expert",
+        "duration_months": 18,
+        "endorsements": 0
+      },
+      {
+        "name": "Pinecone",
+        "proficiency": "expert",
+        "duration_months": 10,
+        "endorsements": 0
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.Tech",
+        "field_of_study": "Information Technology",
+        "institution": "BITS",
+        "tier": "tier_2"
+      }
+    ],
+    "career_history": [
+      {
+        "company": "Flipkart",
+        "title": "Data Scientist",
+        "duration_months": 96,
+        "description": "Built retrieval and ranking systems using embeddings, vector search, and production ML pipelines. Shipped features to millions of users."
+      }
+    ],
+    "redrob_signals": {
+      "last_active_date": "2026-05-18",
+      "open_to_work_flag": false,
+      "notice_period_days": 120,
+      "github_activity_score": 45,
+      "recruiter_response_rate": 0.12,
+      "interview_completion_rate": 0.78,
+      "offer_acceptance_rate": 0.31,
+      "verified_email": true,
+      "verified_phone": false,
+      "willing_to_relocate": true,
+      "expected_salary_range_inr_lpa": {
+        "min": 22,
+        "max": 32
+      },
+      "skill_assessment_scores": {
+        "Java": 54,
+        "Qdrant": 93,
+        "sentence-transformers": 98,
+        "Elasticsearch": 47,
+        "PyTorch": 69,
+        "BM25": 100,
+        "FAISS": 47,
+        "Pinecone": 81
+      }
+    }
+  },
+  {
+    "candidate_id": "CAND_0000022",
+    "profile": {
+      "current_title": "Data Scientist",
+      "location": "New Delhi",
+      "country": "India",
+      "years_of_experience": 13.4,
+      "headline": "Data Scientist at HashedIn"
+    },
+    "skills": [
+      {
+        "name": "Docker",
+        "proficiency": "expert",
+        "duration_months": 0,
+        "endorsements": 0
+      },
+      {
+        "name": "Java",
+        "proficiency": "expert",
+        "duration_months": 36,
+        "endorsements": 0
+      },
+      {
+        "name": "Python",
+        "proficiency": "expert",
+        "duration_months": 60,
+        "endorsements": 45
+      },
+      {
+        "name": "Transformers (HF)",
+        "proficiency": "expert",
+        "duration_months": 0,
+        "endorsements": 0
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.E",
+        "field_of_study": "Computer Science",
+        "institution": "NIT Trichy",
+        "tier": "tier_2"
+      }
+    ],
+    "career_history": [
+      {
+        "company": "HashedIn",
+        "title": "Data Scientist",
+        "duration_months": 157,
+        "description": "Built retrieval and ranking systems using embeddings, vector search, and production ML pipelines. Shipped features to millions of users."
+      }
+    ],
+    "redrob_signals": {
+      "last_active_date": "2026-03-03",
+      "open_to_work_flag": true,
+      "notice_period_days": 60,
+      "github_activity_score": 90,
+      "recruiter_response_rate": 0.56,
+      "interview_completion_rate": 0.84,
+      "offer_acceptance_rate": 0.46,
+      "verified_email": true,
+      "verified_phone": false,
+      "willing_to_relocate": true,
+      "expected_salary_range_inr_lpa": {
+        "min": 42,
+        "max": 54
+      },
+      "skill_assessment_scores": {
+        "Docker": 64,
+        "Java": 61,
+        "Python": 82,
+        "Transformers (HF)": 83
+      }
+    }
+  },
+  {
+    "candidate_id": "CAND_0000010",
+    "profile": {
+      "current_title": "ML Research Engineer",
+      "location": "Noida",
+      "country": "India",
+      "years_of_experience": 12.5,
+      "headline": "ML Research Engineer at Zomato"
+    },
+    "skills": [
+      {
+        "name": "Qdrant",
+        "proficiency": "expert",
+        "duration_months": 8,
+        "endorsements": 0
+      },
+      {
+        "name": "Elasticsearch",
+        "proficiency": "expert",
+        "duration_months": 30,
+        "endorsements": 0
+      },
+      {
+        "name": "sentence-transformers",
+        "proficiency": "advanced",
+        "duration_months": 24,
+        "endorsements": 12
+      },
+      {
+        "name": "MLflow",
+        "proficiency": "intermediate",
+        "duration_months": 14,
+        "endorsements": 4
+      }
+    ],
+    "education": [
+      {
+        "degree": "M.Sc",
+        "field_of_study": "Machine Learning",
+        "institution": "IISc",
+        "tier": "tier_1"
+      }
+    ],
+    "career_history": [
+      {
+        "company": "Zomato",
+        "title": "ML Research Engineer",
+        "duration_months": 149,
+        "description": "Built retrieval and ranking systems using embeddings, vector search, and production ML pipelines. Shipped features to millions of users."
+      }
+    ],
+    "redrob_signals": {
+      "last_active_date": "2025-12-08",
+      "open_to_work_flag": true,
+      "notice_period_days": 15,
+      "github_activity_score": -1,
+      "recruiter_response_rate": 0.82,
+      "interview_completion_rate": 0.5,
+      "offer_acceptance_rate": 0.84,
+      "verified_email": true,
+      "verified_phone": true,
+      "willing_to_relocate": false,
+      "expected_salary_range_inr_lpa": {
+        "min": 35,
+        "max": 55
+      },
+      "skill_assessment_scores": {
+        "Qdrant": 40,
+        "Elasticsearch": 64,
+        "sentence-transformers": 56,
+        "MLflow": 99
+      }
+    }
+  },
+  {
+    "candidate_id": "CAND_0000037",
+    "profile": {
+      "current_title": "Ranking Engineer",
+      "location": "Hyderabad",
+      "country": "India",
+      "years_of_experience": 7.4,
+      "headline": "Ranking Engineer at Zomato"
+    },
+    "skills": [
+      {
+        "name": "XGBoost",
+        "proficiency": "advanced",
+        "duration_months": 24,
+        "endorsements": 11
+      },
+      {
+        "name": "MLflow",
+        "proficiency": "intermediate",
+        "duration_months": 14,
+        "endorsements": 4
+      },
+      {
+        "name": "Docker",
+        "proficiency": "expert",
+        "duration_months": 0,
+        "endorsements": 0
+      },
+      {
+        "name": "LLM fine-tuning",
+        "proficiency": "advanced",
+        "duration_months": 12,
+        "endorsements": 9
+      },
+      {
+        "name": "Transformers (HF)",
+        "proficiency": "expert",
+        "duration_months": 0,
+        "endorsements": 0
+      },
+      {
+        "name": "Elasticsearch",
+        "proficiency": "expert",
+        "duration_months": 30,
+        "endorsements": 0
+      },
+      {
+        "name": "A/B Testing",
+        "proficiency": "intermediate",
+        "duration_months": 18,
+        "endorsements": 6
+      }
+    ],
+    "education": [
+      {
+        "degree": "M.Tech",
+        "field_of_study": "Data Science",
+        "institution": "IIT Delhi",
+        "tier": "tier_1"
+      }
+    ],
+    "career_history": [
+      {
+        "company": "Zomato",
+        "title": "Ranking Engineer",
+        "duration_months": 83,
+        "description": "Built retrieval and ranking systems using embeddings, vector search, and production ML pipelines. Shipped features to millions of users."
+      }
+    ],
+    "redrob_signals": {
+      "last_active_date": "2026-04-20",
+      "open_to_work_flag": true,
+      "notice_period_days": 90,
+      "github_activity_score": 45,
+      "recruiter_response_rate": 0.83,
+      "interview_completion_rate": 0.65,
+      "offer_acceptance_rate": 0.53,
+      "verified_email": true,
+      "verified_phone": true,
+      "willing_to_relocate": false,
+      "expected_salary_range_inr_lpa": {
+        "min": 28,
+        "max": 48
+      },
+      "skill_assessment_scores": {
+        "XGBoost": 42,
+        "MLflow": 48,
+        "Docker": 72,
+        "LLM fine-tuning": 77,
+        "Transformers (HF)": 61,
+        "Elasticsearch": 95,
+        "A/B Testing": 46
+      }
+    }
+  },
+  {
+    "candidate_id": "CAND_0000009",
+    "profile": {
+      "current_title": "DevOps Engineer",
+      "location": "Delhi",
+      "country": "India",
+      "years_of_experience": 4.9,
+      "headline": "DevOps Engineer at Infosys"
+    },
+    "skills": [
+      {
+        "name": "Pinecone",
+        "proficiency": "expert",
+        "duration_months": 10,
+        "endorsements": 0
+      },
+      {
+        "name": "RAG",
+        "proficiency": "expert",
+        "duration_months": 12,
+        "endorsements": 0
+      },
+      {
+        "name": "Elasticsearch",
+        "proficiency": "expert",
+        "duration_months": 30,
+        "endorsements": 0
+      },
+      {
+        "name": "sentence-transformers",
+        "proficiency": "advanced",
+        "duration_months": 24,
+        "endorsements": 12
+      },
+      {
+        "name": "MLflow",
+        "proficiency": "intermediate",
+        "duration_months": 14,
+        "endorsements": 4
+      },
+      {
+        "name": "Spark",
+        "proficiency": "intermediate",
+        "duration_months": 24,
+        "endorsements": 8
+      },
+      {
+        "name": "Transformers (HF)",
+        "proficiency": "expert",
+        "duration_months": 0,
+        "endorsements": 0
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.Tech",
+        "field_of_study": "Information Technology",
+        "institution": "BITS",
+        "tier": "tier_2"
+      }
+    ],
+    "career_history": [
+      {
+        "company": "Infosys",
+        "title": "DevOps Engineer",
+        "duration_months": 58,
+        "description": "Built retrieval and ranking systems using embeddings, vector search, and production ML pipelines. Shipped features to millions of users."
+      }
+    ],
+    "redrob_signals": {
+      "last_active_date": "2025-12-14",
+      "open_to_work_flag": true,
+      "notice_period_days": 60,
+      "github_activity_score": 45,
+      "recruiter_response_rate": 0.15,
+      "interview_completion_rate": 0.79,
+      "offer_acceptance_rate": 0.74,
+      "verified_email": true,
+      "verified_phone": true,
+      "willing_to_relocate": true,
+      "expected_salary_range_inr_lpa": {
+        "min": 50,
+        "max": 58
+      },
+      "skill_assessment_scores": {
+        "Pinecone": 52,
+        "RAG": 52,
+        "Elasticsearch": 74,
+        "sentence-transformers": 68,
+        "MLflow": 48,
+        "Spark": 67,
+        "Transformers (HF)": 51
+      }
+    }
+  },
+  {
+    "candidate_id": "CAND_0000021",
+    "profile": {
+      "current_title": "Backend Engineer",
+      "location": "Noida",
+      "country": "India",
+      "years_of_experience": 5.3,
+      "headline": "Backend Engineer at Wipro"
+    },
+    "skills": [
+      {
+        "name": "Kubernetes",
+        "proficiency": "expert",
+        "duration_months": 18,
+        "endorsements": 0
+      },
+      {
+        "name": "LLM fine-tuning",
+        "proficiency": "advanced",
+        "duration_months": 12,
+        "endorsements": 9
+      },
+      {
+        "name": "BM25",
+        "proficiency": "expert",
+        "duration_months": 8,
+        "endorsements": 0
+      },
+      {
+        "name": "Transformers (HF)",
+        "proficiency": "expert",
+        "duration_months": 0,
+        "endorsements": 0
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.E",
+        "field_of_study": "Computer Science",
+        "institution": "NIT Trichy",
+        "tier": "tier_2"
+      }
+    ],
+    "career_history": [
+      {
+        "company": "Wipro",
+        "title": "Backend Engineer",
+        "duration_months": 63,
+        "description": "Built retrieval and ranking systems using embeddings, vector search, and production ML pipelines. Shipped features to millions of users."
+      }
+    ],
+    "redrob_signals": {
+      "last_active_date": "2026-05-14",
+      "open_to_work_flag": true,
+      "notice_period_days": 90,
+      "github_activity_score": -1,
+      "recruiter_response_rate": 0.23,
+      "interview_completion_rate": 0.63,
+      "offer_acceptance_rate": 0.54,
+      "verified_email": true,
+      "verified_phone": false,
+      "willing_to_relocate": false,
+      "expected_salary_range_inr_lpa": {
+        "min": 22,
+        "max": 33
+      },
+      "skill_assessment_scores": {
+        "Kubernetes": 43,
+        "LLM fine-tuning": 53,
+        "BM25": 93,
+        "Transformers (HF)": 66
+      }
+    }
+  },
+  {
+    "candidate_id": "CAND_0000036",
+    "profile": {
+      "current_title": "Applied Scientist",
+      "location": "Mumbai",
+      "country": "India",
+      "years_of_experience": 8.1,
+      "headline": "Applied Scientist at Zomato"
+    },
+    "skills": [
+      {
+        "name": "Pinecone",
+        "proficiency": "expert",
+        "duration_months": 10,
+        "endorsements": 0
+      },
+      {
+        "name": "Java",
+        "proficiency": "expert",
+        "duration_months": 36,
+        "endorsements": 0
+      },
+      {
+        "name": "Spark",
+        "proficiency": "intermediate",
+        "duration_months": 24,
+        "endorsements": 8
+      },
+      {
+        "name": "Elasticsearch",
+        "proficiency": "expert",
+        "duration_months": 30,
+        "endorsements": 0
+      },
+      {
+        "name": "LLM fine-tuning",
+        "proficiency": "advanced",
+        "duration_months": 12,
+        "endorsements": 9
+      },
+      {
+        "name": "BM25",
+        "proficiency": "expert",
+        "duration_months": 8,
+        "endorsements": 0
+      }
+    ],
+    "education": [
+      {
+        "degree": "M.Tech",
+        "field_of_study": "Data Science",
+        "institution": "IIT Delhi",
+        "tier": "tier_1"
+      }
+    ],
+    "career_history": [
+      {
+        "company": "Zomato",
+        "title": "Applied Scientist",
+        "duration_months": 91,
+        "description": "Built retrieval and ranking systems using embeddings, vector search, and production ML pipelines. Shipped features to millions of users."
+      }
+    ],
+    "redrob_signals": {
+      "last_active_date": "2026-01-16",
+      "open_to_work_flag": true,
+      "notice_period_days": 60,
+      "github_activity_score": -1,
+      "recruiter_response_rate": 0.53,
+      "interview_completion_rate": 0.93,
+      "offer_acceptance_rate": 0.5,
+      "verified_email": true,
+      "verified_phone": false,
+      "willing_to_relocate": true,
+      "expected_salary_range_inr_lpa": {
+        "min": 18,
+        "max": 31
+      },
+      "skill_assessment_scores": {
+        "Pinecone": 58,
+        "Java": 86,
+        "Spark": 59,
+        "Elasticsearch": 93,
+        "LLM fine-tuning": 77,
+        "BM25": 77
+      }
+    }
+  },
+  {
+    "candidate_id": "CAND_0000008",
+    "profile": {
+      "current_title": "Software Engineer",
+      "location": "Pune",
+      "country": "India",
+      "years_of_experience": 5.0,
+      "headline": "Software Engineer at Zomato"
+    },
+    "skills": [
+      {
+        "name": "MLflow",
+        "proficiency": "intermediate",
+        "duration_months": 14,
+        "endorsements": 4
+      },
+      {
+        "name": "Python",
+        "proficiency": "expert",
+        "duration_months": 60,
+        "endorsements": 45
+      },
+      {
+        "name": "LLM fine-tuning",
+        "proficiency": "advanced",
+        "duration_months": 12,
+        "endorsements": 9
+      },
+      {
+        "name": "Kubernetes",
+        "proficiency": "expert",
+        "duration_months": 18,
+        "endorsements": 0
+      }
+    ],
+    "education": [
+      {
+        "degree": "M.Tech",
+        "field_of_study": "Data Science",
+        "institution": "IIT Delhi",
+        "tier": "tier_1"
+      }
+    ],
+    "career_history": [
+      {
+        "company": "Zomato",
+        "title": "Software Engineer",
+        "duration_months": 60,
+        "description": "Built retrieval and ranking systems using embeddings, vector search, and production ML pipelines. Shipped features to millions of users."
+      }
+    ],
+    "redrob_signals": {
+      "last_active_date": "2025-12-19",
+      "open_to_work_flag": false,
+      "notice_period_days": 15,
+      "github_activity_score": -1,
+      "recruiter_response_rate": 0.64,
+      "interview_completion_rate": 0.54,
+      "offer_acceptance_rate": 0.44,
+      "verified_email": true,
+      "verified_phone": false,
+      "willing_to_relocate": true,
+      "expected_salary_range_inr_lpa": {
+        "min": 18,
+        "max": 33
+      },
+      "skill_assessment_scores": {
+        "MLflow": 74,
+        "Python": 48,
+        "LLM fine-tuning": 86,
+        "Kubernetes": 99
+      }
+    }
+  },
+  {
+    "candidate_id": "CAND_0000026",
+    "profile": {
+      "current_title": "Senior ML Engineer",
+      "location": "Chennai",
+      "country": "India",
+      "years_of_experience": 11.9,
+      "headline": "Senior ML Engineer at BrowserStack"
+    },
+    "skills": [
+      {
+        "name": "Pinecone",
+        "proficiency": "expert",
+        "duration_months": 10,
+        "endorsements": 0
+      },
+      {
+        "name": "XGBoost",
+        "proficiency": "advanced",
+        "duration_months": 24,
+        "endorsements": 11
+      },
+      {
+        "name": "Qdrant",
+        "proficiency": "expert",
+        "duration_months": 8,
+        "endorsements": 0
+      },
+      {
+        "name": "Spark",
+        "proficiency": "intermediate",
+        "duration_months": 24,
+        "endorsements": 8
+      }
+    ],
+    "education": [
+      {
+        "degree": "M.Tech",
+        "field_of_study": "Data Science",
+        "institution": "IIT Delhi",
+        "tier": "tier_1"
+      }
+    ],
+    "career_history": [
+      {
+        "company": "BrowserStack",
+        "title": "Senior ML Engineer",
+        "duration_months": 139,
+        "description": "Built retrieval and ranking systems using embeddings, vector search, and production ML pipelines. Shipped features to millions of users."
+      }
+    ],
+    "redrob_signals": {
+      "last_active_date": "2025-12-13",
+      "open_to_work_flag": true,
+      "notice_period_days": 60,
+      "github_activity_score": -1,
+      "recruiter_response_rate": 0.54,
+      "interview_completion_rate": 0.79,
+      "offer_acceptance_rate": 0.8,
+      "verified_email": true,
+      "verified_phone": false,
+      "willing_to_relocate": false,
+      "expected_salary_range_inr_lpa": {
+        "min": 42,
+        "max": 62
+      },
+      "skill_assessment_scores": {
+        "Pinecone": 94,
+        "XGBoost": 55,
+        "Qdrant": 93,
+        "Spark": 99
+      }
+    }
+  },
+  {
+    "candidate_id": "HP_0000053",
+    "profile": {
+      "current_title": "ML Research Engineer",
+      "location": "Gurugram",
+      "country": "India",
+      "years_of_experience": 3.4,
+      "headline": "ML Research Engineer at Meesho"
+    },
+    "skills": [
+      {
+        "name": "Pinecone",
+        "proficiency": "expert",
+        "duration_months": 10,
+        "endorsements": 0
+      },
+      {
+        "name": "Transformers (HF)",
+        "proficiency": "expert",
+        "duration_months": 0,
+        "endorsements": 0
+      },
+      {
+        "name": "PyTorch",
+        "proficiency": "expert",
+        "duration_months": 36,
+        "endorsements": 0
+      },
+      {
+        "name": "RAG",
+        "proficiency": "expert",
+        "duration_months": 12,
+        "endorsements": 0
+      },
+      {
+        "name": "BM25",
+        "proficiency": "expert",
+        "duration_months": 8,
+        "endorsements": 0
+      },
+      {
+        "name": "XGBoost",
+        "proficiency": "advanced",
+        "duration_months": 24,
+        "endorsements": 11
+      },
+      {
+        "name": "Elasticsearch",
+        "proficiency": "expert",
+        "duration_months": 30,
+        "endorsements": 0
+      }
+    ],
+    "education": [
+      {
+        "degree": "M.Sc",
+        "field_of_study": "Machine Learning",
+        "institution": "IISc",
+        "tier": "tier_1"
+      }
+    ],
+    "career_history": [
+      {
+        "company": "Meesho",
+        "title": "ML Research Engineer",
+        "duration_months": 37,
+        "description": "Built retrieval and ranking systems using embeddings, vector search, and production ML pipelines. Shipped features to millions of users."
+      }
+    ],
+    "redrob_signals": {
+      "last_active_date": "2025-12-29",
+      "open_to_work_flag": true,
+      "notice_period_days": 90,
+      "github_activity_score": 90,
+      "recruiter_response_rate": 0.79,
+      "interview_completion_rate": 0.0,
+      "offer_acceptance_rate": 0.8,
+      "verified_email": true,
+      "verified_phone": true,
+      "willing_to_relocate": false,
+      "expected_salary_range_inr_lpa": {
+        "min": 50,
+        "max": 56
+      },
+      "skill_assessment_scores": {
+        "Pinecone": 76,
+        "Transformers (HF)": 67,
+        "PyTorch": 76,
+        "RAG": 65,
+        "BM25": 85,
+        "XGBoost": 80,
+        "Elasticsearch": 66
+      }
+    }
+  },
+  {
+    "candidate_id": "CAND_0000028",
+    "profile": {
+      "current_title": "Applied ML Engineer",
+      "location": "Delhi",
+      "country": "India",
+      "years_of_experience": 7.4,
+      "headline": "Applied ML Engineer at Zomato"
+    },
+    "skills": [
+      {
+        "name": "FAISS",
+        "proficiency": "expert",
+        "duration_months": 18,
+        "endorsements": 0
+      },
+      {
+        "name": "Kubernetes",
+        "proficiency": "expert",
+        "duration_months": 18,
+        "endorsements": 0
+      },
+      {
+        "name": "LLM fine-tuning",
+        "proficiency": "advanced",
+        "duration_months": 12,
+        "endorsements": 9
+      },
+      {
+        "name": "RAG",
+        "proficiency": "expert",
+        "duration_months": 12,
+        "endorsements": 0
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.Tech",
+        "field_of_study": "Electronics",
+        "institution": "VIT",
+        "tier": "tier_3"
+      }
+    ],
+    "career_history": [
+      {
+        "company": "Zomato",
+        "title": "Applied ML Engineer",
+        "duration_months": 85,
+        "description": "Built retrieval and ranking systems using embeddings, vector search, and production ML pipelines. Shipped features to millions of users."
+      }
+    ],
+    "redrob_signals": {
+      "last_active_date": "2025-12-31",
+      "open_to_work_flag": false,
+      "notice_period_days": 30,
+      "github_activity_score": 20,
+      "recruiter_response_rate": 0.59,
+      "interview_completion_rate": 0.68,
+      "offer_acceptance_rate": 0.63,
+      "verified_email": true,
+      "verified_phone": false,
+      "willing_to_relocate": false,
+      "expected_salary_range_inr_lpa": {
+        "min": 42,
+        "max": 58
+      },
+      "skill_assessment_scores": {
+        "FAISS": 57,
+        "Kubernetes": 59,
+        "LLM fine-tuning": 56,
+        "RAG": 54
+      }
+    }
+  },
+  {
+    "candidate_id": "CAND_0000034",
+    "profile": {
+      "current_title": "ML Research Engineer",
+      "location": "New Delhi",
+      "country": "India",
+      "years_of_experience": 7.2,
+      "headline": "ML Research Engineer at Microsoft"
+    },
+    "skills": [
+      {
+        "name": "Java",
+        "proficiency": "expert",
+        "duration_months": 36,
+        "endorsements": 0
+      },
+      {
+        "name": "FAISS",
+        "proficiency": "expert",
+        "duration_months": 18,
+        "endorsements": 0
+      },
+      {
+        "name": "A/B Testing",
+        "proficiency": "intermediate",
+        "duration_months": 18,
+        "endorsements": 6
+      },
+      {
+        "name": "Transformers (HF)",
+        "proficiency": "expert",
+        "duration_months": 0,
+        "endorsements": 0
+      },
+      {
+        "name": "RAG",
+        "proficiency": "expert",
+        "duration_months": 12,
+        "endorsements": 0
+      },
+      {
+        "name": "Qdrant",
+        "proficiency": "expert",
+        "duration_months": 8,
+        "endorsements": 0
+      },
+      {
+        "name": "Docker",
+        "proficiency": "expert",
+        "duration_months": 0,
+        "endorsements": 0
+      },
+      {
+        "name": "MLflow",
+        "proficiency": "intermediate",
+        "duration_months": 14,
+        "endorsements": 4
+      },
+      {
+        "name": "sentence-transformers",
+        "proficiency": "advanced",
+        "duration_months": 24,
+        "endorsements": 12
+      },
+      {
+        "name": "Spark",
+        "proficiency": "intermediate",
+        "duration_months": 24,
+        "endorsements": 8
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.E",
+        "field_of_study": "Computer Science",
+        "institution": "NIT Trichy",
+        "tier": "tier_2"
+      }
+    ],
+    "career_history": [
+      {
+        "company": "Microsoft",
+        "title": "ML Research Engineer",
+        "duration_months": 83,
+        "description": "Built retrieval and ranking systems using embeddings, vector search, and production ML pipelines. Shipped features to millions of users."
+      }
+    ],
+    "redrob_signals": {
+      "last_active_date": "2026-02-12",
+      "open_to_work_flag": true,
+      "notice_period_days": 60,
+      "github_activity_score": 78,
+      "recruiter_response_rate": 0.34,
+      "interview_completion_rate": 0.97,
+      "offer_acceptance_rate": 0.49,
+      "verified_email": true,
+      "verified_phone": false,
+      "willing_to_relocate": true,
+      "expected_salary_range_inr_lpa": {
+        "min": 42,
+        "max": 48
+      },
+      "skill_assessment_scores": {
+        "Java": 89,
+        "FAISS": 65,
+        "A/B Testing": 95,
+        "Transformers (HF)": 72,
+        "RAG": 92,
+        "Qdrant": 40,
+        "Docker": 82,
+        "MLflow": 95,
+        "sentence-transformers": 74,
+        "Spark": 69
+      }
+    }
+  },
+  {
+    "candidate_id": "CAND_0000031",
+    "profile": {
+      "current_title": "DevOps Engineer",
+      "location": "Bengaluru",
+      "country": "India",
+      "years_of_experience": 6.6,
+      "headline": "DevOps Engineer at Amazon"
+    },
+    "skills": [
+      {
+        "name": "Kubernetes",
+        "proficiency": "expert",
+        "duration_months": 18,
+        "endorsements": 0
+      },
+      {
+        "name": "Pinecone",
+        "proficiency": "expert",
+        "duration_months": 10,
+        "endorsements": 0
+      },
+      {
+        "name": "A/B Testing",
+        "proficiency": "intermediate",
+        "duration_months": 18,
+        "endorsements": 6
+      },
+      {
+        "name": "Java",
+        "proficiency": "expert",
+        "duration_months": 36,
+        "endorsements": 0
+      },
+      {
+        "name": "Qdrant",
+        "proficiency": "expert",
+        "duration_months": 8,
+        "endorsements": 0
+      },
+      {
+        "name": "Python",
+        "proficiency": "expert",
+        "duration_months": 60,
+        "endorsements": 45
+      },
+      {
+        "name": "Spark",
+        "proficiency": "intermediate",
+        "duration_months": 24,
+        "endorsements": 8
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.Tech",
+        "field_of_study": "Electronics",
+        "institution": "VIT",
+        "tier": "tier_3"
+      }
+    ],
+    "career_history": [
+      {
+        "company": "Amazon",
+        "title": "DevOps Engineer",
+        "duration_months": 78,
+        "description": "Built retrieval and ranking systems using embeddings, vector search, and production ML pipelines. Shipped features to millions of users."
+      }
+    ],
+    "redrob_signals": {
+      "last_active_date": "2026-04-26",
+      "open_to_work_flag": true,
+      "notice_period_days": 15,
+      "github_activity_score": 90,
+      "recruiter_response_rate": 0.63,
+      "interview_completion_rate": 0.56,
+      "offer_acceptance_rate": 0.63,
+      "verified_email": true,
+      "verified_phone": true,
+      "willing_to_relocate": true,
+      "expected_salary_range_inr_lpa": {
+        "min": 18,
+        "max": 28
+      },
+      "skill_assessment_scores": {
+        "Kubernetes": 66,
+        "Pinecone": 68,
+        "A/B Testing": 84,
+        "Java": 78,
+        "Qdrant": 70,
+        "Python": 58,
+        "Spark": 42
+      }
+    }
+  },
+  {
+    "candidate_id": "CAND_0000042",
+    "profile": {
+      "current_title": "AI Engineer",
+      "location": "Hyderabad",
+      "country": "India",
+      "years_of_experience": 3.1,
+      "headline": "AI Engineer at Swiggy"
+    },
+    "skills": [
+      {
+        "name": "MLflow",
+        "proficiency": "intermediate",
+        "duration_months": 14,
+        "endorsements": 4
+      },
+      {
+        "name": "Pinecone",
+        "proficiency": "expert",
+        "duration_months": 10,
+        "endorsements": 0
+      },
+      {
+        "name": "Transformers (HF)",
+        "proficiency": "expert",
+        "duration_months": 0,
+        "endorsements": 0
+      },
+      {
+        "name": "Elasticsearch",
+        "proficiency": "expert",
+        "duration_months": 30,
+        "endorsements": 0
+      },
+      {
+        "name": "FAISS",
+        "proficiency": "expert",
+        "duration_months": 18,
+        "endorsements": 0
+      },
+      {
+        "name": "Docker",
+        "proficiency": "expert",
+        "duration_months": 0,
+        "endorsements": 0
+      }
+    ],
+    "education": [
+      {
+        "degree": "M.Sc",
+        "field_of_study": "Machine Learning",
+        "institution": "IISc",
+        "tier": "tier_1"
+      }
+    ],
+    "career_history": [
+      {
+        "company": "Swiggy",
+        "title": "AI Engineer",
+        "duration_months": 31,
+        "description": "Built retrieval and ranking systems using embeddings, vector search, and production ML pipelines. Shipped features to millions of users."
+      }
+    ],
+    "redrob_signals": {
+      "last_active_date": "2026-02-10",
+      "open_to_work_flag": true,
+      "notice_period_days": 45,
+      "github_activity_score": 62,
+      "recruiter_response_rate": 0.88,
+      "interview_completion_rate": 0.9,
+      "offer_acceptance_rate": 0.75,
+      "verified_email": true,
+      "verified_phone": false,
+      "willing_to_relocate": true,
+      "expected_salary_range_inr_lpa": {
+        "min": 28,
+        "max": 48
+      },
+      "skill_assessment_scores": {
+        "MLflow": 69,
+        "Pinecone": 44,
+        "Transformers (HF)": 49,
+        "Elasticsearch": 88,
+        "FAISS": 54,
+        "Docker": 95
+      }
+    }
+  },
+  {
+    "candidate_id": "CAND_0000015",
+    "profile": {
+      "current_title": "AI Engineer",
+      "location": "Noida",
+      "country": "India",
+      "years_of_experience": 10.0,
+      "headline": "AI Engineer at Amazon"
+    },
+    "skills": [
+      {
+        "name": "A/B Testing",
+        "proficiency": "intermediate",
+        "duration_months": 18,
+        "endorsements": 6
+      },
+      {
+        "name": "Pinecone",
+        "proficiency": "expert",
+        "duration_months": 10,
+        "endorsements": 0
+      },
+      {
+        "name": "PyTorch",
+        "proficiency": "expert",
+        "duration_months": 36,
+        "endorsements": 0
+      },
+      {
+        "name": "Qdrant",
+        "proficiency": "expert",
+        "duration_months": 8,
+        "endorsements": 0
+      },
+      {
+        "name": "Elasticsearch",
+        "proficiency": "expert",
+        "duration_months": 30,
+        "endorsements": 0
+      },
+      {
+        "name": "FAISS",
+        "proficiency": "expert",
+        "duration_months": 18,
+        "endorsements": 0
+      }
+    ],
+    "education": [
+      {
+        "degree": "MBA",
+        "field_of_study": "Information Systems",
+        "institution": "IIM Ahmedabad",
+        "tier": "tier_1"
+      }
+    ],
+    "career_history": [
+      {
+        "company": "Amazon",
+        "title": "AI Engineer",
+        "duration_months": 118,
+        "description": "Built retrieval and ranking systems using embeddings, vector search, and production ML pipelines. Shipped features to millions of users."
+      }
+    ],
+    "redrob_signals": {
+      "last_active_date": "2026-06-12",
+      "open_to_work_flag": true,
+      "notice_period_days": 30,
+      "github_activity_score": 45,
+      "recruiter_response_rate": 0.25,
+      "interview_completion_rate": 0.95,
+      "offer_acceptance_rate": 0.77,
+      "verified_email": true,
+      "verified_phone": true,
+      "willing_to_relocate": false,
+      "expected_salary_range_inr_lpa": {
+        "min": 35,
+        "max": 47
+      },
+      "skill_assessment_scores": {
+        "A/B Testing": 95,
+        "Pinecone": 42,
+        "PyTorch": 94,
+        "Qdrant": 70,
+        "Elasticsearch": 54,
+        "FAISS": 52
+      }
+    }
+  },
+  {
+    "candidate_id": "CAND_0000002",
+    "profile": {
+      "current_title": "Senior ML Engineer",
+      "location": "Hyderabad",
+      "country": "India",
+      "years_of_experience": 10.4,
+      "headline": "Senior ML Engineer at CRED"
+    },
+    "skills": [
+      {
+        "name": "BM25",
+        "proficiency": "expert",
+        "duration_months": 8,
+        "endorsements": 0
+      },
+      {
+        "name": "PyTorch",
+        "proficiency": "expert",
+        "duration_months": 36,
+        "endorsements": 0
+      },
+      {
+        "name": "RAG",
+        "proficiency": "expert",
+        "duration_months": 12,
+        "endorsements": 0
+      },
+      {
+        "name": "Docker",
+        "proficiency": "expert",
+        "duration_months": 0,
+        "endorsements": 0
+      },
+      {
+        "name": "Transformers (HF)",
+        "proficiency": "expert",
+        "duration_months": 0,
+        "endorsements": 0
+      },
+      {
+        "name": "sentence-transformers",
+        "proficiency": "advanced",
+        "duration_months": 24,
+        "endorsements": 12
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.Tech",
+        "field_of_study": "Computer Science",
+        "institution": "IIT Bombay",
+        "tier": "tier_1"
+      }
+    ],
+    "career_history": [
+      {
+        "company": "CRED",
+        "title": "Senior ML Engineer",
+        "duration_months": 120,
+        "description": "Built retrieval and ranking systems using embeddings, vector search, and production ML pipelines. Shipped features to millions of users."
+      }
+    ],
+    "redrob_signals": {
+      "last_active_date": "2026-03-19",
+      "open_to_work_flag": true,
+      "notice_period_days": 60,
+      "github_activity_score": -1,
+      "recruiter_response_rate": 0.82,
+      "interview_completion_rate": 0.76,
+      "offer_acceptance_rate": 0.88,
+      "verified_email": true,
+      "verified_phone": false,
+      "willing_to_relocate": true,
+      "expected_salary_range_inr_lpa": {
+        "min": 18,
+        "max": 37
+      },
+      "skill_assessment_scores": {
+        "BM25": 75,
+        "PyTorch": 58,
+        "RAG": 93,
+        "Docker": 80,
+        "Transformers (HF)": 79,
+        "sentence-transformers": 96
+      }
+    }
+  },
+  {
+    "candidate_id": "CAND_0000039",
+    "profile": {
+      "current_title": "Ranking Engineer",
+      "location": "Mumbai",
+      "country": "India",
+      "years_of_experience": 14.0,
+      "headline": "Ranking Engineer at HashedIn"
+    },
+    "skills": [
+      {
+        "name": "FAISS",
+        "proficiency": "expert",
+        "duration_months": 18,
+        "endorsements": 0
+      },
+      {
+        "name": "Pinecone",
+        "proficiency": "expert",
+        "duration_months": 10,
+        "endorsements": 0
+      },
+      {
+        "name": "Elasticsearch",
+        "proficiency": "expert",
+        "duration_months": 30,
+        "endorsements": 0
+      },
+      {
+        "name": "Docker",
+        "proficiency": "expert",
+        "duration_months": 0,
+        "endorsements": 0
+      },
+      {
+        "name": "MLflow",
+        "proficiency": "intermediate",
+        "duration_months": 14,
+        "endorsements": 4
+      },
+      {
+        "name": "XGBoost",
+        "proficiency": "advanced",
+        "duration_months": 24,
+        "endorsements": 11
+      },
+      {
+        "name": "sentence-transformers",
+        "proficiency": "advanced",
+        "duration_months": 24,
+        "endorsements": 12
+      },
+      {
+        "name": "LLM fine-tuning",
+        "proficiency": "advanced",
+        "duration_months": 12,
+        "endorsements": 9
+      },
+      {
+        "name": "A/B Testing",
+        "proficiency": "intermediate",
+        "duration_months": 18,
+        "endorsements": 6
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.Tech",
+        "field_of_study": "Electronics",
+        "institution": "VIT",
+        "tier": "tier_3"
+      }
+    ],
+    "career_history": [
+      {
+        "company": "HashedIn",
+        "title": "Ranking Engineer",
+        "duration_months": 165,
+        "description": "Built retrieval and ranking systems using embeddings, vector search, and production ML pipelines. Shipped features to millions of users."
+      }
+    ],
+    "redrob_signals": {
+      "last_active_date": "2026-06-07",
+      "open_to_work_flag": true,
+      "notice_period_days": 45,
+      "github_activity_score": -1,
+      "recruiter_response_rate": 0.38,
+      "interview_completion_rate": 0.43,
+      "offer_acceptance_rate": 0.45,
+      "verified_email": true,
+      "verified_phone": false,
+      "willing_to_relocate": true,
+      "expected_salary_range_inr_lpa": {
+        "min": 28,
+        "max": 44
+      },
+      "skill_assessment_scores": {
+        "FAISS": 50,
+        "Pinecone": 51,
+        "Elasticsearch": 45,
+        "Docker": 79,
+        "MLflow": 95,
+        "XGBoost": 64,
+        "sentence-transformers": 79,
+        "LLM fine-tuning": 83,
+        "A/B Testing": 55
+      }
+    }
+  },
+  {
+    "candidate_id": "CAND_0000017",
+    "profile": {
+      "current_title": "NLP Engineer",
+      "location": "New Delhi",
+      "country": "India",
+      "years_of_experience": 4.3,
+      "headline": "NLP Engineer at Razorpay"
+    },
+    "skills": [
+      {
+        "name": "Pinecone",
+        "proficiency": "expert",
+        "duration_months": 10,
+        "endorsements": 0
+      },
+      {
+        "name": "Python",
+        "proficiency": "expert",
+        "duration_months": 60,
+        "endorsements": 45
+      },
+      {
+        "name": "RAG",
+        "proficiency": "expert",
+        "duration_months": 12,
+        "endorsements": 0
+      },
+      {
+        "name": "Transformers (HF)",
+        "proficiency": "expert",
+        "duration_months": 0,
+        "endorsements": 0
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.Tech",
+        "field_of_study": "Information Technology",
+        "institution": "BITS",
+        "tier": "tier_2"
+      }
+    ],
+    "career_history": [
+      {
+        "company": "Razorpay",
+        "title": "NLP Engineer",
+        "duration_months": 47,
+        "description": "Built retrieval and ranking systems using embeddings, vector search, and production ML pipelines. Shipped features to millions of users."
+      }
+    ],
+    "redrob_signals": {
+      "last_active_date": "2026-03-26",
+      "open_to_work_flag": true,
+      "notice_period_days": 15,
+      "github_activity_score": 78,
+      "recruiter_response_rate": 0.63,
+      "interview_completion_rate": 0.8,
+      "offer_acceptance_rate": 0.7,
+      "verified_email": true,
+      "verified_phone": false,
+      "willing_to_relocate": false,
+      "expected_salary_range_inr_lpa": {
+        "min": 18,
+        "max": 32
+      },
+      "skill_assessment_scores": {
+        "Pinecone": 84,
+        "Python": 58,
+        "RAG": 75,
+        "Transformers (HF)": 48
+      }
+    }
+  },
+  {
+    "candidate_id": "CAND_0000016",
+    "profile": {
+      "current_title": "Backend Engineer",
+      "location": "Mumbai",
+      "country": "India",
+      "years_of_experience": 11.8,
+      "headline": "Backend Engineer at PhonePe"
+    },
+    "skills": [
+      {
+        "name": "LLM fine-tuning",
+        "proficiency": "advanced",
+        "duration_months": 12,
+        "endorsements": 9
+      },
+      {
+        "name": "A/B Testing",
+        "proficiency": "intermediate",
+        "duration_months": 18,
+        "endorsements": 6
+      },
+      {
+        "name": "Python",
+        "proficiency": "expert",
+        "duration_months": 60,
+        "endorsements": 45
+      },
+      {
+        "name": "MLflow",
+        "proficiency": "intermediate",
+        "duration_months": 14,
+        "endorsements": 4
+      },
+      {
+        "name": "Elasticsearch",
+        "proficiency": "expert",
+        "duration_months": 30,
+        "endorsements": 0
+      },
+      {
+        "name": "RAG",
+        "proficiency": "expert",
+        "duration_months": 12,
+        "endorsements": 0
+      },
+      {
+        "name": "Transformers (HF)",
+        "proficiency": "expert",
+        "duration_months": 0,
+        "endorsements": 0
+      },
+      {
+        "name": "PyTorch",
+        "proficiency": "expert",
+        "duration_months": 36,
+        "endorsements": 0
+      },
+      {
+        "name": "sentence-transformers",
+        "proficiency": "advanced",
+        "duration_months": 24,
+        "endorsements": 12
+      },
+      {
+        "name": "Qdrant",
+        "proficiency": "expert",
+        "duration_months": 8,
+        "endorsements": 0
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.E",
+        "field_of_study": "Computer Science",
+        "institution": "NIT Trichy",
+        "tier": "tier_2"
+      }
+    ],
+    "career_history": [
+      {
+        "company": "PhonePe",
+        "title": "Backend Engineer",
+        "duration_months": 141,
+        "description": "Built retrieval and ranking systems using embeddings, vector search, and production ML pipelines. Shipped features to millions of users."
+      }
+    ],
+    "redrob_signals": {
+      "last_active_date": "2026-03-08",
+      "open_to_work_flag": true,
+      "notice_period_days": 120,
+      "github_activity_score": 62,
+      "recruiter_response_rate": 0.68,
+      "interview_completion_rate": 0.91,
+      "offer_acceptance_rate": 0.41,
+      "verified_email": true,
+      "verified_phone": false,
+      "willing_to_relocate": true,
+      "expected_salary_range_inr_lpa": {
+        "min": 28,
+        "max": 33
+      },
+      "skill_assessment_scores": {
+        "LLM fine-tuning": 46,
+        "A/B Testing": 78,
+        "Python": 67,
+        "MLflow": 62,
+        "Elasticsearch": 86,
+        "RAG": 90,
+        "Transformers (HF)": 60,
+        "PyTorch": 67,
+        "sentence-transformers": 78,
+        "Qdrant": 72
+      }
+    }
+  },
+  {
+    "candidate_id": "CAND_0000046",
+    "profile": {
+      "current_title": "NLP Engineer",
+      "location": "Bengaluru",
+      "country": "India",
+      "years_of_experience": 4.5,
+      "headline": "NLP Engineer at BrowserStack"
+    },
+    "skills": [
+      {
+        "name": "LLM fine-tuning",
+        "proficiency": "advanced",
+        "duration_months": 12,
+        "endorsements": 9
+      },
+      {
+        "name": "MLflow",
+        "proficiency": "intermediate",
+        "duration_months": 14,
+        "endorsements": 4
+      },
+      {
+        "name": "PyTorch",
+        "proficiency": "expert",
+        "duration_months": 36,
+        "endorsements": 0
+      },
+      {
+        "name": "Docker",
+        "proficiency": "expert",
+        "duration_months": 0,
+        "endorsements": 0
+      },
+      {
+        "name": "Kubernetes",
+        "proficiency": "expert",
+        "duration_months": 18,
+        "endorsements": 0
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.Tech",
+        "field_of_study": "Computer Science",
+        "institution": "IIT Bombay",
+        "tier": "tier_1"
+      }
+    ],
+    "career_history": [
+      {
+        "company": "BrowserStack",
+        "title": "NLP Engineer",
+        "duration_months": 49,
+        "description": "Built retrieval and ranking systems using embeddings, vector search, and production ML pipelines. Shipped features to millions of users."
+      }
+    ],
+    "redrob_signals": {
+      "last_active_date": "2026-05-12",
+      "open_to_work_flag": true,
+      "notice_period_days": 45,
+      "github_activity_score": 90,
+      "recruiter_response_rate": 0.94,
+      "interview_completion_rate": 0.72,
+      "offer_acceptance_rate": 0.38,
+      "verified_email": true,
+      "verified_phone": false,
+      "willing_to_relocate": true,
+      "expected_salary_range_inr_lpa": {
+        "min": 22,
+        "max": 30
+      },
+      "skill_assessment_scores": {
+        "LLM fine-tuning": 77,
+        "MLflow": 60,
+        "PyTorch": 41,
+        "Docker": 51,
+        "Kubernetes": 56
+      }
+    }
+  },
+  {
+    "candidate_id": "CAND_0000011",
+    "profile": {
+      "current_title": "Backend Engineer",
+      "location": "Chennai",
+      "country": "India",
+      "years_of_experience": 10.4,
+      "headline": "Backend Engineer at Meesho"
+    },
+    "skills": [
+      {
+        "name": "A/B Testing",
+        "proficiency": "intermediate",
+        "duration_months": 18,
+        "endorsements": 6
+      },
+      {
+        "name": "Java",
+        "proficiency": "expert",
+        "duration_months": 36,
+        "endorsements": 0
+      },
+      {
+        "name": "PyTorch",
+        "proficiency": "expert",
+        "duration_months": 36,
+        "endorsements": 0
+      },
+      {
+        "name": "Elasticsearch",
+        "proficiency": "expert",
+        "duration_months": 30,
+        "endorsements": 0
+      },
+      {
+        "name": "Spark",
+        "proficiency": "intermediate",
+        "duration_months": 24,
+        "endorsements": 8
+      },
+      {
+        "name": "Qdrant",
+        "proficiency": "expert",
+        "duration_months": 8,
+        "endorsements": 0
+      },
+      {
+        "name": "Python",
+        "proficiency": "expert",
+        "duration_months": 60,
+        "endorsements": 45
+      },
+      {
+        "name": "Kubernetes",
+        "proficiency": "expert",
+        "duration_months": 18,
+        "endorsements": 0
+      },
+      {
+        "name": "BM25",
+        "proficiency": "expert",
+        "duration_months": 8,
+        "endorsements": 0
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.Tech",
+        "field_of_study": "Computer Science",
+        "institution": "IIT Bombay",
+        "tier": "tier_1"
+      }
+    ],
+    "career_history": [
+      {
+        "company": "Meesho",
+        "title": "Backend Engineer",
+        "duration_months": 124,
+        "description": "Built retrieval and ranking systems using embeddings, vector search, and production ML pipelines. Shipped features to millions of users."
+      }
+    ],
+    "redrob_signals": {
+      "last_active_date": "2026-06-04",
+      "open_to_work_flag": false,
+      "notice_period_days": 120,
+      "github_activity_score": 20,
+      "recruiter_response_rate": 0.14,
+      "interview_completion_rate": 0.69,
+      "offer_acceptance_rate": 0.35,
+      "verified_email": true,
+      "verified_phone": true,
+      "willing_to_relocate": true,
+      "expected_salary_range_inr_lpa": {
+        "min": 42,
+        "max": 52
+      },
+      "skill_assessment_scores": {
+        "A/B Testing": 78,
+        "Java": 44,
+        "PyTorch": 83,
+        "Elasticsearch": 95,
+        "Spark": 55,
+        "Qdrant": 65,
+        "Python": 47,
+        "Kubernetes": 100,
+        "BM25": 96
+      }
+    }
+  },
+  {
+    "candidate_id": "CAND_0000013",
+    "profile": {
+      "current_title": "NLP Engineer",
+      "location": "Noida",
+      "country": "India",
+      "years_of_experience": 6.4,
+      "headline": "NLP Engineer at HashedIn"
+    },
+    "skills": [
+      {
+        "name": "Qdrant",
+        "proficiency": "expert",
+        "duration_months": 8,
+        "endorsements": 0
+      },
+      {
+        "name": "Kubernetes",
+        "proficiency": "expert",
+        "duration_months": 18,
+        "endorsements": 0
+      },
+      {
+        "name": "Python",
+        "proficiency": "expert",
+        "duration_months": 60,
+        "endorsements": 45
+      },
+      {
+        "name": "MLflow",
+        "proficiency": "intermediate",
+        "duration_months": 14,
+        "endorsements": 4
+      },
+      {
+        "name": "Pinecone",
+        "proficiency": "expert",
+        "duration_months": 10,
+        "endorsements": 0
+      }
+    ],
+    "education": [
+      {
+        "degree": "M.Sc",
+        "field_of_study": "Machine Learning",
+        "institution": "IISc",
+        "tier": "tier_1"
+      }
+    ],
+    "career_history": [
+      {
+        "company": "HashedIn",
+        "title": "NLP Engineer",
+        "duration_months": 71,
+        "description": "Built retrieval and ranking systems using embeddings, vector search, and production ML pipelines. Shipped features to millions of users."
+      }
+    ],
+    "redrob_signals": {
+      "last_active_date": "2026-05-23",
+      "open_to_work_flag": false,
+      "notice_period_days": 45,
+      "github_activity_score": 78,
+      "recruiter_response_rate": 0.9,
+      "interview_completion_rate": 0.48,
+      "offer_acceptance_rate": 0.39,
+      "verified_email": true,
+      "verified_phone": false,
+      "willing_to_relocate": true,
+      "expected_salary_range_inr_lpa": {
+        "min": 18,
+        "max": 26
+      },
+      "skill_assessment_scores": {
+        "Qdrant": 85,
+        "Kubernetes": 61,
+        "Python": 53,
+        "MLflow": 83,
+        "Pinecone": 80
+      }
+    }
+  },
+  {
+    "candidate_id": "CAND_0000044",
+    "profile": {
+      "current_title": "ML Research Engineer",
+      "location": "Chennai",
+      "country": "India",
+      "years_of_experience": 3.4,
+      "headline": "ML Research Engineer at Wipro"
+    },
+    "skills": [
+      {
+        "name": "sentence-transformers",
+        "proficiency": "advanced",
+        "duration_months": 24,
+        "endorsements": 12
+      },
+      {
+        "name": "Kubernetes",
+        "proficiency": "expert",
+        "duration_months": 18,
+        "endorsements": 0
+      },
+      {
+        "name": "Java",
+        "proficiency": "expert",
+        "duration_months": 36,
+        "endorsements": 0
+      },
+      {
+        "name": "A/B Testing",
+        "proficiency": "intermediate",
+        "duration_months": 18,
+        "endorsements": 6
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.Tech",
+        "field_of_study": "Computer Science",
+        "institution": "IIT Bombay",
+        "tier": "tier_1"
+      }
+    ],
+    "career_history": [
+      {
+        "company": "Wipro",
+        "title": "ML Research Engineer",
+        "duration_months": 36,
+        "description": "Built retrieval and ranking systems using embeddings, vector search, and production ML pipelines. Shipped features to millions of users."
+      }
+    ],
+    "redrob_signals": {
+      "last_active_date": "2026-05-15",
+      "open_to_work_flag": false,
+      "notice_period_days": 30,
+      "github_activity_score": 62,
+      "recruiter_response_rate": 0.43,
+      "interview_completion_rate": 0.62,
+      "offer_acceptance_rate": 0.74,
+      "verified_email": true,
+      "verified_phone": false,
+      "willing_to_relocate": true,
+      "expected_salary_range_inr_lpa": {
+        "min": 50,
+        "max": 68
+      },
+      "skill_assessment_scores": {
+        "sentence-transformers": 93,
+        "Kubernetes": 71,
+        "Java": 79,
+        "A/B Testing": 66
+      }
+    }
+  },
+  {
+    "candidate_id": "CAND_0000043",
+    "profile": {
+      "current_title": "Ranking Engineer",
+      "location": "Chennai",
+      "country": "India",
+      "years_of_experience": 13.6,
+      "headline": "Ranking Engineer at Swiggy"
+    },
+    "skills": [
+      {
+        "name": "A/B Testing",
+        "proficiency": "intermediate",
+        "duration_months": 18,
+        "endorsements": 6
+      },
+      {
+        "name": "XGBoost",
+        "proficiency": "advanced",
+        "duration_months": 24,
+        "endorsements": 11
+      },
+      {
+        "name": "FAISS",
+        "proficiency": "expert",
+        "duration_months": 18,
+        "endorsements": 0
+      },
+      {
+        "name": "Docker",
+        "proficiency": "expert",
+        "duration_months": 0,
+        "endorsements": 0
+      },
+      {
+        "name": "RAG",
+        "proficiency": "expert",
+        "duration_months": 12,
+        "endorsements": 0
+      },
+      {
+        "name": "Python",
+        "proficiency": "expert",
+        "duration_months": 60,
+        "endorsements": 45
+      },
+      {
+        "name": "PyTorch",
+        "proficiency": "expert",
+        "duration_months": 36,
+        "endorsements": 0
+      },
+      {
+        "name": "BM25",
+        "proficiency": "expert",
+        "duration_months": 8,
+        "endorsements": 0
+      },
+      {
+        "name": "sentence-transformers",
+        "proficiency": "advanced",
+        "duration_months": 24,
+        "endorsements": 12
+      },
+      {
+        "name": "LLM fine-tuning",
+        "proficiency": "advanced",
+        "duration_months": 12,
+        "endorsements": 9
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.E",
+        "field_of_study": "Computer Science",
+        "institution": "NIT Trichy",
+        "tier": "tier_2"
+      }
+    ],
+    "career_history": [
+      {
+        "company": "Swiggy",
+        "title": "Ranking Engineer",
+        "duration_months": 163,
+        "description": "Built retrieval and ranking systems using embeddings, vector search, and production ML pipelines. Shipped features to millions of users."
+      }
+    ],
+    "redrob_signals": {
+      "last_active_date": "2025-12-28",
+      "open_to_work_flag": false,
+      "notice_period_days": 120,
+      "github_activity_score": 78,
+      "recruiter_response_rate": 0.32,
+      "interview_completion_rate": 0.63,
+      "offer_acceptance_rate": 0.44,
+      "verified_email": true,
+      "verified_phone": true,
+      "willing_to_relocate": false,
+      "expected_salary_range_inr_lpa": {
+        "min": 50,
+        "max": 66
+      },
+      "skill_assessment_scores": {
+        "A/B Testing": 98,
+        "XGBoost": 79,
+        "FAISS": 54,
+        "Docker": 81,
+        "RAG": 44,
+        "Python": 80,
+        "PyTorch": 92,
+        "BM25": 69,
+        "sentence-transformers": 98,
+        "LLM fine-tuning": 84
+      }
+    }
+  },
+  {
+    "candidate_id": "CAND_0000045",
+    "profile": {
+      "current_title": "ML Research Engineer",
+      "location": "Gurugram",
+      "country": "India",
+      "years_of_experience": 4.6,
+      "headline": "ML Research Engineer at Flipkart"
+    },
+    "skills": [
+      {
+        "name": "LLM fine-tuning",
+        "proficiency": "advanced",
+        "duration_months": 12,
+        "endorsements": 9
+      },
+      {
+        "name": "XGBoost",
+        "proficiency": "advanced",
+        "duration_months": 24,
+        "endorsements": 11
+      },
+      {
+        "name": "Elasticsearch",
+        "proficiency": "expert",
+        "duration_months": 30,
+        "endorsements": 0
+      },
+      {
+        "name": "MLflow",
+        "proficiency": "intermediate",
+        "duration_months": 14,
+        "endorsements": 4
+      },
+      {
+        "name": "Transformers (HF)",
+        "proficiency": "expert",
+        "duration_months": 0,
+        "endorsements": 0
+      },
+      {
+        "name": "BM25",
+        "proficiency": "expert",
+        "duration_months": 8,
+        "endorsements": 0
+      },
+      {
+        "name": "Qdrant",
+        "proficiency": "expert",
+        "duration_months": 8,
+        "endorsements": 0
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.E",
+        "field_of_study": "Computer Science",
+        "institution": "NIT Trichy",
+        "tier": "tier_2"
+      }
+    ],
+    "career_history": [
+      {
+        "company": "Flipkart",
+        "title": "ML Research Engineer",
+        "duration_months": 50,
+        "description": "Built retrieval and ranking systems using embeddings, vector search, and production ML pipelines. Shipped features to millions of users."
+      }
+    ],
+    "redrob_signals": {
+      "last_active_date": "2026-04-09",
+      "open_to_work_flag": true,
+      "notice_period_days": 15,
+      "github_activity_score": 45,
+      "recruiter_response_rate": 0.26,
+      "interview_completion_rate": 0.47,
+      "offer_acceptance_rate": 0.69,
+      "verified_email": true,
+      "verified_phone": true,
+      "willing_to_relocate": true,
+      "expected_salary_range_inr_lpa": {
+        "min": 35,
+        "max": 42
+      },
+      "skill_assessment_scores": {
+        "LLM fine-tuning": 90,
+        "XGBoost": 61,
+        "Elasticsearch": 55,
+        "MLflow": 48,
+        "Transformers (HF)": 90,
+        "BM25": 76,
+        "Qdrant": 53
+      }
+    }
+  },
+  {
+    "candidate_id": "CAND_0000025",
+    "profile": {
+      "current_title": "ML Research Engineer",
+      "location": "New Delhi",
+      "country": "India",
+      "years_of_experience": 2.3,
+      "headline": "ML Research Engineer at Google"
+    },
+    "skills": [
+      {
+        "name": "Docker",
+        "proficiency": "expert",
+        "duration_months": 0,
+        "endorsements": 0
+      },
+      {
+        "name": "A/B Testing",
+        "proficiency": "intermediate",
+        "duration_months": 18,
+        "endorsements": 6
+      },
+      {
+        "name": "RAG",
+        "proficiency": "expert",
+        "duration_months": 12,
+        "endorsements": 0
+      },
+      {
+        "name": "sentence-transformers",
+        "proficiency": "advanced",
+        "duration_months": 24,
+        "endorsements": 12
+      },
+      {
+        "name": "Kubernetes",
+        "proficiency": "expert",
+        "duration_months": 18,
+        "endorsements": 0
+      },
+      {
+        "name": "XGBoost",
+        "proficiency": "advanced",
+        "duration_months": 24,
+        "endorsements": 11
+      }
+    ],
+    "education": [
+      {
+        "degree": "MBA",
+        "field_of_study": "Information Systems",
+        "institution": "IIM Ahmedabad",
+        "tier": "tier_1"
+      }
+    ],
+    "career_history": [
+      {
+        "company": "Google",
+        "title": "ML Research Engineer",
+        "duration_months": 21,
+        "description": "Built retrieval and ranking systems using embeddings, vector search, and production ML pipelines. Shipped features to millions of users."
+      }
+    ],
+    "redrob_signals": {
+      "last_active_date": "2026-05-23",
+      "open_to_work_flag": false,
+      "notice_period_days": 120,
+      "github_activity_score": -1,
+      "recruiter_response_rate": 0.69,
+      "interview_completion_rate": 0.58,
+      "offer_acceptance_rate": 0.77,
+      "verified_email": true,
+      "verified_phone": false,
+      "willing_to_relocate": false,
+      "expected_salary_range_inr_lpa": {
+        "min": 50,
+        "max": 58
+      },
+      "skill_assessment_scores": {
+        "Docker": 82,
+        "A/B Testing": 63,
+        "RAG": 44,
+        "sentence-transformers": 72,
+        "Kubernetes": 81,
+        "XGBoost": 61
+      }
+    }
+  },
+  {
+    "candidate_id": "CAND_0000048",
+    "profile": {
+      "current_title": "NLP Engineer",
+      "location": "Pune",
+      "country": "India",
+      "years_of_experience": 5.9,
+      "headline": "NLP Engineer at HashedIn"
+    },
+    "skills": [
+      {
+        "name": "FAISS",
+        "proficiency": "expert",
+        "duration_months": 18,
+        "endorsements": 0
+      },
+      {
+        "name": "PyTorch",
+        "proficiency": "expert",
+        "duration_months": 36,
+        "endorsements": 0
+      },
+      {
+        "name": "BM25",
+        "proficiency": "expert",
+        "duration_months": 8,
+        "endorsements": 0
+      },
+      {
+        "name": "Kubernetes",
+        "proficiency": "expert",
+        "duration_months": 18,
+        "endorsements": 0
+      },
+      {
+        "name": "MLflow",
+        "proficiency": "intermediate",
+        "duration_months": 14,
+        "endorsements": 4
+      }
+    ],
+    "education": [
+      {
+        "degree": "M.Sc",
+        "field_of_study": "Machine Learning",
+        "institution": "IISc",
+        "tier": "tier_1"
+      }
+    ],
+    "career_history": [
+      {
+        "company": "HashedIn",
+        "title": "NLP Engineer",
+        "duration_months": 66,
+        "description": "Built retrieval and ranking systems using embeddings, vector search, and production ML pipelines. Shipped features to millions of users."
+      }
+    ],
+    "redrob_signals": {
+      "last_active_date": "2026-03-27",
+      "open_to_work_flag": false,
+      "notice_period_days": 90,
+      "github_activity_score": 78,
+      "recruiter_response_rate": 0.42,
+      "interview_completion_rate": 0.76,
+      "offer_acceptance_rate": 0.56,
+      "verified_email": true,
+      "verified_phone": true,
+      "willing_to_relocate": true,
+      "expected_salary_range_inr_lpa": {
+        "min": 28,
+        "max": 47
+      },
+      "skill_assessment_scores": {
+        "FAISS": 67,
+        "PyTorch": 68,
+        "BM25": 96,
+        "Kubernetes": 54,
+        "MLflow": 66
+      }
+    }
+  },
+  {
+    "candidate_id": "CAND_0000006",
+    "profile": {
+      "current_title": "Applied ML Engineer",
+      "location": "Bengaluru",
+      "country": "India",
+      "years_of_experience": 11.0,
+      "headline": "Applied ML Engineer at Google"
+    },
+    "skills": [
+      {
+        "name": "MLflow",
+        "proficiency": "intermediate",
+        "duration_months": 14,
+        "endorsements": 4
+      },
+      {
+        "name": "Elasticsearch",
+        "proficiency": "expert",
+        "duration_months": 30,
+        "endorsements": 0
+      },
+      {
+        "name": "Kubernetes",
+        "proficiency": "expert",
+        "duration_months": 18,
+        "endorsements": 0
+      },
+      {
+        "name": "RAG",
+        "proficiency": "expert",
+        "duration_months": 12,
+        "endorsements": 0
+      },
+      {
+        "name": "FAISS",
+        "proficiency": "expert",
+        "duration_months": 18,
+        "endorsements": 0
+      },
+      {
+        "name": "LLM fine-tuning",
+        "proficiency": "advanced",
+        "duration_months": 12,
+        "endorsements": 9
+      },
+      {
+        "name": "Python",
+        "proficiency": "expert",
+        "duration_months": 60,
+        "endorsements": 45
+      },
+      {
+        "name": "PyTorch",
+        "proficiency": "expert",
+        "duration_months": 36,
+        "endorsements": 0
+      },
+      {
+        "name": "BM25",
+        "proficiency": "expert",
+        "duration_months": 8,
+        "endorsements": 0
+      },
+      {
+        "name": "Pinecone",
+        "proficiency": "expert",
+        "duration_months": 10,
+        "endorsements": 0
+      }
+    ],
+    "education": [
+      {
+        "degree": "M.Sc",
+        "field_of_study": "Machine Learning",
+        "institution": "IISc",
+        "tier": "tier_1"
+      }
+    ],
+    "career_history": [
+      {
+        "company": "Google",
+        "title": "Applied ML Engineer",
+        "duration_months": 131,
+        "description": "Built retrieval and ranking systems using embeddings, vector search, and production ML pipelines. Shipped features to millions of users."
+      }
+    ],
+    "redrob_signals": {
+      "last_active_date": "2026-01-09",
+      "open_to_work_flag": true,
+      "notice_period_days": 15,
+      "github_activity_score": 90,
+      "recruiter_response_rate": 0.35,
+      "interview_completion_rate": 0.78,
+      "offer_acceptance_rate": 0.76,
+      "verified_email": true,
+      "verified_phone": true,
+      "willing_to_relocate": false,
+      "expected_salary_range_inr_lpa": {
+        "min": 42,
+        "max": 53
+      },
+      "skill_assessment_scores": {
+        "MLflow": 71,
+        "Elasticsearch": 41,
+        "Kubernetes": 47,
+        "RAG": 99,
+        "FAISS": 63,
+        "LLM fine-tuning": 96,
+        "Python": 93,
+        "PyTorch": 91,
+        "BM25": 59,
+        "Pinecone": 55
+      }
+    }
+  },
+  {
+    "candidate_id": "CAND_0000047",
+    "profile": {
+      "current_title": "Senior ML Engineer",
+      "location": "Chennai",
+      "country": "India",
+      "years_of_experience": 8.3,
+      "headline": "Senior ML Engineer at Microsoft"
+    },
+    "skills": [
+      {
+        "name": "FAISS",
+        "proficiency": "expert",
+        "duration_months": 18,
+        "endorsements": 0
+      },
+      {
+        "name": "Java",
+        "proficiency": "expert",
+        "duration_months": 36,
+        "endorsements": 0
+      },
+      {
+        "name": "Qdrant",
+        "proficiency": "expert",
+        "duration_months": 8,
+        "endorsements": 0
+      },
+      {
+        "name": "Docker",
+        "proficiency": "expert",
+        "duration_months": 0,
+        "endorsements": 0
+      },
+      {
+        "name": "Transformers (HF)",
+        "proficiency": "expert",
+        "duration_months": 0,
+        "endorsements": 0
+      },
+      {
+        "name": "BM25",
+        "proficiency": "expert",
+        "duration_months": 8,
+        "endorsements": 0
+      },
+      {
+        "name": "Kubernetes",
+        "proficiency": "expert",
+        "duration_months": 18,
+        "endorsements": 0
+      },
+      {
+        "name": "sentence-transformers",
+        "proficiency": "advanced",
+        "duration_months": 24,
+        "endorsements": 12
+      },
+      {
+        "name": "LLM fine-tuning",
+        "proficiency": "advanced",
+        "duration_months": 12,
+        "endorsements": 9
+      }
+    ],
+    "education": [
+      {
+        "degree": "M.Sc",
+        "field_of_study": "Machine Learning",
+        "institution": "IISc",
+        "tier": "tier_1"
+      }
+    ],
+    "career_history": [
+      {
+        "company": "Microsoft",
+        "title": "Senior ML Engineer",
+        "duration_months": 96,
+        "description": "Built retrieval and ranking systems using embeddings, vector search, and production ML pipelines. Shipped features to millions of users."
+      }
+    ],
+    "redrob_signals": {
+      "last_active_date": "2026-06-07",
+      "open_to_work_flag": false,
+      "notice_period_days": 30,
+      "github_activity_score": 62,
+      "recruiter_response_rate": 0.72,
+      "interview_completion_rate": 0.95,
+      "offer_acceptance_rate": 0.88,
+      "verified_email": true,
+      "verified_phone": true,
+      "willing_to_relocate": false,
+      "expected_salary_range_inr_lpa": {
+        "min": 50,
+        "max": 64
+      },
+      "skill_assessment_scores": {
+        "FAISS": 94,
+        "Java": 65,
+        "Qdrant": 67,
+        "Docker": 83,
+        "Transformers (HF)": 46,
+        "BM25": 71,
+        "Kubernetes": 85,
+        "sentence-transformers": 98,
+        "LLM fine-tuning": 68
+      }
+    }
+  },
+  {
+    "candidate_id": "CAND_0000019",
+    "profile": {
+      "current_title": "AI Engineer",
+      "location": "Noida",
+      "country": "India",
+      "years_of_experience": 10.1,
+      "headline": "AI Engineer at Google"
+    },
+    "skills": [
+      {
+        "name": "RAG",
+        "proficiency": "expert",
+        "duration_months": 12,
+        "endorsements": 0
+      },
+      {
+        "name": "PyTorch",
+        "proficiency": "expert",
+        "duration_months": 36,
+        "endorsements": 0
+      },
+      {
+        "name": "Python",
+        "proficiency": "expert",
+        "duration_months": 60,
+        "endorsements": 45
+      },
+      {
+        "name": "Java",
+        "proficiency": "expert",
+        "duration_months": 36,
+        "endorsements": 0
+      },
+      {
+        "name": "Elasticsearch",
+        "proficiency": "expert",
+        "duration_months": 30,
+        "endorsements": 0
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.Tech",
+        "field_of_study": "Information Technology",
+        "institution": "BITS",
+        "tier": "tier_2"
+      }
+    ],
+    "career_history": [
+      {
+        "company": "Google",
+        "title": "AI Engineer",
+        "duration_months": 116,
+        "description": "Built retrieval and ranking systems using embeddings, vector search, and production ML pipelines. Shipped features to millions of users."
+      }
+    ],
+    "redrob_signals": {
+      "last_active_date": "2025-12-04",
+      "open_to_work_flag": false,
+      "notice_period_days": 90,
+      "github_activity_score": 90,
+      "recruiter_response_rate": 0.16,
+      "interview_completion_rate": 0.65,
+      "offer_acceptance_rate": 0.53,
+      "verified_email": true,
+      "verified_phone": false,
+      "willing_to_relocate": true,
+      "expected_salary_range_inr_lpa": {
+        "min": 50,
+        "max": 61
+      },
+      "skill_assessment_scores": {
+        "RAG": 49,
+        "PyTorch": 81,
+        "Python": 84,
+        "Java": 40,
+        "Elasticsearch": 97
+      }
+    }
+  },
+  {
+    "candidate_id": "CAND_0000024",
+    "profile": {
+      "current_title": "Data Scientist",
+      "location": "Pune",
+      "country": "India",
+      "years_of_experience": 7.6,
+      "headline": "Data Scientist at Meesho"
+    },
+    "skills": [
+      {
+        "name": "A/B Testing",
+        "proficiency": "intermediate",
+        "duration_months": 18,
+        "endorsements": 6
+      },
+      {
+        "name": "sentence-transformers",
+        "proficiency": "advanced",
+        "duration_months": 24,
+        "endorsements": 12
+      },
+      {
+        "name": "XGBoost",
+        "proficiency": "advanced",
+        "duration_months": 24,
+        "endorsements": 11
+      },
+      {
+        "name": "Elasticsearch",
+        "proficiency": "expert",
+        "duration_months": 30,
+        "endorsements": 0
+      },
+      {
+        "name": "MLflow",
+        "proficiency": "intermediate",
+        "duration_months": 14,
+        "endorsements": 4
+      },
+      {
+        "name": "Spark",
+        "proficiency": "intermediate",
+        "duration_months": 24,
+        "endorsements": 8
+      },
+      {
+        "name": "Pinecone",
+        "proficiency": "expert",
+        "duration_months": 10,
+        "endorsements": 0
+      },
+      {
+        "name": "Python",
+        "proficiency": "expert",
+        "duration_months": 60,
+        "endorsements": 45
+      },
+      {
+        "name": "Java",
+        "proficiency": "expert",
+        "duration_months": 36,
+        "endorsements": 0
+      }
+    ],
+    "education": [
+      {
+        "degree": "M.Tech",
+        "field_of_study": "Data Science",
+        "institution": "IIT Delhi",
+        "tier": "tier_1"
+      }
+    ],
+    "career_history": [
+      {
+        "company": "Meesho",
+        "title": "Data Scientist",
+        "duration_months": 87,
+        "description": "Built retrieval and ranking systems using embeddings, vector search, and production ML pipelines. Shipped features to millions of users."
+      }
+    ],
+    "redrob_signals": {
+      "last_active_date": "2026-06-13",
+      "open_to_work_flag": true,
+      "notice_period_days": 30,
+      "github_activity_score": 90,
+      "recruiter_response_rate": 0.63,
+      "interview_completion_rate": 0.54,
+      "offer_acceptance_rate": 0.58,
+      "verified_email": true,
+      "verified_phone": false,
+      "willing_to_relocate": false,
+      "expected_salary_range_inr_lpa": {
+        "min": 35,
+        "max": 43
+      },
+      "skill_assessment_scores": {
+        "A/B Testing": 50,
+        "sentence-transformers": 78,
+        "XGBoost": 78,
+        "Elasticsearch": 87,
+        "MLflow": 85,
+        "Spark": 47,
+        "Pinecone": 89,
+        "Python": 92,
+        "Java": 50
+      }
+    }
+  },
+  {
+    "candidate_id": "CAND_0000050",
+    "profile": {
+      "current_title": "Applied ML Engineer",
+      "location": "Mumbai",
+      "country": "India",
+      "years_of_experience": 9.2,
+      "headline": "Applied ML Engineer at Flipkart"
+    },
+    "skills": [
+      {
+        "name": "Elasticsearch",
+        "proficiency": "expert",
+        "duration_months": 30,
+        "endorsements": 0
+      },
+      {
+        "name": "Spark",
+        "proficiency": "intermediate",
+        "duration_months": 24,
+        "endorsements": 8
+      },
+      {
+        "name": "RAG",
+        "proficiency": "expert",
+        "duration_months": 12,
+        "endorsements": 0
+      },
+      {
+        "name": "FAISS",
+        "proficiency": "expert",
+        "duration_months": 18,
+        "endorsements": 0
+      },
+      {
+        "name": "MLflow",
+        "proficiency": "intermediate",
+        "duration_months": 14,
+        "endorsements": 4
+      },
+      {
+        "name": "LLM fine-tuning",
+        "proficiency": "advanced",
+        "duration_months": 12,
+        "endorsements": 9
+      }
+    ],
+    "education": [
+      {
+        "degree": "M.Tech",
+        "field_of_study": "Data Science",
+        "institution": "IIT Delhi",
+        "tier": "tier_1"
+      }
+    ],
+    "career_history": [
+      {
+        "company": "Flipkart",
+        "title": "Applied ML Engineer",
+        "duration_months": 104,
+        "description": "Built retrieval and ranking systems using embeddings, vector search, and production ML pipelines. Shipped features to millions of users."
+      }
+    ],
+    "redrob_signals": {
+      "last_active_date": "2026-01-27",
+      "open_to_work_flag": true,
+      "notice_period_days": 15,
+      "github_activity_score": 20,
+      "recruiter_response_rate": 0.41,
+      "interview_completion_rate": 0.86,
+      "offer_acceptance_rate": 0.81,
+      "verified_email": true,
+      "verified_phone": true,
+      "willing_to_relocate": false,
+      "expected_salary_range_inr_lpa": {
+        "min": 42,
+        "max": 54
+      },
+      "skill_assessment_scores": {
+        "Elasticsearch": 41,
+        "Spark": 51,
+        "RAG": 57,
+        "FAISS": 84,
+        "MLflow": 88,
+        "LLM fine-tuning": 59
+      }
+    }
+  },
+  {
+    "candidate_id": "CAND_0000003",
+    "profile": {
+      "current_title": "AI Engineer",
+      "location": "Noida",
+      "country": "India",
+      "years_of_experience": 10.5,
+      "headline": "AI Engineer at Infosys"
+    },
+    "skills": [
+      {
+        "name": "LLM fine-tuning",
+        "proficiency": "advanced",
+        "duration_months": 12,
+        "endorsements": 9
+      },
+      {
+        "name": "Kubernetes",
+        "proficiency": "expert",
+        "duration_months": 18,
+        "endorsements": 0
+      },
+      {
+        "name": "FAISS",
+        "proficiency": "expert",
+        "duration_months": 18,
+        "endorsements": 0
+      },
+      {
+        "name": "Pinecone",
+        "proficiency": "expert",
+        "duration_months": 10,
+        "endorsements": 0
+      }
+    ],
+    "education": [
+      {
+        "degree": "M.Tech",
+        "field_of_study": "Data Science",
+        "institution": "IIT Delhi",
+        "tier": "tier_1"
+      }
+    ],
+    "career_history": [
+      {
+        "company": "Infosys",
+        "title": "AI Engineer",
+        "duration_months": 124,
+        "description": "Built retrieval and ranking systems using embeddings, vector search, and production ML pipelines. Shipped features to millions of users."
+      }
+    ],
+    "redrob_signals": {
+      "last_active_date": "2026-04-08",
+      "open_to_work_flag": true,
+      "notice_period_days": 15,
+      "github_activity_score": 45,
+      "recruiter_response_rate": 0.49,
+      "interview_completion_rate": 0.9,
+      "offer_acceptance_rate": 0.7,
+      "verified_email": true,
+      "verified_phone": true,
+      "willing_to_relocate": true,
+      "expected_salary_range_inr_lpa": {
+        "min": 22,
+        "max": 38
+      },
+      "skill_assessment_scores": {
+        "LLM fine-tuning": 74,
+        "Kubernetes": 86,
+        "FAISS": 55,
+        "Pinecone": 50
+      }
+    }
+  },
+  {
+    "candidate_id": "CAND_0000029",
+    "profile": {
+      "current_title": "NLP Engineer",
+      "location": "Noida",
+      "country": "India",
+      "years_of_experience": 5.8,
+      "headline": "NLP Engineer at Swiggy"
+    },
+    "skills": [
+      {
+        "name": "A/B Testing",
+        "proficiency": "intermediate",
+        "duration_months": 18,
+        "endorsements": 6
+      },
+      {
+        "name": "Transformers (HF)",
+        "proficiency": "expert",
+        "duration_months": 0,
+        "endorsements": 0
+      },
+      {
+        "name": "RAG",
+        "proficiency": "expert",
+        "duration_months": 12,
+        "endorsements": 0
+      },
+      {
+        "name": "Elasticsearch",
+        "proficiency": "expert",
+        "duration_months": 30,
+        "endorsements": 0
+      },
+      {
+        "name": "XGBoost",
+        "proficiency": "advanced",
+        "duration_months": 24,
+        "endorsements": 11
+      },
+      {
+        "name": "LLM fine-tuning",
+        "proficiency": "advanced",
+        "duration_months": 12,
+        "endorsements": 9
+      },
+      {
+        "name": "PyTorch",
+        "proficiency": "expert",
+        "duration_months": 36,
+        "endorsements": 0
+      },
+      {
+        "name": "Kubernetes",
+        "proficiency": "expert",
+        "duration_months": 18,
+        "endorsements": 0
+      },
+      {
+        "name": "BM25",
+        "proficiency": "expert",
+        "duration_months": 8,
+        "endorsements": 0
+      }
+    ],
+    "education": [
+      {
+        "degree": "M.Sc",
+        "field_of_study": "Machine Learning",
+        "institution": "IISc",
+        "tier": "tier_1"
+      }
+    ],
+    "career_history": [
+      {
+        "company": "Swiggy",
+        "title": "NLP Engineer",
+        "duration_months": 64,
+        "description": "Built retrieval and ranking systems using embeddings, vector search, and production ML pipelines. Shipped features to millions of users."
+      }
+    ],
+    "redrob_signals": {
+      "last_active_date": "2026-04-30",
+      "open_to_work_flag": false,
+      "notice_period_days": 45,
+      "github_activity_score": -1,
+      "recruiter_response_rate": 0.35,
+      "interview_completion_rate": 0.62,
+      "offer_acceptance_rate": 0.38,
+      "verified_email": true,
+      "verified_phone": true,
+      "willing_to_relocate": true,
+      "expected_salary_range_inr_lpa": {
+        "min": 28,
+        "max": 33
+      },
+      "skill_assessment_scores": {
+        "A/B Testing": 75,
+        "Transformers (HF)": 58,
+        "RAG": 84,
+        "Elasticsearch": 100,
+        "XGBoost": 48,
+        "LLM fine-tuning": 80,
+        "PyTorch": 95,
+        "Kubernetes": 88,
+        "BM25": 71
+      }
+    }
+  },
+  {
+    "candidate_id": "CAND_0000030",
+    "profile": {
+      "current_title": "NLP Engineer",
+      "location": "Bangalore",
+      "country": "India",
+      "years_of_experience": 8.9,
+      "headline": "NLP Engineer at BrowserStack"
+    },
+    "skills": [
+      {
+        "name": "Java",
+        "proficiency": "expert",
+        "duration_months": 36,
+        "endorsements": 0
+      },
+      {
+        "name": "Qdrant",
+        "proficiency": "expert",
+        "duration_months": 8,
+        "endorsements": 0
+      },
+      {
+        "name": "MLflow",
+        "proficiency": "intermediate",
+        "duration_months": 14,
+        "endorsements": 4
+      },
+      {
+        "name": "FAISS",
+        "proficiency": "expert",
+        "duration_months": 18,
+        "endorsements": 0
+      },
+      {
+        "name": "Python",
+        "proficiency": "expert",
+        "duration_months": 60,
+        "endorsements": 45
+      },
+      {
+        "name": "PyTorch",
+        "proficiency": "expert",
+        "duration_months": 36,
+        "endorsements": 0
+      },
+      {
+        "name": "LLM fine-tuning",
+        "proficiency": "advanced",
+        "duration_months": 12,
+        "endorsements": 9
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.Tech",
+        "field_of_study": "Computer Science",
+        "institution": "IIT Bombay",
+        "tier": "tier_1"
+      }
+    ],
+    "career_history": [
+      {
+        "company": "BrowserStack",
+        "title": "NLP Engineer",
+        "duration_months": 105,
+        "description": "Built retrieval and ranking systems using embeddings, vector search, and production ML pipelines. Shipped features to millions of users."
+      }
+    ],
+    "redrob_signals": {
+      "last_active_date": "2026-02-13",
+      "open_to_work_flag": false,
+      "notice_period_days": 15,
+      "github_activity_score": 45,
+      "recruiter_response_rate": 0.16,
+      "interview_completion_rate": 0.78,
+      "offer_acceptance_rate": 0.87,
+      "verified_email": true,
+      "verified_phone": true,
+      "willing_to_relocate": true,
+      "expected_salary_range_inr_lpa": {
+        "min": 18,
+        "max": 27
+      },
+      "skill_assessment_scores": {
+        "Java": 47,
+        "Qdrant": 75,
+        "MLflow": 88,
+        "FAISS": 66,
+        "Python": 78,
+        "PyTorch": 78,
+        "LLM fine-tuning": 90
+      }
+    }
+  },
+  {
+    "candidate_id": "HP_0000054",
+    "profile": {
+      "current_title": "ML Research Engineer",
+      "location": "Chennai",
+      "country": "India",
+      "years_of_experience": 2.3,
+      "headline": "ML Research Engineer at Google"
+    },
+    "skills": [
+      {
+        "name": "Transformers (HF)",
+        "proficiency": "expert",
+        "duration_months": 0,
+        "endorsements": 0
+      },
+      {
+        "name": "Qdrant",
+        "proficiency": "expert",
+        "duration_months": 8,
+        "endorsements": 0
+      },
+      {
+        "name": "XGBoost",
+        "proficiency": "advanced",
+        "duration_months": 24,
+        "endorsements": 11
+      },
+      {
+        "name": "sentence-transformers",
+        "proficiency": "advanced",
+        "duration_months": 24,
+        "endorsements": 12
+      },
+      {
+        "name": "RAG",
+        "proficiency": "expert",
+        "duration_months": 12,
+        "endorsements": 0
+      },
+      {
+        "name": "Spark",
+        "proficiency": "intermediate",
+        "duration_months": 24,
+        "endorsements": 8
+      }
+    ],
+    "education": [
+      {
+        "degree": "M.Tech",
+        "field_of_study": "Data Science",
+        "institution": "IIT Delhi",
+        "tier": "tier_1"
+      }
+    ],
+    "career_history": [
+      {
+        "company": "Google",
+        "title": "ML Research Engineer",
+        "duration_months": 26,
+        "description": "Built retrieval and ranking systems using embeddings, vector search, and production ML pipelines. Shipped features to millions of users."
+      }
+    ],
+    "redrob_signals": {
+      "last_active_date": "2026-03-08",
+      "open_to_work_flag": true,
+      "notice_period_days": 60,
+      "github_activity_score": 62,
+      "recruiter_response_rate": 0.55,
+      "interview_completion_rate": 0.64,
+      "offer_acceptance_rate": 0.77,
+      "verified_email": true,
+      "verified_phone": true,
+      "willing_to_relocate": true,
+      "expected_salary_range_inr_lpa": {
+        "min": 28,
+        "max": 43
+      },
+      "skill_assessment_scores": {
+        "Transformers (HF)": 73,
+        "Qdrant": 72,
+        "XGBoost": 52,
+        "sentence-transformers": 97,
+        "RAG": 89,
+        "Spark": 62
+      }
+    }
+  },
+  {
+    "candidate_id": "CAND_0000005",
+    "profile": {
+      "current_title": "Data Scientist",
+      "location": "New Delhi",
+      "country": "India",
+      "years_of_experience": 6.8,
+      "headline": "Data Scientist at HashedIn"
+    },
+    "skills": [
+      {
+        "name": "PyTorch",
+        "proficiency": "expert",
+        "duration_months": 36,
+        "endorsements": 0
+      },
+      {
+        "name": "Spark",
+        "proficiency": "intermediate",
+        "duration_months": 24,
+        "endorsements": 8
+      },
+      {
+        "name": "Java",
+        "proficiency": "expert",
+        "duration_months": 36,
+        "endorsements": 0
+      },
+      {
+        "name": "sentence-transformers",
+        "proficiency": "advanced",
+        "duration_months": 24,
+        "endorsements": 12
+      },
+      {
+        "name": "Docker",
+        "proficiency": "expert",
+        "duration_months": 0,
+        "endorsements": 0
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.Tech",
+        "field_of_study": "Computer Science",
+        "institution": "IIT Bombay",
+        "tier": "tier_1"
+      }
+    ],
+    "career_history": [
+      {
+        "company": "HashedIn",
+        "title": "Data Scientist",
+        "duration_months": 78,
+        "description": "Built retrieval and ranking systems using embeddings, vector search, and production ML pipelines. Shipped features to millions of users."
+      }
+    ],
+    "redrob_signals": {
+      "last_active_date": "2026-01-09",
+      "open_to_work_flag": true,
+      "notice_period_days": 15,
+      "github_activity_score": -1,
+      "recruiter_response_rate": 0.24,
+      "interview_completion_rate": 0.81,
+      "offer_acceptance_rate": 0.66,
+      "verified_email": true,
+      "verified_phone": false,
+      "willing_to_relocate": false,
+      "expected_salary_range_inr_lpa": {
+        "min": 42,
+        "max": 49
+      },
+      "skill_assessment_scores": {
+        "PyTorch": 75,
+        "Spark": 95,
+        "Java": 100,
+        "sentence-transformers": 40,
+        "Docker": 83
+      }
+    }
+  },
+  {
+    "candidate_id": "CAND_0000033",
+    "profile": {
+      "current_title": "ML Research Engineer",
+      "location": "Bengaluru",
+      "country": "India",
+      "years_of_experience": 7.9,
+      "headline": "ML Research Engineer at TCS"
+    },
+    "skills": [
+      {
+        "name": "sentence-transformers",
+        "proficiency": "advanced",
+        "duration_months": 24,
+        "endorsements": 12
+      },
+      {
+        "name": "Pinecone",
+        "proficiency": "expert",
+        "duration_months": 10,
+        "endorsements": 0
+      },
+      {
+        "name": "MLflow",
+        "proficiency": "intermediate",
+        "duration_months": 14,
+        "endorsements": 4
+      },
+      {
+        "name": "Kubernetes",
+        "proficiency": "expert",
+        "duration_months": 18,
+        "endorsements": 0
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.E",
+        "field_of_study": "Computer Science",
+        "institution": "NIT Trichy",
+        "tier": "tier_2"
+      }
+    ],
+    "career_history": [
+      {
+        "company": "TCS",
+        "title": "ML Research Engineer",
+        "duration_months": 88,
+        "description": "Built retrieval and ranking systems using embeddings, vector search, and production ML pipelines. Shipped features to millions of users."
+      }
+    ],
+    "redrob_signals": {
+      "last_active_date": "2026-04-21",
+      "open_to_work_flag": false,
+      "notice_period_days": 15,
+      "github_activity_score": -1,
+      "recruiter_response_rate": 0.92,
+      "interview_completion_rate": 0.9,
+      "offer_acceptance_rate": 0.79,
+      "verified_email": true,
+      "verified_phone": true,
+      "willing_to_relocate": true,
+      "expected_salary_range_inr_lpa": {
+        "min": 42,
+        "max": 47
+      },
+      "skill_assessment_scores": {
+        "sentence-transformers": 70,
+        "Pinecone": 73,
+        "MLflow": 81,
+        "Kubernetes": 68
+      }
+    }
+  },
+  {
+    "candidate_id": "CAND_0000023",
+    "profile": {
+      "current_title": "Data Scientist",
+      "location": "Hyderabad",
+      "country": "India",
+      "years_of_experience": 12.1,
+      "headline": "Data Scientist at Swiggy"
+    },
+    "skills": [
+      {
+        "name": "A/B Testing",
+        "proficiency": "intermediate",
+        "duration_months": 18,
+        "endorsements": 6
+      },
+      {
+        "name": "Python",
+        "proficiency": "expert",
+        "duration_months": 60,
+        "endorsements": 45
+      },
+      {
+        "name": "Docker",
+        "proficiency": "expert",
+        "duration_months": 0,
+        "endorsements": 0
+      },
+      {
+        "name": "Kubernetes",
+        "proficiency": "expert",
+        "duration_months": 18,
+        "endorsements": 0
+      },
+      {
+        "name": "Qdrant",
+        "proficiency": "expert",
+        "duration_months": 8,
+        "endorsements": 0
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.Tech",
+        "field_of_study": "Electronics",
+        "institution": "VIT",
+        "tier": "tier_3"
+      }
+    ],
+    "career_history": [
+      {
+        "company": "Swiggy",
+        "title": "Data Scientist",
+        "duration_months": 143,
+        "description": "Built retrieval and ranking systems using embeddings, vector search, and production ML pipelines. Shipped features to millions of users."
+      }
+    ],
+    "redrob_signals": {
+      "last_active_date": "2026-01-05",
+      "open_to_work_flag": true,
+      "notice_period_days": 15,
+      "github_activity_score": -1,
+      "recruiter_response_rate": 0.46,
+      "interview_completion_rate": 0.92,
+      "offer_acceptance_rate": 0.5,
+      "verified_email": true,
+      "verified_phone": false,
+      "willing_to_relocate": false,
+      "expected_salary_range_inr_lpa": {
+        "min": 22,
+        "max": 28
+      },
+      "skill_assessment_scores": {
+        "A/B Testing": 61,
+        "Python": 88,
+        "Docker": 96,
+        "Kubernetes": 64,
+        "Qdrant": 57
+      }
+    }
+  },
+  {
+    "candidate_id": "CAND_0000004",
+    "profile": {
+      "current_title": "Backend Engineer",
+      "location": "Mumbai",
+      "country": "India",
+      "years_of_experience": 13.9,
+      "headline": "Backend Engineer at Razorpay"
+    },
+    "skills": [
+      {
+        "name": "A/B Testing",
+        "proficiency": "intermediate",
+        "duration_months": 18,
+        "endorsements": 6
+      },
+      {
+        "name": "LLM fine-tuning",
+        "proficiency": "advanced",
+        "duration_months": 12,
+        "endorsements": 9
+      },
+      {
+        "name": "MLflow",
+        "proficiency": "intermediate",
+        "duration_months": 14,
+        "endorsements": 4
+      },
+      {
+        "name": "Pinecone",
+        "proficiency": "expert",
+        "duration_months": 10,
+        "endorsements": 0
+      },
+      {
+        "name": "Docker",
+        "proficiency": "expert",
+        "duration_months": 0,
+        "endorsements": 0
+      },
+      {
+        "name": "Qdrant",
+        "proficiency": "expert",
+        "duration_months": 8,
+        "endorsements": 0
+      },
+      {
+        "name": "Python",
+        "proficiency": "expert",
+        "duration_months": 60,
+        "endorsements": 45
+      },
+      {
+        "name": "Elasticsearch",
+        "proficiency": "expert",
+        "duration_months": 30,
+        "endorsements": 0
+      },
+      {
+        "name": "XGBoost",
+        "proficiency": "advanced",
+        "duration_months": 24,
+        "endorsements": 11
+      }
+    ],
+    "education": [
+      {
+        "degree": "MBA",
+        "field_of_study": "Information Systems",
+        "institution": "IIM Ahmedabad",
+        "tier": "tier_1"
+      }
+    ],
+    "career_history": [
+      {
+        "company": "Razorpay",
+        "title": "Backend Engineer",
+        "duration_months": 165,
+        "description": "Built retrieval and ranking systems using embeddings, vector search, and production ML pipelines. Shipped features to millions of users."
+      }
+    ],
+    "redrob_signals": {
+      "last_active_date": "2026-04-11",
+      "open_to_work_flag": false,
+      "notice_period_days": 45,
+      "github_activity_score": 45,
+      "recruiter_response_rate": 0.16,
+      "interview_completion_rate": 0.95,
+      "offer_acceptance_rate": 0.6,
+      "verified_email": true,
+      "verified_phone": false,
+      "willing_to_relocate": true,
+      "expected_salary_range_inr_lpa": {
+        "min": 42,
+        "max": 57
+      },
+      "skill_assessment_scores": {
+        "A/B Testing": 56,
+        "LLM fine-tuning": 48,
+        "MLflow": 55,
+        "Pinecone": 87,
+        "Docker": 75,
+        "Qdrant": 74,
+        "Python": 56,
+        "Elasticsearch": 87,
+        "XGBoost": 77
+      }
+    }
+  },
+  {
+    "candidate_id": "CAND_0000038",
+    "profile": {
+      "current_title": "Backend Engineer",
+      "location": "Bengaluru",
+      "country": "India",
+      "years_of_experience": 12.9,
+      "headline": "Backend Engineer at Google"
+    },
+    "skills": [
+      {
+        "name": "PyTorch",
+        "proficiency": "expert",
+        "duration_months": 36,
+        "endorsements": 0
+      },
+      {
+        "name": "Pinecone",
+        "proficiency": "expert",
+        "duration_months": 10,
+        "endorsements": 0
+      },
+      {
+        "name": "A/B Testing",
+        "proficiency": "intermediate",
+        "duration_months": 18,
+        "endorsements": 6
+      },
+      {
+        "name": "sentence-transformers",
+        "proficiency": "advanced",
+        "duration_months": 24,
+        "endorsements": 12
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.Tech",
+        "field_of_study": "Information Technology",
+        "institution": "BITS",
+        "tier": "tier_2"
+      }
+    ],
+    "career_history": [
+      {
+        "company": "Google",
+        "title": "Backend Engineer",
+        "duration_months": 152,
+        "description": "Built retrieval and ranking systems using embeddings, vector search, and production ML pipelines. Shipped features to millions of users."
+      }
+    ],
+    "redrob_signals": {
+      "last_active_date": "2026-01-10",
+      "open_to_work_flag": false,
+      "notice_period_days": 45,
+      "github_activity_score": 20,
+      "recruiter_response_rate": 0.69,
+      "interview_completion_rate": 0.79,
+      "offer_acceptance_rate": 0.73,
+      "verified_email": true,
+      "verified_phone": false,
+      "willing_to_relocate": true,
+      "expected_salary_range_inr_lpa": {
+        "min": 28,
+        "max": 45
+      },
+      "skill_assessment_scores": {
+        "PyTorch": 79,
+        "Pinecone": 44,
+        "A/B Testing": 55,
+        "sentence-transformers": 80
+      }
+    }
+  },
+  {
+    "candidate_id": "CAND_0000018",
+    "profile": {
+      "current_title": "Search Engineer",
+      "location": "Chennai",
+      "country": "India",
+      "years_of_experience": 10.1,
+      "headline": "Search Engineer at Razorpay"
+    },
+    "skills": [
+      {
+        "name": "Kubernetes",
+        "proficiency": "expert",
+        "duration_months": 18,
+        "endorsements": 0
+      },
+      {
+        "name": "Docker",
+        "proficiency": "expert",
+        "duration_months": 0,
+        "endorsements": 0
+      },
+      {
+        "name": "Python",
+        "proficiency": "expert",
+        "duration_months": 60,
+        "endorsements": 45
+      },
+      {
+        "name": "PyTorch",
+        "proficiency": "expert",
+        "duration_months": 36,
+        "endorsements": 0
+      },
+      {
+        "name": "Qdrant",
+        "proficiency": "expert",
+        "duration_months": 8,
+        "endorsements": 0
+      }
+    ],
+    "education": [
+      {
+        "degree": "M.Tech",
+        "field_of_study": "Data Science",
+        "institution": "IIT Delhi",
+        "tier": "tier_1"
+      }
+    ],
+    "career_history": [
+      {
+        "company": "Razorpay",
+        "title": "Search Engineer",
+        "duration_months": 116,
+        "description": "Built retrieval and ranking systems using embeddings, vector search, and production ML pipelines. Shipped features to millions of users."
+      }
+    ],
+    "redrob_signals": {
+      "last_active_date": "2026-01-21",
+      "open_to_work_flag": true,
+      "notice_period_days": 60,
+      "github_activity_score": 90,
+      "recruiter_response_rate": 0.62,
+      "interview_completion_rate": 0.59,
+      "offer_acceptance_rate": 0.61,
+      "verified_email": true,
+      "verified_phone": true,
+      "willing_to_relocate": true,
+      "expected_salary_range_inr_lpa": {
+        "min": 35,
+        "max": 54
+      },
+      "skill_assessment_scores": {
+        "Kubernetes": 58,
+        "Docker": 72,
+        "Python": 82,
+        "PyTorch": 80,
+        "Qdrant": 79
+      }
+    }
+  },
+  {
+    "candidate_id": "HP_0000051",
+    "profile": {
+      "current_title": "AI Engineer",
+      "location": "Bangalore",
+      "country": "India",
+      "years_of_experience": 4.2,
+      "headline": "AI Engineer at PhonePe"
+    },
+    "skills": [
+      {
+        "name": "Docker",
+        "proficiency": "expert",
+        "duration_months": 0,
+        "endorsements": 0
+      },
+      {
+        "name": "FAISS",
+        "proficiency": "expert",
+        "duration_months": 18,
+        "endorsements": 0
+      },
+      {
+        "name": "PyTorch",
+        "proficiency": "expert",
+        "duration_months": 36,
+        "endorsements": 0
+      },
+      {
+        "name": "XGBoost",
+        "proficiency": "advanced",
+        "duration_months": 24,
+        "endorsements": 11
+      },
+      {
+        "name": "MLflow",
+        "proficiency": "intermediate",
+        "duration_months": 14,
+        "endorsements": 4
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.Tech",
+        "field_of_study": "Computer Science",
+        "institution": "IIT Bombay",
+        "tier": "tier_1"
+      }
+    ],
+    "career_history": [
+      {
+        "company": "PhonePe",
+        "title": "AI Engineer",
+        "duration_months": 48,
+        "description": "Built retrieval and ranking systems using embeddings, vector search, and production ML pipelines. Shipped features to millions of users."
+      }
+    ],
+    "redrob_signals": {
+      "last_active_date": "2026-02-03",
+      "open_to_work_flag": true,
+      "notice_period_days": 15,
+      "github_activity_score": 78,
+      "recruiter_response_rate": 0.28,
+      "interview_completion_rate": 0.65,
+      "offer_acceptance_rate": 0.73,
+      "verified_email": true,
+      "verified_phone": true,
+      "willing_to_relocate": true,
+      "expected_salary_range_inr_lpa": {
+        "min": 28,
+        "max": 38
+      },
+      "skill_assessment_scores": {
+        "Docker": 49,
+        "FAISS": 50,
+        "PyTorch": 88,
+        "XGBoost": 79,
+        "MLflow": 43
+      }
+    }
+  },
+  {
+    "candidate_id": "CAND_0000020",
+    "profile": {
+      "current_title": "NLP Engineer",
+      "location": "Chennai",
+      "country": "India",
+      "years_of_experience": 4.6,
+      "headline": "NLP Engineer at CRED"
+    },
+    "skills": [
+      {
+        "name": "Spark",
+        "proficiency": "intermediate",
+        "duration_months": 24,
+        "endorsements": 8
+      },
+      {
+        "name": "Qdrant",
+        "proficiency": "expert",
+        "duration_months": 8,
+        "endorsements": 0
+      },
+      {
+        "name": "sentence-transformers",
+        "proficiency": "advanced",
+        "duration_months": 24,
+        "endorsements": 12
+      },
+      {
+        "name": "BM25",
+        "proficiency": "expert",
+        "duration_months": 8,
+        "endorsements": 0
+      },
+      {
+        "name": "Elasticsearch",
+        "proficiency": "expert",
+        "duration_months": 30,
+        "endorsements": 0
+      },
+      {
+        "name": "Java",
+        "proficiency": "expert",
+        "duration_months": 36,
+        "endorsements": 0
+      },
+      {
+        "name": "LLM fine-tuning",
+        "proficiency": "advanced",
+        "duration_months": 12,
+        "endorsements": 9
+      },
+      {
+        "name": "FAISS",
+        "proficiency": "expert",
+        "duration_months": 18,
+        "endorsements": 0
+      },
+      {
+        "name": "XGBoost",
+        "proficiency": "advanced",
+        "duration_months": 24,
+        "endorsements": 11
+      },
+      {
+        "name": "A/B Testing",
+        "proficiency": "intermediate",
+        "duration_months": 18,
+        "endorsements": 6
+      }
+    ],
+    "education": [
+      {
+        "degree": "M.Sc",
+        "field_of_study": "Machine Learning",
+        "institution": "IISc",
+        "tier": "tier_1"
+      }
+    ],
+    "career_history": [
+      {
+        "company": "CRED",
+        "title": "NLP Engineer",
+        "duration_months": 49,
+        "description": "Built retrieval and ranking systems using embeddings, vector search, and production ML pipelines. Shipped features to millions of users."
+      }
+    ],
+    "redrob_signals": {
+      "last_active_date": "2025-12-07",
+      "open_to_work_flag": false,
+      "notice_period_days": 90,
+      "github_activity_score": 20,
+      "recruiter_response_rate": 0.86,
+      "interview_completion_rate": 0.77,
+      "offer_acceptance_rate": 0.57,
+      "verified_email": true,
+      "verified_phone": true,
+      "willing_to_relocate": false,
+      "expected_salary_range_inr_lpa": {
+        "min": 50,
+        "max": 68
+      },
+      "skill_assessment_scores": {
+        "Spark": 68,
+        "Qdrant": 56,
+        "sentence-transformers": 88,
+        "BM25": 55,
+        "Elasticsearch": 93,
+        "Java": 80,
+        "LLM fine-tuning": 57,
+        "FAISS": 89,
+        "XGBoost": 89,
+        "A/B Testing": 73
+      }
+    }
+  },
+  {
+    "candidate_id": "CAND_0000041",
+    "profile": {
+      "current_title": "DevOps Engineer",
+      "location": "New Delhi",
+      "country": "India",
+      "years_of_experience": 5.6,
+      "headline": "DevOps Engineer at PhonePe"
+    },
+    "skills": [
+      {
+        "name": "Kubernetes",
+        "proficiency": "expert",
+        "duration_months": 18,
+        "endorsements": 0
+      },
+      {
+        "name": "Python",
+        "proficiency": "expert",
+        "duration_months": 60,
+        "endorsements": 45
+      },
+      {
+        "name": "Docker",
+        "proficiency": "expert",
+        "duration_months": 0,
+        "endorsements": 0
+      },
+      {
+        "name": "PyTorch",
+        "proficiency": "expert",
+        "duration_months": 36,
+        "endorsements": 0
+      },
+      {
+        "name": "Spark",
+        "proficiency": "intermediate",
+        "duration_months": 24,
+        "endorsements": 8
+      },
+      {
+        "name": "A/B Testing",
+        "proficiency": "intermediate",
+        "duration_months": 18,
+        "endorsements": 6
+      },
+      {
+        "name": "MLflow",
+        "proficiency": "intermediate",
+        "duration_months": 14,
+        "endorsements": 4
+      },
+      {
+        "name": "Pinecone",
+        "proficiency": "expert",
+        "duration_months": 10,
+        "endorsements": 0
+      },
+      {
+        "name": "Java",
+        "proficiency": "expert",
+        "duration_months": 36,
+        "endorsements": 0
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.Tech",
+        "field_of_study": "Electronics",
+        "institution": "VIT",
+        "tier": "tier_3"
+      }
+    ],
+    "career_history": [
+      {
+        "company": "PhonePe",
+        "title": "DevOps Engineer",
+        "duration_months": 62,
+        "description": "Built retrieval and ranking systems using embeddings, vector search, and production ML pipelines. Shipped features to millions of users."
+      }
+    ],
+    "redrob_signals": {
+      "last_active_date": "2026-04-06",
+      "open_to_work_flag": true,
+      "notice_period_days": 60,
+      "github_activity_score": 90,
+      "recruiter_response_rate": 0.76,
+      "interview_completion_rate": 0.54,
+      "offer_acceptance_rate": 0.67,
+      "verified_email": true,
+      "verified_phone": true,
+      "willing_to_relocate": true,
+      "expected_salary_range_inr_lpa": {
+        "min": 28,
+        "max": 40
+      },
+      "skill_assessment_scores": {
+        "Kubernetes": 97,
+        "Python": 80,
+        "Docker": 81,
+        "PyTorch": 42,
+        "Spark": 59,
+        "A/B Testing": 90,
+        "MLflow": 68,
+        "Pinecone": 42,
+        "Java": 77
+      }
+    }
+  }
+]

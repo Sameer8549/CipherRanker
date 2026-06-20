@@ -1,0 +1,16 @@
+node_modules/
+dist/
+.cache/
+.agents/
+ranked_candidates*.json
+ranked_candidates*.csv
+team_*.csv
+benchmark-results.json
+benchmark-results*.json
+benchmark_team.csv
+benchmark_team*.csv
+.env
+.env.*
+!.env.example
+server-start.*
+.server-pid
