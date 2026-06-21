@@ -26,6 +26,7 @@ async function loadLocalEnv(mode) {
 
 const env = { ...(await loadLocalEnv(mode)), ...process.env }
 const port = Number(env.PORT || 5173)
+const host = String(env.HOST || (mode === 'development' ? '127.0.0.1' : '0.0.0.0'))
 const corsOrigin = String(env.CORS_ORIGIN || 'https://rankker.netlify.app')
 const cacheRoot = join(root, '.cache', 'cipherranker')
 const aiService = createAiService(env, cacheRoot)
@@ -175,4 +176,4 @@ const server = createHttpServer(async (req, res) => {
   } catch { res.writeHead(404).end('Not found') }
 })
 
-server.listen(port, '127.0.0.1', () => console.log(`CipherRanker running at http://127.0.0.1:${port}`))
+server.listen(port, host, () => console.log(`CipherRanker running at http://${host}:${port}`))
