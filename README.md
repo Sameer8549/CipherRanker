@@ -89,6 +89,21 @@ Without `VITE_API_BASE_URL`, the deployed UI now reports that the backend is off
 of leaving an upload stuck on the first screen. Local development continues to use the
 same-origin API started by `node server.mjs`.
 
+### Zoho Catalyst full-stack deployment
+
+The repository also includes an AppSail configuration that serves the React build and ranking
+API from one Catalyst URL. Create a dedicated Catalyst project named `CipherRanker`, associate
+this directory with it, and deploy the AppSail:
+
+```powershell
+npx zcatalyst-cli init project --force --org 60074625517
+npx zcatalyst-cli deploy --only appsail
+```
+
+After the first deployment, add fresh `GROQ_API_KEY` and `MISTRAL_API_KEY` values in the
+AppSail environment-variable settings and restart the service. Never commit provider keys to
+`app-config.json`, `.env` files, Git history, or frontend build variables.
+
 ## Verification
 
 ```powershell

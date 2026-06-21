@@ -1,0 +1,15 @@
+{
+  "command": "node server.mjs",
+  "build_path": ".",
+  "stack": "node20",
+  "env_variables": {
+    "NODE_ENV": "production"
+  },
+  "memory": 2048,
+  "port": {
+    "http": 9000
+  },
+  "scripts": {
+    "predeploy": "npm ci && npm run build"
+  }
+}

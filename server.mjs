@@ -25,7 +25,7 @@ async function loadLocalEnv(mode) {
 }
 
 const env = { ...(await loadLocalEnv(mode)), ...process.env }
-const port = Number(env.PORT || 5173)
+const port = Number(env.X_ZOHO_CATALYST_LISTEN_PORT || env.PORT || 5173)
 const host = String(env.HOST || (mode === 'development' ? '127.0.0.1' : '0.0.0.0'))
 const corsOrigin = String(env.CORS_ORIGIN || 'https://rankker.netlify.app')
 const cacheRoot = join(root, '.cache', 'cipherranker')
