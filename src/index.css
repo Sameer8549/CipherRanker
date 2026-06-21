@@ -44,15 +44,23 @@
 .local-path-row button { height: 34px; border: 1px solid #3a4600; border-radius: 6px; background: rgba(204,255,0,.08); color: #ccff00; padding: 0 12px; font: 700 10px monospace; cursor: pointer; }
 .local-path-row button:disabled { opacity: .35; cursor: default; }
 .pipeline-panel { border: 1px solid #252525; background: rgba(12,12,12,.92); border-radius: 8px; padding: 18px; margin-bottom: 22px; }
+.pipeline-panel.failed { border-color: rgba(255,87,87,.45); }
 .pipeline-head { display: flex; align-items: center; justify-content: space-between; gap: 20px; color: #ddd; font-size: 12px; }
 .pipeline-metrics { display: flex; gap: 16px; color: #888; font: 10px monospace; }
 .pipeline-progress { height: 4px; background: #202020; margin: 16px 0; overflow: hidden; }
 .pipeline-progress div { height: 100%; background: #ccff00; transition: width .25s ease; }
-.pipeline-stages { display: grid; grid-template-columns: repeat(9, 1fr); gap: 6px; }
+.pipeline-stages { display: grid; grid-template-columns: repeat(auto-fit, minmax(82px, 1fr)); gap: 6px; }
 .pipeline-stage { display: flex; align-items: center; gap: 6px; color: #555; font: 9px monospace; white-space: nowrap; }
 .pipeline-stage span { width: 6px; height: 6px; border-radius: 50%; background: #333; }
 .pipeline-stage.active { color: #fff; }.pipeline-stage.active span { background: #ccff00; box-shadow: 0 0 8px #ccff00; }
 .pipeline-stage.done { color: #888; }.pipeline-stage.done span { background: #00d084; }
+.run-banner { border: 1px solid rgba(204,255,0,.34); background: rgba(204,255,0,.06); border-radius: 8px; padding: 18px; display: flex; align-items: center; justify-content: space-between; gap: 18px; color: #ddd; margin-bottom: 20px; }
+.run-banner strong { display: block; color: #fff; font-size: 15px; margin: 2px 0 6px; }
+.run-banner span { color: #a6a6a6; font-size: 12px; }
+.run-banner.failed-run, .backend-warning { border-color: rgba(255,87,87,.38); background: rgba(255,87,87,.07); }
+.backend-warning { max-width: 760px; margin: 18px 0 0; border: 1px solid rgba(255,87,87,.38); border-radius: 8px; padding: 14px 16px; display: flex; flex-direction: column; gap: 5px; }
+.backend-warning strong { color: #fff; font-size: 13px; }
+.backend-warning span { color: #aaa; font-size: 12px; }
 .audit-panel { margin: 0 0 22px; border-top: 1px solid #262626; border-bottom: 1px solid #262626; }
 .audit-grid { display: grid; grid-template-columns: repeat(6, 1fr); }
 .audit-metric { padding: 15px; border-right: 1px solid #242424; display: flex; flex-direction: column; gap: 6px; }
@@ -65,7 +73,7 @@
 .evidence-item p, .risk-list p { color: #888; font-size: 10px; margin: 4px 0 0; }.evidence-item code { position: absolute; right: 10px; top: 10px; color: #ccff00; }
 .risk-list > div { padding: 9px 11px; border: 1px solid rgba(255,107,107,.2); background: rgba(255,107,107,.04); }.risk-list strong { color: #ff8585; font: 10px monospace; text-transform: uppercase; }
 @keyframes pulse { 50% { opacity: .35; } }
-@media (max-width: 820px) { .upload-layout, .provider-strip { grid-template-columns: 1fr; } .provider-item { border-right: 0; border-bottom: 1px solid #252525; } .provider-item:last-child { border-bottom: 0; } .results-toolbar, .pipeline-head { align-items: flex-start; flex-direction: column; } .pipeline-stages { grid-template-columns: repeat(2, 1fr); } .audit-grid { grid-template-columns: repeat(2, 1fr); } .privacy-strip { align-items: flex-start; flex-direction: column; gap: 7px; } .privacy-strip code { margin-left: 0; } .app-main { padding-inline: 14px; } .app-header { padding-inline: 14px; } }
+@media (max-width: 820px) { .upload-layout, .provider-strip { grid-template-columns: 1fr; } .provider-item { border-right: 0; border-bottom: 1px solid #252525; } .provider-item:last-child { border-bottom: 0; } .results-toolbar, .pipeline-head, .run-banner { align-items: flex-start; flex-direction: column; } .pipeline-stages { grid-template-columns: repeat(2, 1fr); } .audit-grid { grid-template-columns: repeat(2, 1fr); } .privacy-strip { align-items: flex-start; flex-direction: column; gap: 7px; } .privacy-strip code { margin-left: 0; } .app-main { padding-inline: 14px; } .app-header { padding-inline: 14px; } }
 
 /* ── Base resets ───────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; }

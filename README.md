@@ -1,4 +1,4 @@
-# CipherRanker Flagship
+# CipherRanker
 
 Local-first recruitment intelligence for the Redrob Data & AI Challenge. CipherRanker streams large candidate datasets through deterministic parallel scoring, independently derives a rubric with Groq and Mistral, audits adversarial profiles, measures shortlist stability, and produces the exact official top-100 CSV.
 
@@ -70,9 +70,24 @@ The public static UI is deployed at:
 
 https://rankker.netlify.app/
 
-For local drag-and-drop deployment, the static UI build is available in `netlify-deploy/`.
+Netlify hosts the React interface. The ranking API must run on a Node host that supports
+worker threads, streaming responses, and long-running jobs.
 
-Important: Netlify static hosting only serves the React interface. The full 100,000-record ranking engine, worker threads, local caches, Groq/Mistral calls, and validator exports run through the local Node API with `node server.mjs`.
+Configure the hosted pair with:
+
+```text
+# Netlify build environment
+VITE_API_BASE_URL=https://your-node-backend.example.com
+
+# Node backend environment
+CORS_ORIGIN=https://rankker.netlify.app
+GROQ_API_KEY=...
+MISTRAL_API_KEY=...
+```
+
+Without `VITE_API_BASE_URL`, the deployed UI now reports that the backend is offline instead
+of leaving an upload stuck on the first screen. Local development continues to use the
+same-origin API started by `node server.mjs`.
 
 ## Verification
 

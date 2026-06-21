@@ -26,6 +26,7 @@ async function loadLocalEnv(mode) {
 
 const env = { ...(await loadLocalEnv(mode)), ...process.env }
 const port = Number(env.PORT || 5173)
+const corsOrigin = String(env.CORS_ORIGIN || 'https://rankker.netlify.app')
 const cacheRoot = join(root, '.cache', 'cipherranker')
 const aiService = createAiService(env, cacheRoot)
 const engineVersion = '2.8.0-fast-sealed-cache'
@@ -153,6 +154,13 @@ const mime = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css
 
 const server = createHttpServer(async (req, res) => {
   if (req.url?.startsWith('/api/')) {
+    res.setHeader('access-control-allow-origin', corsOrigin)
+    res.setHeader('access-control-allow-methods', 'GET,POST,OPTIONS')
+    res.setHeader('access-control-allow-headers', 'content-type,x-file-name,x-job-description')
+    if (req.method === 'OPTIONS') {
+      res.writeHead(204, { 'access-control-max-age': '86400' })
+      return res.end()
+    }
     const handled = await apiHandler(req, res)
     if (handled !== false) return
     return sendJson(res, 404, { error: 'Not found' })
@@ -167,4 +175,4 @@ const server = createHttpServer(async (req, res) => {
   } catch { res.writeHead(404).end('Not found') }
 })
 
-server.listen(port, '127.0.0.1', () => console.log(`CipherRanker Flagship running at http://127.0.0.1:${port}`))
+server.listen(port, '127.0.0.1', () => console.log(`CipherRanker running at http://127.0.0.1:${port}`))

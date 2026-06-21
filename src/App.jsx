@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import ShaderBackground from './components/ShaderBackground.jsx'
 import UploadZone from './components/UploadZone.jsx'
@@ -15,6 +15,19 @@ const DEFAULT_JD = `Senior AI Engineer — Search, Retrieval and Ranking
 Build production AI systems for semantic search, retrieval, ranking and recommendations. The ideal candidate has 5–9 years of experience, strong Python, embeddings, vector databases, information retrieval, evaluation metrics, RAG and modern NLP/LLM systems. Evidence of shipping production systems is required. Cloud, Docker, Kubernetes and MLOps are valuable. India-based candidates are preferred.`
 
 const encodeHeader = text => btoa(unescape(encodeURIComponent(text)))
+const API_BASE = String(import.meta.env.VITE_API_BASE_URL || '').replace(/\/$/, '')
+const apiUrl = path => `${API_BASE}${path}`
+const LOCAL_MODE = ['localhost', '127.0.0.1'].includes(window.location.hostname)
+
+async function readApiJson(response, fallbackMessage) {
+  const contentType = response.headers.get('content-type') || ''
+  if (!contentType.includes('application/json')) {
+    throw new Error('Ranking API is unavailable. Run the local server or connect this web deployment to the Node backend.')
+  }
+  const data = await response.json()
+  if (!response.ok) throw new Error(data.error || fallbackMessage)
+  return data
+}
 
 export default function App() {
   const [jdText, setJdText] = useState(DEFAULT_JD)
@@ -30,10 +43,14 @@ export default function App() {
   const [selectedResult, setSelectedResult] = useState(null)
   const [compareList, setCompareList] = useState([])
   const [showCompare, setShowCompare] = useState(false)
+  const [engineStatus, setEngineStatus] = useState('checking')
   const eventSourceRef = useRef(null)
 
+  const activeRun = Boolean(jobId || jobEvent)
+  const failed = jobEvent?.phase === 'failed' || Boolean(error && activeRun)
   const complete = jobEvent?.phase === 'complete' && results.length > 0
-  const running = Boolean(jobId) && !complete && jobEvent?.phase !== 'failed'
+  const running = activeRun && !complete && !failed
+  const showRankings = results.length > 0
   const metrics = jobEvent?.metrics || {}
 
   const explanations = useMemo(() => Object.fromEntries(results.map(result => {
@@ -41,9 +58,18 @@ export default function App() {
     return [result.candidate.candidate_id, verified.map(item => `${item.provider === 'groq' ? 'Groq' : 'Mistral'}: ${item.explanation}`).join('\n\n') || result.reasoning]
   })), [results])
 
+  useEffect(() => {
+    let cancelled = false
+    fetch(apiUrl('/api/status'), { cache: 'no-store' })
+      .then(response => readApiJson(response, 'Ranking engine is unavailable'))
+      .then(() => { if (!cancelled) setEngineStatus('ready') })
+      .catch(() => { if (!cancelled) setEngineStatus('unavailable') })
+    return () => { cancelled = true }
+  }, [])
+
   const loadCompletedJob = useCallback(async id => {
     const [resultsResponse, auditResponse, manifestResponse] = await Promise.all([
-      fetch(`/api/jobs/${id}/results?limit=100`), fetch(`/api/jobs/${id}/audit`), fetch(`/api/jobs/${id}/manifest`)
+      fetch(apiUrl(`/api/jobs/${id}/results?limit=100`)), fetch(apiUrl(`/api/jobs/${id}/audit`)), fetch(apiUrl(`/api/jobs/${id}/manifest`))
     ])
     if (!resultsResponse.ok) throw new Error('Could not load ranked results')
     const ranked = await resultsResponse.json()
@@ -54,14 +80,14 @@ export default function App() {
 
   const connectEvents = useCallback(id => {
     eventSourceRef.current?.close()
-    const source = new EventSource(`/api/jobs/${id}/events`)
+    const source = new EventSource(apiUrl(`/api/jobs/${id}/events`))
     eventSourceRef.current = source
     source.onmessage = async event => {
       const update = JSON.parse(event.data)
       setJobEvent(update)
       if (update.phase === 'ranked') {
         try {
-          const ranked = await fetch(`/api/jobs/${id}/results?limit=100`).then(response => response.json())
+          const ranked = await fetch(apiUrl(`/api/jobs/${id}/results?limit=100`)).then(response => readApiJson(response, 'Could not load ranked results'))
           setResults(ranked.results || [])
         } catch {}
       } else if (update.phase === 'complete') {
@@ -74,7 +100,7 @@ export default function App() {
     source.onerror = async () => {
       source.close()
       try {
-        const status = await fetch(`/api/jobs/${id}`).then(response => response.json())
+        const status = await fetch(apiUrl(`/api/jobs/${id}`)).then(response => readApiJson(response, 'Could not reconnect to the ranking engine'))
         setJobEvent(status.lastEvent || status)
         if (status.status === 'complete') await loadCompletedJob(id)
         else if (status.status !== 'failed') setTimeout(() => connectEvents(id), 1000)
@@ -83,33 +109,37 @@ export default function App() {
   }, [loadCompletedJob])
 
   const handleFile = useCallback(async file => {
+    if (engineStatus === 'unavailable') {
+      setError('The web interface is online, but its ranking backend is not connected. Run locally or configure VITE_API_BASE_URL for the deployed backend.')
+      setJobEvent({ phase: 'failed', message: 'Ranking backend is not connected.' })
+      return
+    }
     setError(''); setResults([]); setAudit(null); setManifest(null); setCompareList([])
-    setStartedAt(Date.now()); setJobEvent({ phase: 'uploading', message: `Streaming ${file.name} to the local engine…`, metrics: { processed: 0 } })
+    setJobId(null)
+    setStartedAt(Date.now()); setJobEvent({ phase: 'uploading', message: `Uploading ${file.name}. The ranking engine will start automatically after the file is received.`, metrics: { processed: 0, fileName: file.name } })
     try {
-      const response = await fetch('/api/jobs', {
+      const response = await fetch(apiUrl('/api/jobs'), {
         method: 'POST', body: file,
         headers: { 'x-file-name': encodeURIComponent(file.name), 'x-job-description': encodeHeader(jdText) }
       })
-      const data = await response.json()
-      if (!response.ok) throw new Error(data.error || 'Upload failed')
+      const data = await readApiJson(response, 'Upload failed')
       setJobId(data.jobId)
       connectEvents(data.jobId)
-    } catch (uploadError) { setError(uploadError.message); setJobEvent({ phase: 'failed' }) }
-  }, [connectEvents, jdText])
+    } catch (uploadError) { setError(uploadError.message); setJobEvent({ phase: 'failed', message: 'Upload failed before the ranking engine could start.' }) }
+  }, [connectEvents, engineStatus, jdText])
 
   const handleLocalPath = useCallback(async () => {
     if (!localPath.trim()) return
-    setError(''); setResults([]); setAudit(null); setManifest(null); setCompareList([]); setStartedAt(Date.now())
+    setError(''); setResults([]); setAudit(null); setManifest(null); setCompareList([]); setJobId(null); setStartedAt(Date.now())
     setJobEvent({ phase: 'uploading', message: 'Hashing the local dataset without duplicating it…', metrics: { processed: 0 } })
     try {
-      const response = await fetch('/api/jobs/local', {
+      const response = await fetch(apiUrl('/api/jobs/local'), {
         method: 'POST', headers: { 'content-type': 'application/json' },
         body: JSON.stringify({ localPath: localPath.trim(), jobDescription: jdText })
       })
-      const data = await response.json()
-      if (!response.ok) throw new Error(data.error || 'Could not open local dataset')
+      const data = await readApiJson(response, 'Could not open local dataset')
       setJobId(data.jobId); connectEvents(data.jobId)
-    } catch (pathError) { setError(pathError.message); setJobEvent({ phase: 'failed' }) }
+    } catch (pathError) { setError(pathError.message); setJobEvent({ phase: 'failed', message: 'Local file could not be opened.' }) }
   }, [connectEvents, jdText, localPath])
 
   const reset = () => {
@@ -128,21 +158,25 @@ export default function App() {
       <ShaderBackground />
       <header className="app-header">
         <button className="brand" onClick={reset}>CIPHER<span>RANKER</span></button>
-        <div className="header-status"><span className={`status-dot ${complete ? 'complete' : running ? 'loading' : error ? 'error' : ''}`} />
-          {complete ? `Sealed run · ${Number(metrics.total || 0).toLocaleString()} candidates` : running ? 'Flagship engine running' : 'Local-first recruitment intelligence'}
+        <div className="header-status"><span className={`status-dot ${complete ? 'complete' : running ? 'loading' : engineStatus === 'unavailable' || error ? 'error' : engineStatus === 'ready' ? 'complete' : 'loading'}`} />
+          {complete ? `Sealed run · ${Number(metrics.total || 0).toLocaleString()} candidates` : running ? 'Ranking engine running' : engineStatus === 'ready' ? 'Ranking engine ready' : engineStatus === 'unavailable' ? 'Ranking backend offline' : 'Checking ranking engine'}
         </div>
       </header>
 
       <main className="app-main">
-        {!jobId ? (
+        {!activeRun ? (
           <motion.section className="upload-first" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}>
             <p className="eyebrow">EVIDENCE-BOUND RANKING ENGINE</p>
             <h1>Rank every profile.<br />Prove every decision.</h1>
             <p className="intro">Stream 100,000 candidates through deterministic parallel scoring, independent Groq and Mistral review, honeypot detection, stability testing and validator-ready export.</p>
+            {engineStatus === 'unavailable' && <div className="backend-warning">
+              <strong>Ranking backend is not connected.</strong>
+              <span>The static website is loaded, but uploads cannot be processed until a Node backend is configured.</span>
+            </div>}
             <div className="upload-layout">
-              <div className="upload-panel"><h2>Candidate dataset</h2><UploadZone onFileSelected={handleFile} />
-                <div className="local-path-row"><input value={localPath} onChange={event => setLocalPath(event.target.value)} placeholder="Or enter a local .jsonl path for the fastest demo" />
-                  <button onClick={handleLocalPath} disabled={!localPath.trim()}>Run local</button></div>
+              <div className="upload-panel"><h2>Candidate dataset</h2><UploadZone onFileSelected={handleFile} disabled={running} />
+                {LOCAL_MODE && <div className="local-path-row"><input value={localPath} onChange={event => setLocalPath(event.target.value)} placeholder="Or enter a local .jsonl path for the fastest demo" />
+                  <button onClick={handleLocalPath} disabled={!localPath.trim()}>Run local</button></div>}
               </div>
               <div className="jd-panel"><label htmlFor="job-description">TARGET JOB DESCRIPTION</label>
                 <textarea id="job-description" value={jdText} onChange={event => setJdText(event.target.value)} />
@@ -154,27 +188,39 @@ export default function App() {
           <motion.section initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
             <PipelinePanel event={jobEvent} startedAt={startedAt} />
             {error && <div className="error-banner">{error}</div>}
-            {complete && <>
+            {failed && <div className="run-banner failed-run">
+              <div><p className="eyebrow">RUN STOPPED</p><strong>The ranking job did not start successfully.</strong><span>Review the message above, then reconnect the backend or start a new run.</span></div>
+              <button className="secondary-button" onClick={reset}>Back to upload</button>
+            </div>}
+            {running && !showRankings && <div className="run-banner">
+              <div>
+                <p className="eyebrow">RUN IN PROGRESS</p>
+                <strong>The system is actively processing this dataset.</strong>
+                <span>{jobId ? 'Live server events are connected.' : 'File upload is still in progress; scoring starts as soon as the server receives it.'}</span>
+              </div>
+              <button className="secondary-button" onClick={reset}>Cancel / new run</button>
+            </div>}
+            {showRankings && <>
               <div className="results-toolbar">
                 <div><p className="eyebrow">SEALED RANKING RUN</p><h1>{Number(metrics.total || 0).toLocaleString()} candidates analyzed</h1>
-                  <p className="result-subtitle">Top 100 shown · complete audit retained locally · output {manifest?.outputSha256?.slice(0, 12)}</p></div>
+                  <p className="result-subtitle">{complete ? 'Top 100 shown · complete audit retained locally' : 'Preview is ready · final audits are still running'} · output {manifest?.outputSha256?.slice(0, 12) || 'pending'}</p></div>
                 <div className="toolbar-actions">
                   {compareList.length === 2 && <button className="secondary-button" onClick={() => setShowCompare(true)}>Compare 2</button>}
                   <input aria-label="Participant ID" value={participantId} onChange={event => setParticipantId(event.target.value)} placeholder="team_xxx" className="participant-input" />
-                  <ExportButton jobId={jobId} participantId={participantId} />
-                  <ExportButton jobId={jobId} participantId={participantId} type="audit-csv" label="Full Audit CSV" secondary />
-                  <ExportButton jobId={jobId} participantId={participantId} type="audit-json" label="Evidence JSON" secondary />
+                  {complete && <ExportButton jobId={jobId} participantId={participantId} />}
+                  {complete && <ExportButton jobId={jobId} participantId={participantId} type="audit-csv" label="Full Audit CSV" secondary />}
+                  {complete && <ExportButton jobId={jobId} participantId={participantId} type="audit-json" label="Evidence JSON" secondary />}
                   <button className="danger-button" onClick={reset}>New run</button>
                 </div>
               </div>
-              <div className="provider-strip">
+              {complete && <div className="provider-strip">
                 {['groq', 'mistral'].map(name => { const provider = audit?.providers?.[name]; return <div className="provider-item" key={name}>
                   <span className={`provider-light ${provider?.ok ? 'ok' : 'failed'}`} /><strong>{name === 'groq' ? 'Groq' : 'Mistral'}</strong>
                   <span>{provider?.ok ? `${provider.model} · ${(provider.latencyMs / 1000).toFixed(1)}s · ${Math.round((provider.confidence || 0) * 100)}% confidence` : provider?.error || 'Unavailable'}</span>
                 </div> })}
                 <div className="provider-item consensus"><strong>Consensus</strong><span>{Math.round((audit?.providerAgreement || 0) * 100)}% provider agreement</span></div>
-              </div>
-              <AuditPanel audit={audit} manifest={manifest} metrics={metrics} />
+              </div>}
+              {complete && <AuditPanel audit={audit} manifest={manifest} metrics={metrics} />}
               <StatCards results={results} />
               <div className="ranking-wrap"><RankingTable results={results} onSelect={setSelectedResult} compareList={compareList} onToggleCompare={toggleCompare} explanations={explanations} /></div>
             </>}
