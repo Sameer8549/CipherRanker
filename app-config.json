@@ -1,9 +1,11 @@
 {
-  "command": "node server.mjs",
+  "command": "node server.mjs --port=9000",
   "build_path": ".",
   "stack": "node20",
   "env_variables": {
-    "NODE_ENV": "production"
+    "NODE_ENV": "production",
+    "HOST": "0.0.0.0",
+    "PORT": "9000"
   },
   "memory": 2048,
   "port": {

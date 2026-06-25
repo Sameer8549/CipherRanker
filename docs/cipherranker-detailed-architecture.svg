@@ -1,0 +1,214 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <linearGradient id="page" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#05070d"/>
+      <stop offset="0.48" stop-color="#0a1020"/>
+      <stop offset="1" stop-color="#101827"/>
+    </linearGradient>
+    <linearGradient id="violet" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7c3aed"/>
+      <stop offset="1" stop-color="#06b6d4"/>
+    </linearGradient>
+    <linearGradient id="green" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#14b8a6"/>
+      <stop offset="1" stop-color="#22c55e"/>
+    </linearGradient>
+    <linearGradient id="amber" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f59e0b"/>
+      <stop offset="1" stop-color="#ef4444"/>
+    </linearGradient>
+    <filter id="softShadow" x="-18%" y="-18%" width="136%" height="136%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#000" flood-opacity="0.32"/>
+    </filter>
+    <marker id="arrow" markerWidth="16" markerHeight="16" refX="14" refY="8" orient="auto">
+      <path d="M0,0 L16,8 L0,16 Z" fill="#94a3b8"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="16" markerHeight="16" refX="14" refY="8" orient="auto">
+      <path d="M0,0 L16,8 L0,16 Z" fill="#38bdf8"/>
+    </marker>
+    <style>
+      .title{font:800 48px Inter,Segoe UI,Arial,sans-serif;fill:#f8fafc;letter-spacing:.2px}
+      .sub{font:500 19px Inter,Segoe UI,Arial,sans-serif;fill:#a8b3c7}
+      .section{font:800 20px Inter,Segoe UI,Arial,sans-serif;fill:#e2e8f0;letter-spacing:.8px}
+      .box{fill:#0f172a;stroke:#334155;stroke-width:2;rx:20;filter:url(#softShadow)}
+      .boxLite{fill:#111827;stroke:#475569;stroke-width:2;rx:18;filter:url(#softShadow)}
+      .boxGreen{fill:#092018;stroke:#1f7a55;stroke-width:2;rx:18;filter:url(#softShadow)}
+      .boxAmber{fill:#24180a;stroke:#9a5f14;stroke-width:2;rx:18;filter:url(#softShadow)}
+      .pill{rx:13}
+      .h{font:800 23px Inter,Segoe UI,Arial,sans-serif;fill:#f8fafc}
+      .p{font:500 16px Inter,Segoe UI,Arial,sans-serif;fill:#cbd5e1}
+      .small{font:700 13px Inter,Segoe UI,Arial,sans-serif;fill:#dbeafe;letter-spacing:.7px}
+      .tiny{font:600 13px Inter,Segoe UI,Arial,sans-serif;fill:#94a3b8}
+      .flow{stroke:#94a3b8;stroke-width:3;fill:none;marker-end:url(#arrow)}
+      .flowBlue{stroke:#38bdf8;stroke-width:3;fill:none;marker-end:url(#arrowBlue)}
+      .boundary{fill:none;stroke:#475569;stroke-width:2.5;stroke-dasharray:11 9;rx:28}
+      .aiBoundary{fill:none;stroke:#7c3aed;stroke-width:2.5;stroke-dasharray:10 8;rx:24}
+      .note{font:600 15px Inter,Segoe UI,Arial,sans-serif;fill:#bae6fd}
+    </style>
+  </defs>
+
+  <rect width="1920" height="1080" fill="url(#page)"/>
+  <text x="70" y="72" class="title">CipherRanker Architecture</text>
+  <text x="72" y="108" class="sub">Local-first recruitment intelligence: JD understanding, dual-AI rubric consensus, deterministic 100,000-candidate ranking, evidence validation, and validator-safe exports.</text>
+
+  <!-- outer boundaries -->
+  <rect x="44" y="145" width="1388" height="875" class="boundary"/>
+  <text x="66" y="1006" class="note">LOCAL MACHINE BOUNDARY: full dataset, scoring, caches, audits, ranked outputs, and validator artifacts stay on the user's system.</text>
+
+  <rect x="1472" y="145" width="394" height="330" class="aiBoundary"/>
+  <text x="1494" y="462" class="note">AI PROVIDER BOUNDARY: only JD + compact shortlisted evidence leave the machine.</text>
+
+  <!-- top layer labels -->
+  <text x="78" y="174" class="section">1. INPUTS</text>
+  <text x="424" y="174" class="section">2. LOCAL INGESTION</text>
+  <text x="790" y="174" class="section">3. RANKING CORE</text>
+  <text x="1125" y="174" class="section">4. TRUST LAYER</text>
+  <text x="1500" y="174" class="section">DUAL-AI JURY</text>
+
+  <!-- Inputs -->
+  <rect x="75" y="205" width="275" height="132" class="box"/>
+  <rect x="95" y="224" width="68" height="26" class="pill" fill="url(#violet)"/>
+  <text x="109" y="242" class="small">JD</text>
+  <text x="98" y="280" class="h">Job Description</text>
+  <text x="98" y="310" class="p">skills, experience, role intent,</text>
+  <text x="98" y="333" class="p">location, red flags</text>
+
+  <rect x="75" y="382" width="275" height="148" class="box"/>
+  <rect x="95" y="402" width="96" height="26" class="pill" fill="url(#violet)"/>
+  <text x="109" y="420" class="small">JSONL</text>
+  <text x="98" y="458" class="h">Candidate Dataset</text>
+  <text x="98" y="488" class="p">100,000 records streamed</text>
+  <text x="98" y="511" class="p">without browser memory load</text>
+
+  <rect x="75" y="575" width="275" height="130" class="boxLite"/>
+  <text x="98" y="620" class="h">Local Path / Upload</text>
+  <text x="98" y="650" class="p">supports drag-drop file or</text>
+  <text x="98" y="673" class="p">fast local dataset path</text>
+
+  <!-- Ingestion -->
+  <rect x="420" y="225" width="292" height="134" class="box"/>
+  <text x="445" y="270" class="h">Validation Gateway</text>
+  <text x="445" y="300" class="p">file type, JSON/JSONL parsing,</text>
+  <text x="445" y="323" class="p">candidate ID checks</text>
+
+  <rect x="420" y="405" width="292" height="134" class="box"/>
+  <text x="445" y="450" class="h">SHA-256 Fingerprint</text>
+  <text x="445" y="480" class="p">dataset hash, JD hash,</text>
+  <text x="445" y="503" class="p">run identity and replay</text>
+
+  <rect x="420" y="585" width="292" height="154" class="boxGreen"/>
+  <rect x="445" y="606" width="142" height="26" class="pill" fill="url(#green)"/>
+  <text x="459" y="624" class="small">FAST RERUNS</text>
+  <text x="445" y="666" class="h">Feature Cache</text>
+  <text x="445" y="696" class="p">normalized compact signals</text>
+  <text x="445" y="719" class="p">cached by dataset hash</text>
+
+  <rect x="420" y="785" width="292" height="122" class="boxGreen"/>
+  <text x="445" y="831" class="h">Sealed Run Cache</text>
+  <text x="445" y="861" class="p">reopens exact ranked run</text>
+  <text x="445" y="884" class="p">for sub-second export</text>
+
+  <!-- Ranking -->
+  <rect x="785" y="225" width="282" height="134" class="box"/>
+  <text x="810" y="270" class="h">Worker Thread Pool</text>
+  <text x="810" y="300" class="p">parallel deterministic scoring</text>
+  <text x="810" y="323" class="p">across available CPU cores</text>
+
+  <rect x="785" y="405" width="282" height="178" class="box"/>
+  <text x="810" y="450" class="h">Score Components</text>
+  <text x="810" y="480" class="p">career fit, skills, experience,</text>
+  <text x="810" y="503" class="p">education, location, behavior,</text>
+  <text x="810" y="526" class="p">availability and risk</text>
+
+  <rect x="785" y="630" width="282" height="134" class="box"/>
+  <text x="810" y="675" class="h">Deterministic Merge</text>
+  <text x="810" y="705" class="p">weighted final score + stable</text>
+  <text x="810" y="728" class="p">candidate-ID tie breaking</text>
+
+  <rect x="785" y="810" width="282" height="112" class="boxLite"/>
+  <text x="810" y="856" class="h">Top-K Preview</text>
+  <text x="810" y="886" class="p">fast UI pagination and export</text>
+
+  <!-- Trust layer -->
+  <rect x="1130" y="225" width="260" height="132" class="boxLite"/>
+  <text x="1154" y="270" class="h">Evidence Graph</text>
+  <text x="1154" y="300" class="p">candidate field → matched</text>
+  <text x="1154" y="323" class="p">requirement → component score</text>
+
+  <rect x="1130" y="400" width="260" height="142" class="boxAmber"/>
+  <rect x="1154" y="420" width="92" height="26" class="pill" fill="url(#amber)"/>
+  <text x="1168" y="438" class="small">RISK</text>
+  <text x="1154" y="480" class="h">Honeypot Audit</text>
+  <text x="1154" y="510" class="p">HP markers, contradictions,</text>
+  <text x="1154" y="533" class="p">duplicates, impossible timelines</text>
+
+  <rect x="1130" y="585" width="260" height="142" class="boxLite"/>
+  <text x="1154" y="630" class="h">Rank Stability</text>
+  <text x="1154" y="660" class="p">weight perturbation, shortlist</text>
+  <text x="1154" y="683" class="p">confidence, rank movement</text>
+
+  <rect x="1130" y="770" width="260" height="142" class="boxLite"/>
+  <text x="1154" y="815" class="h">Hallucination Guard</text>
+  <text x="1154" y="845" class="p">rejects invented skills, years,</text>
+  <text x="1154" y="868" class="p">companies, locations</text>
+
+  <!-- AI providers -->
+  <rect x="1500" y="215" width="150" height="95" class="box"/>
+  <text x="1524" y="255" class="h">Groq</text>
+  <text x="1524" y="284" class="p">rubric judge</text>
+
+  <rect x="1685" y="215" width="150" height="95" class="box"/>
+  <text x="1709" y="255" class="h">Mistral</text>
+  <text x="1709" y="284" class="p">rubric judge</text>
+
+  <rect x="1535" y="350" width="265" height="95" class="box"/>
+  <text x="1560" y="390" class="h">Consensus Rubric</text>
+  <text x="1560" y="419" class="p">confidence-weighted scoring weights</text>
+
+  <!-- Outputs -->
+  <text x="1498" y="545" class="section">5. OUTPUTS</text>
+  <rect x="1495" y="585" width="330" height="112" class="boxGreen"/>
+  <text x="1522" y="630" class="h">Validator-Safe Top 100 CSV</text>
+  <text x="1522" y="660" class="p">candidate_id, rank, score, reasoning</text>
+
+  <rect x="1495" y="735" width="330" height="112" class="box"/>
+  <text x="1522" y="780" class="h">Full Local Audit</text>
+  <text x="1522" y="810" class="p">all candidates, evidence, risk, stability</text>
+
+  <rect x="1495" y="885" width="330" height="112" class="box"/>
+  <text x="1522" y="930" class="h">Run Manifest</text>
+  <text x="1522" y="960" class="p">dataset, JD, rubric and output checksums</text>
+
+  <!-- Flow arrows inputs -->
+  <path d="M350 270 C380 270 390 280 420 292" class="flow"/>
+  <path d="M350 456 C380 456 390 455 420 455" class="flow"/>
+  <path d="M566 359 C566 375 566 385 566 405" class="flow"/>
+  <path d="M566 539 C566 560 566 568 566 585" class="flow"/>
+  <path d="M566 739 C566 760 566 770 566 785" class="flow"/>
+
+  <!-- AI flows -->
+  <path d="M350 270 C620 135 1250 150 1500 240" class="flowBlue"/>
+  <path d="M350 270 C705 110 1400 155 1685 240" class="flowBlue"/>
+  <path d="M1575 310 C1585 330 1595 342 1625 350" class="flowBlue"/>
+  <path d="M1760 310 C1748 330 1735 342 1715 350" class="flowBlue"/>
+  <path d="M1535 398 C1370 380 1225 350 1067 295" class="flowBlue"/>
+
+  <!-- Ranking flows -->
+  <path d="M712 660 C745 640 755 315 785 292" class="flow"/>
+  <path d="M1067 292 C1095 292 1108 292 1130 292" class="flow"/>
+  <path d="M926 359 C926 380 926 390 926 405" class="flow"/>
+  <path d="M926 583 C926 608 926 615 926 630" class="flow"/>
+  <path d="M926 764 C926 788 926 798 926 810" class="flow"/>
+
+  <!-- Trust flows -->
+  <path d="M1067 494 C1095 494 1105 470 1130 470" class="flow"/>
+  <path d="M1067 697 C1098 697 1105 656 1130 656" class="flow"/>
+  <path d="M1390 292 C1440 292 1460 360 1535 398" class="flowBlue"/>
+  <path d="M1390 841 C1438 840 1460 655 1495 640" class="flow"/>
+  <path d="M1390 656 C1430 690 1455 770 1495 790" class="flow"/>
+  <path d="M1390 292 C1440 500 1468 910 1495 940" class="flow"/>
+
+  <!-- bottom metrics strip -->
+  <rect x="72" y="940" width="1290" height="44" rx="15" fill="#0b1220" stroke="#233047"/>
+  <text x="98" y="968" class="tiny">Measured proof: 100,000 records processed • sealed rerun about 1s • output validator prints “Submission is valid.” • full dataset never sent to AI</text>
+</svg>

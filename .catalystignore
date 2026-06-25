@@ -3,7 +3,6 @@
 .cache/**
 .env
 .env.*
-!.env.example
 node_modules/**
 docs/**
 test/**

@@ -5,7 +5,8 @@ import { createAiService } from './server/ai-service.mjs'
 import { createJobEngine } from './server/job-engine.mjs'
 
 const root = resolve(process.cwd())
-const mode = process.env.NODE_ENV === 'production' ? 'production' : 'development'
+const developmentRequested = process.argv.includes('--development')
+const mode = process.env.NODE_ENV === 'development' || developmentRequested ? 'development' : 'production'
 async function loadLocalEnv(mode) {
   const files = ['.env', '.env.local', `.env.${mode}`, `.env.${mode}.local`]
   const loaded = {}
@@ -25,7 +26,8 @@ async function loadLocalEnv(mode) {
 }
 
 const env = { ...(await loadLocalEnv(mode)), ...process.env }
-const port = Number(env.X_ZOHO_CATALYST_LISTEN_PORT || env.PORT || 5173)
+const portArg = process.argv.find((arg) => arg.startsWith('--port='))?.split('=')[1]
+const port = Number(env.X_ZOHO_CATALYST_LISTEN_PORT || env.PORT || portArg || 5173)
 const host = String(env.HOST || (mode === 'development' ? '127.0.0.1' : '0.0.0.0'))
 const corsOrigin = String(env.CORS_ORIGIN || 'https://rankker.netlify.app')
 const cacheRoot = join(root, '.cache', 'cipherranker')
