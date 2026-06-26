@@ -17,13 +17,15 @@ Build production AI systems for semantic search, retrieval, ranking and recommen
 
 const encodeHeader = text => btoa(unescape(encodeURIComponent(text)))
 const LOCAL_MODE = ['localhost', '127.0.0.1'].includes(window.location.hostname)
-const CHUNK_SIZE = 4 * 1024 * 1024
+const CHUNK_SIZE = 1024 * 1024
 const CHUNKED_UPLOAD_THRESHOLD = 8 * 1024 * 1024
 
 async function readApiJson(response, fallbackMessage) {
   const contentType = response.headers.get('content-type') || ''
   if (!contentType.includes('application/json')) {
-    throw new Error('Ranking API is unavailable. Run the local server or connect this web deployment to the Node backend.')
+    const text = await response.text().catch(() => '')
+    const preview = text.replace(/\s+/g, ' ').slice(0, 140)
+    throw new Error(`${fallbackMessage}: ${response.status} ${response.statusText || 'non-JSON response'} from ${new URL(response.url).pathname}${preview ? ` — ${preview}` : ''}`)
   }
   const data = await response.json()
   if (!response.ok) throw new Error(data.error || fallbackMessage)
@@ -140,7 +142,7 @@ export default function App() {
           setJobEvent({
             phase: 'uploading',
             message: `Uploading ${file.name}: ${index + 1}/${totalChunks} chunks received.`,
-            metrics: { processed: uploaded, total: file.size, recordsPerSecond: 0, fileName: file.name }
+            metrics: { processed: Math.round(uploaded / 1024 / 1024), total: Math.round(file.size / 1024 / 1024), recordsPerSecond: 0, fileName: file.name }
           })
         }
 
