@@ -8,8 +8,8 @@ export default function UploadZone({ onFileSelected, disabled = false }) {
 
   const selectFile = useCallback(file => {
     if (!file || disabled) return
-    if (!/\.(jsonl|json|csv)$/i.test(file.name)) {
-      setError('Upload JSONL, JSON, or CSV. For XLSX, save the sheet as CSV first.')
+    if (!/\.(jsonl|json)$/i.test(file.name)) {
+      setError('Upload the candidate dataset as JSONL or JSON. CSV/XLSX is only for ranked output export.')
       return
     }
     setSelectedName(file.name)
@@ -26,8 +26,8 @@ export default function UploadZone({ onFileSelected, disabled = false }) {
         style={{ border: `1px dashed ${dragging ? '#CCFF00' : '#2a2a2a'}`, background: '#101010', borderRadius: 6, padding: '44px 28px', textAlign: 'center', opacity: disabled ? 0.5 : 1 }}>
         <div className="upload-symbol" aria-hidden="true">↑</div>
         <p className="text-white text-sm font-semibold mb-1">{selectedName || 'Drop a candidate dataset here'}</p>
-        <p className="text-[#888] text-xs">{selectedName ? 'Upload accepted. Starting the ranking pipeline...' : 'JSONL/JSON/CSV dataset · streamed into the ranking engine'}</p>
-        <input id="file-upload" type="file" accept=".json,.jsonl,.csv,application/json,application/x-ndjson,text/csv" className="hidden"
+        <p className="text-[#888] text-xs">{selectedName ? 'Upload accepted. Starting the ranking pipeline...' : 'Official JSONL/JSON dataset · streamed into the ranking engine'}</p>
+        <input id="file-upload" type="file" accept=".json,.jsonl,application/json,application/x-ndjson" className="hidden"
           disabled={disabled} onChange={event => selectFile(event.target.files?.[0])} />
       </motion.label>
       {error && <p className="text-danger text-xs font-mono">{error}</p>}
