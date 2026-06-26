@@ -16,6 +16,103 @@ const csvCell = value => {
   const text = String(value ?? '')
   return /[",\r\n]/.test(text) ? `"${text.replaceAll('"', '""')}"` : text
 }
+const normalizeKey = value => String(value || '').trim().toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '')
+const firstValue = (row, keys) => {
+  for (const key of keys) {
+    const value = row[normalizeKey(key)]
+    if (value !== undefined && String(value).trim() !== '') return String(value).trim()
+  }
+  return ''
+}
+const numberValue = (row, keys, fallback = 0) => {
+  const value = firstValue(row, keys)
+  if (!value) return fallback
+  const numeric = Number(String(value).replace(/[^0-9.-]/g, ''))
+  return Number.isFinite(numeric) ? numeric : fallback
+}
+const boolValue = (row, keys) => /^(true|yes|y|1)$/i.test(firstValue(row, keys))
+
+function parseCsvRows(text) {
+  const rows = []
+  let row = []
+  let cell = ''
+  let quoted = false
+  for (let index = 0; index < text.length; index++) {
+    const char = text[index]
+    const next = text[index + 1]
+    if (quoted) {
+      if (char === '"' && next === '"') { cell += '"'; index++ }
+      else if (char === '"') quoted = false
+      else cell += char
+    } else if (char === '"') quoted = true
+    else if (char === ',') { row.push(cell); cell = '' }
+    else if (char === '\n') {
+      row.push(cell); rows.push(row); row = []; cell = ''
+    } else if (char !== '\r') cell += char
+  }
+  row.push(cell)
+  if (row.some(value => String(value).trim())) rows.push(row)
+  if (!rows.length) return []
+  const headers = rows.shift().map(normalizeKey)
+  return rows
+    .filter(values => values.some(value => String(value).trim()))
+    .map(values => Object.fromEntries(headers.map((header, index) => [header, values[index] ?? ''])))
+}
+
+function parseSkillList(value) {
+  return String(value || '')
+    .split(/[|;,]/)
+    .map(item => item.trim())
+    .filter(Boolean)
+    .slice(0, 24)
+    .map(item => {
+      const [name, proficiency = 'intermediate', duration = '24'] = item.split(/[:/]/).map(part => part.trim())
+      return { name, proficiency, duration_months: Number(duration) || 24, endorsements: 0 }
+    })
+}
+
+function csvRowToCandidate(row, index) {
+  const candidateId = firstValue(row, ['candidate_id', 'id', 'candidate id', 'profile_id']) || `CSV_${String(index + 1).padStart(7, '0')}`
+  const skills = parseSkillList(firstValue(row, ['skills', 'skill_names', 'top_skills', 'matched_skills']))
+  const title = firstValue(row, ['current_title', 'title', 'job_title', 'role', 'headline'])
+  const company = firstValue(row, ['current_company', 'company', 'employer'])
+  const salaryMin = numberValue(row, ['salary_min', 'expected_salary_min', 'min_lpa'], 0)
+  const salaryMax = numberValue(row, ['salary_max', 'expected_salary_max', 'max_lpa'], 0)
+  return {
+    candidate_id: candidateId,
+    profile: {
+      anonymized_name: firstValue(row, ['anonymized_name', 'name', 'candidate_name']),
+      headline: firstValue(row, ['headline', 'summary', 'profile_summary']),
+      summary: firstValue(row, ['summary', 'profile_summary', 'about']),
+      current_title: title,
+      current_company: company,
+      years_of_experience: numberValue(row, ['years_of_experience', 'experience_years', 'yoe', 'experience'], 0),
+      location: firstValue(row, ['location', 'city']),
+      country: firstValue(row, ['country'])
+    },
+    skills,
+    career_history: title || company ? [{ title, company, duration_months: numberValue(row, ['current_role_months', 'duration_months'], 0), description: firstValue(row, ['summary', 'description', 'experience_summary']) }] : [],
+    education: firstValue(row, ['degree', 'education', 'field_of_study']) ? [{
+      degree: firstValue(row, ['degree', 'education']),
+      field_of_study: firstValue(row, ['field_of_study', 'field', 'major']),
+      institution: firstValue(row, ['institution', 'college', 'university']),
+      tier: firstValue(row, ['tier', 'institution_tier'])
+    }] : [],
+    redrob_signals: {
+      last_active_date: firstValue(row, ['last_active_date', 'last_active']),
+      open_to_work_flag: boolValue(row, ['open_to_work', 'open_to_work_flag']),
+      recruiter_response_rate: numberValue(row, ['recruiter_response_rate', 'response_rate'], 0),
+      notice_period_days: numberValue(row, ['notice_period_days', 'notice_period'], 90),
+      github_activity_score: numberValue(row, ['github_activity_score', 'github_score'], -1),
+      interview_completion_rate: numberValue(row, ['interview_completion_rate'], 0),
+      offer_acceptance_rate: numberValue(row, ['offer_acceptance_rate'], 0),
+      verified_email: boolValue(row, ['verified_email', 'email_verified']),
+      verified_phone: boolValue(row, ['verified_phone', 'phone_verified']),
+      willing_to_relocate: boolValue(row, ['willing_to_relocate', 'relocate']),
+      expected_salary_range_inr_lpa: salaryMin || salaryMax ? { min: salaryMin, max: salaryMax || salaryMin } : null
+    }
+  }
+}
 
 class WorkerPool {
   constructor(size) {
@@ -66,7 +163,8 @@ class WorkerPool {
 }
 
 async function* iterateCandidates(filePath, fileName) {
-  if (extname(fileName).toLowerCase() === '.jsonl') {
+  const extension = extname(fileName).toLowerCase()
+  if (extension === '.jsonl') {
     const lines = createInterface({ input: createReadStream(filePath, { encoding: 'utf8' }), crlfDelay: Infinity })
     let lineNumber = 0
     for await (const line of lines) {
@@ -77,12 +175,21 @@ async function* iterateCandidates(filePath, fileName) {
     }
     return
   }
+  if (extension === '.csv') {
+    const rows = parseCsvRows(await readFile(filePath, 'utf8'))
+    if (!rows.length) throw new Error('CSV upload is empty or missing a header row')
+    for (const [index, row] of rows.entries()) yield csvRowToCandidate(row, index)
+    return
+  }
+  if (['.xlsx', '.xls'].includes(extension)) {
+    throw new Error('XLSX upload is not supported by the browser runner yet. Save the sheet as CSV, or upload the official JSONL candidate dataset.')
+  }
   const text = await readFile(filePath, 'utf8')
   let payload
-  try { payload = JSON.parse(text) }
-  catch { throw new Error('Invalid JSON candidate file') }
+  try { payload = JSON.parse(text.replace(/^\uFEFF/, '')) }
+  catch { throw new Error('Invalid candidate file. Upload JSON, JSONL, CSV, or {"candidates":[...]} data.') }
   const candidates = Array.isArray(payload) ? payload : payload.candidates
-  if (!Array.isArray(candidates)) throw new Error('Expected a JSON array, JSONL records, or {"candidates": [...]}')
+  if (!Array.isArray(candidates)) throw new Error('Expected a JSON array, JSONL records, CSV rows, or {"candidates": [...]}')
   for (const candidate of candidates) yield candidate
 }
 
