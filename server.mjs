@@ -1,5 +1,7 @@
 import { createServer as createHttpServer } from 'node:http'
-import { readFile, stat } from 'node:fs/promises'
+import { createWriteStream } from 'node:fs'
+import { createHash, randomUUID } from 'node:crypto'
+import { mkdir, readFile, stat } from 'node:fs/promises'
 import { extname, join, resolve } from 'node:path'
 import { createAiService } from './server/ai-service.mjs'
 import { createJobEngine } from './server/job-engine.mjs'
@@ -34,6 +36,7 @@ const cacheRoot = join(root, '.cache', 'cipherranker')
 const aiService = createAiService(env, cacheRoot)
 const engineVersion = '2.8.0-fast-sealed-cache'
 const jobs = createJobEngine({ cacheRoot, aiService, version: engineVersion })
+const uploadSessions = new Map()
 
 function sendJson(res, status, data) {
   res.writeHead(status, { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store' })
@@ -78,6 +81,64 @@ async function apiHandler(req, res) {
       const job = await jobs.acceptUpload(req, { fileName, jobDescription })
       return sendJson(res, 202, { jobId: job.id, datasetSha256: job.datasetHash, status: job.status })
     } catch (error) { return sendJson(res, 500, { error: error.message || 'Upload failed' }) }
+  }
+
+  if (path === '/api/uploads' && req.method === 'POST') {
+    try {
+      const body = await readJson(req)
+      const fileName = String(body.fileName || 'candidates.jsonl')
+      const jobDescription = String(body.jobDescription || '')
+      if (!jobDescription.trim()) return sendJson(res, 400, { error: 'A job description is required' })
+      if (!/\.(json|jsonl)$/i.test(fileName)) return sendJson(res, 400, { error: 'Candidate upload must be JSONL or JSON' })
+      await mkdir(join(cacheRoot, 'uploads'), { recursive: true })
+      const uploadId = randomUUID()
+      const filePath = join(cacheRoot, 'uploads', `${uploadId}${extname(fileName) || '.jsonl'}`)
+      const stream = createWriteStream(filePath)
+      const session = {
+        id: uploadId, fileName, filePath, jobDescription, stream,
+        hash: createHash('sha256'), bytes: 0, nextChunk: 0, createdAt: Date.now()
+      }
+      uploadSessions.set(uploadId, session)
+      return sendJson(res, 201, { uploadId, nextChunk: 0 })
+    } catch (error) { return sendJson(res, 500, { error: error.message || 'Upload session could not be created' }) }
+  }
+
+  const uploadMatch = path.match(/^\/api\/uploads\/([^/]+)\/(chunk|complete)$/)
+  if (uploadMatch) {
+    const [, uploadId, action] = uploadMatch
+    const session = uploadSessions.get(uploadId)
+    if (!session) return sendJson(res, 404, { error: 'Upload session not found or expired' })
+    if (action === 'chunk' && req.method === 'POST') {
+      try {
+        const chunkIndex = Number(req.headers['x-chunk-index'])
+        if (chunkIndex !== session.nextChunk) return sendJson(res, 409, { error: `Expected chunk ${session.nextChunk}, received ${chunkIndex}` })
+        let bytes = 0
+        for await (const chunk of req) {
+          bytes += chunk.length
+          session.bytes += chunk.length
+          session.hash.update(chunk)
+          if (!session.stream.write(chunk)) await new Promise(resolve => session.stream.once('drain', resolve))
+        }
+        session.nextChunk++
+        return sendJson(res, 200, { uploadId, chunkIndex, bytes, receivedBytes: session.bytes, nextChunk: session.nextChunk })
+      } catch (error) { return sendJson(res, 500, { error: error.message || 'Chunk upload failed' }) }
+    }
+    if (action === 'complete' && req.method === 'POST') {
+      try {
+        await new Promise((resolve, reject) => session.stream.end(error => error ? reject(error) : resolve()))
+        uploadSessions.delete(uploadId)
+        const job = await jobs.acceptPreparedFile(session.filePath, {
+          fileName: session.fileName,
+          jobDescription: session.jobDescription,
+          datasetHash: session.hash.digest('hex'),
+          bytes: session.bytes
+        })
+        return sendJson(res, 202, { jobId: job.id, datasetSha256: job.datasetHash, status: job.status, receivedBytes: session.bytes })
+      } catch (error) {
+        uploadSessions.delete(uploadId)
+        return sendJson(res, 500, { error: error.message || 'Upload could not be finalized' })
+      }
+    }
   }
 
   if (path === '/api/jobs/local' && req.method === 'POST') {
@@ -159,7 +220,7 @@ const server = createHttpServer(async (req, res) => {
   if (req.url?.startsWith('/api/')) {
     res.setHeader('access-control-allow-origin', corsOrigin)
     res.setHeader('access-control-allow-methods', 'GET,POST,OPTIONS')
-    res.setHeader('access-control-allow-headers', 'content-type,x-file-name,x-job-description')
+    res.setHeader('access-control-allow-headers', 'content-type,x-file-name,x-job-description,x-chunk-index')
     if (req.method === 'OPTIONS') {
       res.writeHead(204, { 'access-control-max-age': '86400' })
       return res.end()

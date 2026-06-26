@@ -17,6 +17,8 @@ Build production AI systems for semantic search, retrieval, ranking and recommen
 
 const encodeHeader = text => btoa(unescape(encodeURIComponent(text)))
 const LOCAL_MODE = ['localhost', '127.0.0.1'].includes(window.location.hostname)
+const CHUNK_SIZE = 4 * 1024 * 1024
+const CHUNKED_UPLOAD_THRESHOLD = 8 * 1024 * 1024
 
 async function readApiJson(response, fallbackMessage) {
   const contentType = response.headers.get('content-type') || ''
@@ -117,6 +119,40 @@ export default function App() {
     setJobId(null)
     setStartedAt(Date.now()); setJobEvent({ phase: 'uploading', message: `Uploading ${file.name}. The ranking engine will start automatically after the file is received.`, metrics: { processed: 0, fileName: file.name } })
     try {
+      if (file.size >= CHUNKED_UPLOAD_THRESHOLD) {
+        const session = await fetch(apiUrl('/api/uploads'), {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({ fileName: file.name, size: file.size, jobDescription: jdText })
+        }).then(response => readApiJson(response, 'Upload session could not be created'))
+
+        const totalChunks = Math.ceil(file.size / CHUNK_SIZE)
+        for (let index = 0; index < totalChunks; index++) {
+          const start = index * CHUNK_SIZE
+          const end = Math.min(file.size, start + CHUNK_SIZE)
+          const chunk = file.slice(start, end)
+          await fetch(apiUrl(`/api/uploads/${session.uploadId}/chunk`), {
+            method: 'POST',
+            headers: { 'x-chunk-index': String(index), 'content-type': 'application/octet-stream' },
+            body: chunk
+          }).then(response => readApiJson(response, `Chunk ${index + 1} failed`))
+          const uploaded = end
+          setJobEvent({
+            phase: 'uploading',
+            message: `Uploading ${file.name}: ${index + 1}/${totalChunks} chunks received.`,
+            metrics: { processed: uploaded, total: file.size, recordsPerSecond: 0, fileName: file.name }
+          })
+        }
+
+        const data = await fetch(apiUrl(`/api/uploads/${session.uploadId}/complete`), {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: '{}'
+        }).then(response => readApiJson(response, 'Upload could not be finalized'))
+        setJobId(data.jobId)
+        connectEvents(data.jobId)
+        return
+      }
       const response = await fetch(apiUrl('/api/jobs'), {
         method: 'POST', body: file,
         headers: { 'x-file-name': encodeURIComponent(file.name), 'x-job-description': encodeHeader(jdText) }

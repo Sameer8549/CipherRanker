@@ -296,6 +296,20 @@ export function createJobEngine({ cacheRoot, aiService, version = '1.0.0' }) {
     return job
   }
 
+  async function acceptPreparedFile(filePath, { fileName, jobDescription, datasetHash, bytes }) {
+    const id = randomUUID()
+    const job = {
+      id, filePath, fileName, jobDescription,
+      datasetHash, status: 'queued', phase: 'queued', createdAt: Date.now(), updatedAt: Date.now(),
+      metrics: { bytes, processed: 0, recordsPerSecond: 0 }, results: [], audit: null, manifest: null
+    }
+    jobs.set(id, job)
+    queueMicrotask(() => run(job).catch(error => {
+      job.status = 'failed'; job.error = error.message || 'Ranking failed'; publish(job, 'failed', { error: job.error })
+    }))
+    return job
+  }
+
   async function ensureFeatureCache(job) {
     await mkdir(featuresDir, { recursive: true })
     const featureFile = join(featuresDir, `${job.datasetHash}.${FEATURE_SCHEMA_VERSION}.jsonl`)
@@ -508,5 +522,5 @@ export function createJobEngine({ cacheRoot, aiService, version = '1.0.0' }) {
     return { contentType: 'text/csv', extension: 'csv', body: createOfficialCsv(job.results) }
   }
 
-  return { acceptUpload, acceptLocal, subscribe, getJob, getResults, exportJob }
+  return { acceptUpload, acceptLocal, acceptPreparedFile, subscribe, getJob, getResults, exportJob }
 }
