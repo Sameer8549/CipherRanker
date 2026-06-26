@@ -77,7 +77,7 @@ Configure the hosted pair with:
 
 ```text
 # Netlify build environment
-VITE_API_BASE_URL=https://your-node-backend.example.com
+VITE_API_BASE_URL=https://cipherranker-50043309761.development.catalystappsail.in
 
 # Node backend environment
 CORS_ORIGIN=https://rankker.netlify.app
@@ -85,9 +85,9 @@ GROQ_API_KEY=...
 MISTRAL_API_KEY=...
 ```
 
-Without `VITE_API_BASE_URL`, the deployed UI now reports that the backend is offline instead
-of leaving an upload stuck on the first screen. Local development continues to use the
-same-origin API started by `node server.mjs`.
+Production frontend builds default to the verified Catalyst backend above, and
+`VITE_API_BASE_URL` can override it for another Node host. Local development continues to use
+the same-origin API started by `node server.mjs`.
 
 ### Zoho Catalyst full-stack deployment
 

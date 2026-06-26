@@ -9,14 +9,13 @@ import CandidateDrawer from './components/CandidateDrawer.jsx'
 import CompareModal from './components/CompareModal.jsx'
 import PipelinePanel from './components/PipelinePanel.jsx'
 import AuditPanel from './components/AuditPanel.jsx'
+import { apiUrl } from './lib/api.js'
 
 const DEFAULT_JD = `Senior AI Engineer — Search, Retrieval and Ranking
 
 Build production AI systems for semantic search, retrieval, ranking and recommendations. The ideal candidate has 5–9 years of experience, strong Python, embeddings, vector databases, information retrieval, evaluation metrics, RAG and modern NLP/LLM systems. Evidence of shipping production systems is required. Cloud, Docker, Kubernetes and MLOps are valuable. India-based candidates are preferred.`
 
 const encodeHeader = text => btoa(unescape(encodeURIComponent(text)))
-const API_BASE = String(import.meta.env.VITE_API_BASE_URL || '').replace(/\/$/, '')
-const apiUrl = path => `${API_BASE}${path}`
 const LOCAL_MODE = ['localhost', '127.0.0.1'].includes(window.location.hostname)
 
 async function readApiJson(response, fallbackMessage) {

@@ -1,3 +1,5 @@
+import { apiUrl } from './api.js'
+
 export async function enrichRankings(jobDescription, rankedResults) {
   const candidates = rankedResults.slice(0, 10).map(result => ({
     candidate_id: result.candidate.candidate_id,
@@ -13,7 +15,7 @@ export async function enrichRankings(jobDescription, rankedResults) {
     education: (result.candidate.education || []).slice(0, 2).map(item => ({ degree: item.degree, field_of_study: item.field_of_study, tier: item.tier })),
     local_score: Math.round(result.score * 100)
   }))
-  const response = await fetch('/api/rank', {
+  const response = await fetch(apiUrl('/api/rank'), {
     method: 'POST', headers: { 'content-type': 'application/json' },
     body: JSON.stringify({ jobDescription, candidates })
   })

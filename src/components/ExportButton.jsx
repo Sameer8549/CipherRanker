@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import { apiUrl } from '../lib/api.js'
 
 export default function ExportButton({ jobId, participantId = 'team_cipher', type = 'official', label = 'Export Official CSV', secondary = false }) {
   const [busy, setBusy] = useState(false)
@@ -7,7 +8,7 @@ export default function ExportButton({ jobId, participantId = 'team_cipher', typ
     if (!jobId || busy) return
     setBusy(true)
     try {
-      const response = await fetch(`/api/jobs/${jobId}/export`, {
+      const response = await fetch(apiUrl(`/api/jobs/${jobId}/export`), {
         method: 'POST', headers: { 'content-type': 'application/json' },
         body: JSON.stringify({ type, participantId })
       })
