@@ -19,6 +19,7 @@ const encodeHeader = text => btoa(unescape(encodeURIComponent(text)))
 const LOCAL_MODE = ['localhost', '127.0.0.1'].includes(window.location.hostname)
 const CHUNK_SIZE = 4 * 1024 * 1024
 const CHUNKED_UPLOAD_THRESHOLD = 8 * 1024 * 1024
+const HOSTED_UPLOAD_LIMIT = 180 * 1024 * 1024
 
 async function readApiJson(response, fallbackMessage) {
   const contentType = response.headers.get('content-type') || ''
@@ -133,6 +134,15 @@ export default function App() {
       setJobEvent({ phase: 'failed', message: 'Ranking backend is not connected.' })
       return
     }
+    if (!LOCAL_MODE && file.size > HOSTED_UPLOAD_LIMIT) {
+      setError(`This dataset is ${(file.size / 1024 / 1024).toFixed(0)} MB, which is too large for Catalyst temporary storage. Run the local app and use the local file path for the official 100,000-candidate dataset.`)
+      setJobEvent({
+        phase: 'failed',
+        message: 'Hosted upload stopped before Catalyst storage fills up.',
+        metrics: { processed: 0, total: Math.round(file.size / 1024 / 1024), fileName: file.name }
+      })
+      return
+    }
     setError(''); setResults([]); setAudit(null); setManifest(null); setCompareList([])
     setJobId(null)
     setStartedAt(Date.now()); setJobEvent({ phase: 'uploading', message: `Uploading ${file.name}. The ranking engine will start automatically after the file is received.`, metrics: { processed: 0, fileName: file.name } })
@@ -228,6 +238,7 @@ export default function App() {
             </div>}
             <div className="upload-layout">
               <div className="upload-panel"><h2>Candidate dataset</h2><UploadZone onFileSelected={handleFile} disabled={running} />
+                {!LOCAL_MODE && <p className="field-note">Hosted demo accepts smaller JSONL/JSON files. Run locally for the 487 MB official dataset to avoid Catalyst disk limits and get the fastest result.</p>}
                 {LOCAL_MODE && <div className="local-path-row"><input value={localPath} onChange={event => setLocalPath(event.target.value)} placeholder="Or enter a local .jsonl path for the fastest demo" />
                   <button onClick={handleLocalPath} disabled={!localPath.trim()}>Run local</button></div>}
               </div>
