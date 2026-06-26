@@ -17,7 +17,7 @@ Build production AI systems for semantic search, retrieval, ranking and recommen
 
 const encodeHeader = text => btoa(unescape(encodeURIComponent(text)))
 const LOCAL_MODE = ['localhost', '127.0.0.1'].includes(window.location.hostname)
-const CHUNK_SIZE = 1024 * 1024
+const CHUNK_SIZE = 4 * 1024 * 1024
 const CHUNKED_UPLOAD_THRESHOLD = 8 * 1024 * 1024
 
 async function readApiJson(response, fallbackMessage) {
@@ -30,6 +30,22 @@ async function readApiJson(response, fallbackMessage) {
   const data = await response.json()
   if (!response.ok) throw new Error(data.error || fallbackMessage)
   return data
+}
+
+const wait = ms => new Promise(resolve => setTimeout(resolve, ms))
+async function fetchApiJsonWithRetry(url, options, fallbackMessage, attempts = 3) {
+  let lastError
+  for (let attempt = 1; attempt <= attempts; attempt++) {
+    try {
+      const response = await fetch(url, options)
+      return await readApiJson(response, fallbackMessage)
+    } catch (error) {
+      lastError = error
+      if (attempt === attempts) break
+      await wait(500 * attempt)
+    }
+  }
+  throw lastError
 }
 
 export default function App() {
@@ -133,11 +149,11 @@ export default function App() {
           const start = index * CHUNK_SIZE
           const end = Math.min(file.size, start + CHUNK_SIZE)
           const chunk = file.slice(start, end)
-          await fetch(apiUrl(`/api/uploads/${session.uploadId}/chunk`), {
+          await fetchApiJsonWithRetry(apiUrl(`/api/uploads/${session.uploadId}/chunk`), {
             method: 'POST',
             headers: { 'x-chunk-index': String(index), 'content-type': 'application/octet-stream' },
             body: chunk
-          }).then(response => readApiJson(response, `Chunk ${index + 1} failed`))
+          }, `Chunk ${index + 1} failed`)
           const uploaded = end
           setJobEvent({
             phase: 'uploading',

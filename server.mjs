@@ -1,7 +1,7 @@
 import { createServer as createHttpServer } from 'node:http'
-import { createWriteStream } from 'node:fs'
+import { createReadStream } from 'node:fs'
 import { createHash, randomUUID } from 'node:crypto'
-import { mkdir, readFile, stat } from 'node:fs/promises'
+import { appendFile, mkdir, readFile, stat, writeFile } from 'node:fs/promises'
 import { extname, join, resolve } from 'node:path'
 import { createAiService } from './server/ai-service.mjs'
 import { createJobEngine } from './server/job-engine.mjs'
@@ -36,7 +36,7 @@ const cacheRoot = join(root, '.cache', 'cipherranker')
 const aiService = createAiService(env, cacheRoot)
 const engineVersion = '2.8.0-fast-sealed-cache'
 const jobs = createJobEngine({ cacheRoot, aiService, version: engineVersion })
-const uploadSessions = new Map()
+const uploadRoot = join(cacheRoot, 'uploads')
 
 function sendJson(res, status, data) {
   res.writeHead(status, { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store' })
@@ -55,6 +55,19 @@ async function readJson(req, maxBytes = 2_000_000) {
 function decodeHeader(value) {
   try { return Buffer.from(String(value || ''), 'base64').toString('utf8') }
   catch { return '' }
+}
+
+const uploadMetaPath = uploadId => join(uploadRoot, `${uploadId}.meta.json`)
+async function saveUploadSession(session) {
+  await writeFile(uploadMetaPath(session.id), JSON.stringify(session))
+}
+async function loadUploadSession(uploadId) {
+  return JSON.parse(await readFile(uploadMetaPath(uploadId), 'utf8'))
+}
+async function hashFile(filePath) {
+  const hash = createHash('sha256')
+  for await (const chunk of createReadStream(filePath)) hash.update(chunk)
+  return hash.digest('hex')
 }
 
 async function apiHandler(req, res) {
@@ -90,15 +103,15 @@ async function apiHandler(req, res) {
       const jobDescription = String(body.jobDescription || '')
       if (!jobDescription.trim()) return sendJson(res, 400, { error: 'A job description is required' })
       if (!/\.(json|jsonl)$/i.test(fileName)) return sendJson(res, 400, { error: 'Candidate upload must be JSONL or JSON' })
-      await mkdir(join(cacheRoot, 'uploads'), { recursive: true })
+      await mkdir(uploadRoot, { recursive: true })
       const uploadId = randomUUID()
-      const filePath = join(cacheRoot, 'uploads', `${uploadId}${extname(fileName) || '.jsonl'}`)
-      const stream = createWriteStream(filePath)
+      const filePath = join(uploadRoot, `${uploadId}${extname(fileName) || '.jsonl'}`)
       const session = {
-        id: uploadId, fileName, filePath, jobDescription, stream,
-        hash: createHash('sha256'), bytes: 0, nextChunk: 0, createdAt: Date.now()
+        id: uploadId, fileName, filePath, jobDescription,
+        bytes: 0, nextChunk: 0, createdAt: Date.now(), updatedAt: Date.now()
       }
-      uploadSessions.set(uploadId, session)
+      await writeFile(filePath, '')
+      await saveUploadSession(session)
       return sendJson(res, 201, { uploadId, nextChunk: 0 })
     } catch (error) { return sendJson(res, 500, { error: error.message || 'Upload session could not be created' }) }
   }
@@ -106,36 +119,39 @@ async function apiHandler(req, res) {
   const uploadMatch = path.match(/^\/api\/uploads\/([^/]+)\/(chunk|complete)$/)
   if (uploadMatch) {
     const [, uploadId, action] = uploadMatch
-    const session = uploadSessions.get(uploadId)
-    if (!session) return sendJson(res, 404, { error: 'Upload session not found or expired' })
+    let session
+    try { session = await loadUploadSession(uploadId) }
+    catch { return sendJson(res, 404, { error: 'Upload session not found or expired' }) }
     if (action === 'chunk' && req.method === 'POST') {
       try {
         const chunkIndex = Number(req.headers['x-chunk-index'])
+        if (chunkIndex < session.nextChunk) return sendJson(res, 200, { uploadId, chunkIndex, bytes: 0, receivedBytes: session.bytes, nextChunk: session.nextChunk, duplicate: true })
         if (chunkIndex !== session.nextChunk) return sendJson(res, 409, { error: `Expected chunk ${session.nextChunk}, received ${chunkIndex}` })
+        const chunks = []
         let bytes = 0
         for await (const chunk of req) {
           bytes += chunk.length
-          session.bytes += chunk.length
-          session.hash.update(chunk)
-          if (!session.stream.write(chunk)) await new Promise(resolve => session.stream.once('drain', resolve))
+          chunks.push(Buffer.from(chunk))
         }
+        await appendFile(session.filePath, Buffer.concat(chunks))
+        session.bytes += bytes
         session.nextChunk++
+        session.updatedAt = Date.now()
+        await saveUploadSession(session)
         return sendJson(res, 200, { uploadId, chunkIndex, bytes, receivedBytes: session.bytes, nextChunk: session.nextChunk })
       } catch (error) { return sendJson(res, 500, { error: error.message || 'Chunk upload failed' }) }
     }
     if (action === 'complete' && req.method === 'POST') {
       try {
-        await new Promise((resolve, reject) => session.stream.end(error => error ? reject(error) : resolve()))
-        uploadSessions.delete(uploadId)
+        const datasetHash = await hashFile(session.filePath)
         const job = await jobs.acceptPreparedFile(session.filePath, {
           fileName: session.fileName,
           jobDescription: session.jobDescription,
-          datasetHash: session.hash.digest('hex'),
+          datasetHash,
           bytes: session.bytes
         })
         return sendJson(res, 202, { jobId: job.id, datasetSha256: job.datasetHash, status: job.status, receivedBytes: session.bytes })
       } catch (error) {
-        uploadSessions.delete(uploadId)
         return sendJson(res, 500, { error: error.message || 'Upload could not be finalized' })
       }
     }
