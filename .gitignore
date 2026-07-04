@@ -10,6 +10,7 @@ benchmark-results.json
 benchmark-results*.json
 benchmark_team.csv
 benchmark_team*.csv
+benchmark_team*.xlsx
 .env
 .env.*
 !.env.example
