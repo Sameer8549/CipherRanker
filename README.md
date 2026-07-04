@@ -53,41 +53,74 @@ flowchart TB
 
 Candidate names are displayed but explicitly excluded from scorer text. Location is neutral unless the JD contains preferred locations. API keys remain server-side in `.env.local` and are excluded from Git.
 
-## Run Locally
+## Local Installation
 
 ```powershell
-Copy-Item .env.example .env.local
-# Add GROQ_API_KEY and MISTRAL_API_KEY to .env.local
+git clone https://github.com/Sameer8549/CipherRanker.git
+cd CipherRanker
 npm install
+Copy-Item .env.example .env.local
+notepad .env.local
+```
+
+Add your server-side provider keys to `.env.local`:
+
+```text
+GROQ_API_KEY=your_groq_key
+MISTRAL_API_KEY=your_mistral_key
+```
+
+Start the local full-stack app:
+
+```powershell
 npm run dev
 ```
 
-Open `http://127.0.0.1:5173`, paste the target JD, and upload JSON or JSONL candidate data.
+Open:
+
+```text
+http://127.0.0.1:5173
+```
+
+For the official 100,000-candidate dataset, use the local path runner inside the UI:
+
+```text
+C:\Users\abdul\Downloads\candidates.jsonl
+```
+
+This is the recommended path for the challenge submission because the official dataset is about
+487 MB. Running locally avoids hosted disk limits, avoids uploading private candidate data to a
+cloud runtime, and enables the normalized feature cache for fast reruns.
+
+### Local Commands
+
+```powershell
+npm test
+npm run build
+npm run benchmark -- C:\Users\abdul\Downloads\candidates.jsonl
+python scripts\validate_submission.py benchmark_team.csv
+```
 
 ## Deployed Web UI
 
-The public static UI is deployed at:
+The deployed apps are for the UI demo, provider-readiness checks, and smaller JSONL/JSON samples:
 
-https://rankker.netlify.app/
+- Netlify UI: https://rankker.netlify.app/
+- Catalyst full-stack demo: https://cipherranker-50043309761.development.catalystappsail.in/
 
-Netlify hosts the React interface. The ranking API must run on a Node host that supports
-worker threads, streaming responses, and long-running jobs.
+The hosted Catalyst app intentionally stops very large uploads before the platform runs out of
+temporary disk. Use the local installation above for the full official 487 MB `candidates.jsonl`
+run and final CSV generation.
 
-Configure the hosted pair with:
+Optional hosted configuration:
 
 ```text
-# Netlify build environment
 VITE_API_BASE_URL=https://cipherranker-50043309761.development.catalystappsail.in
-
-# Node backend environment
 CORS_ORIGIN=https://rankker.netlify.app
-GROQ_API_KEY=...
-MISTRAL_API_KEY=...
 ```
 
-Production frontend builds default to the verified Catalyst backend above, and
-`VITE_API_BASE_URL` can override it for another Node host. Local development continues to use
-the same-origin API started by `node server.mjs`.
+Provider keys must stay server-side only. Do not place Groq or Mistral keys in Netlify frontend
+environment variables.
 
 ### Zoho Catalyst full-stack deployment
 
@@ -152,7 +185,7 @@ with 100 data rows, deterministic candidate-ID tie-breaking, and no `HP_*` ident
 
 ## Judge Demo
 
-1. Upload the official 100,000-record JSONL dataset.
+1. Run the official 100,000-record JSONL dataset through the local path runner.
 2. Watch live feature-cache, worker throughput, AI rubric and audit phases.
 3. Inspect Groq/Mistral agreement and baseline-to-consensus rank movement.
 4. Open a candidate to trace evidence and shortlist stability.
