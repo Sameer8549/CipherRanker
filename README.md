@@ -59,20 +59,6 @@ Candidate names are displayed but explicitly excluded from scorer text. Location
 git clone https://github.com/Sameer8549/CipherRanker.git
 cd CipherRanker
 npm install
-Copy-Item .env.example .env.local
-notepad .env.local
-```
-
-Add your server-side provider keys to `.env.local`:
-
-```text
-GROQ_API_KEY=your_groq_key
-MISTRAL_API_KEY=your_mistral_key
-```
-
-Start the local full-stack app:
-
-```powershell
 npm run dev
 ```
 
@@ -91,6 +77,19 @@ C:\Users\abdul\Downloads\candidates.jsonl
 This is the recommended path for the challenge submission because the official dataset is about
 487 MB. Running locally avoids hosted disk limits, avoids uploading private candidate data to a
 cloud runtime, and enables the normalized feature cache for fast reruns.
+
+### Provider Keys
+
+No manual key step is required on other machines. If `GROQ_API_KEY` and `MISTRAL_API_KEY` are
+available in ignored local `.env.local` or machine environment variables, CipherRanker uses them
+directly. Otherwise, it automatically uses the deployed Catalyst backend as a secure AI proxy.
+
+In proxy mode, the full 487 MB dataset still stays on the local machine. Only the job description
+and compact top-candidate evidence are sent to the Catalyst AI service for Groq/Mistral rubric
+generation and explanation verification.
+
+Never commit `.env.local`, provider keys, terminal logs containing keys, or frontend environment
+variables containing keys to GitHub.
 
 ### Local Commands
 

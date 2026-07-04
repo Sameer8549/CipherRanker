@@ -24,6 +24,7 @@ const EXPLAIN_PROMPT = `You are an evidence-bound recruiting auditor. Return onl
 Assess every supplied candidate exactly once. Use only supplied evidence. If is_honeypot is true, mention the profile-risk evidence. Keep explanations under 45 words.`
 
 const hash = value => createHash('sha256').update(String(value)).digest('hex')
+const DEFAULT_AI_PROXY_BASE_URL = 'https://cipherranker-50043309761.development.catalystappsail.in'
 
 export function normalizeRubric(value) {
   const rubric = value && typeof value === 'object' ? value : {}
@@ -117,11 +118,25 @@ export function createAiService(env, cacheRoot) {
     groq: { label: 'Groq', url: 'https://api.groq.com/openai/v1/chat/completions', model: 'llama-3.3-70b-versatile', key: env.GROQ_API_KEY },
     mistral: { label: 'Mistral', url: 'https://api.mistral.ai/v1/chat/completions', model: 'mistral-small-latest', key: env.MISTRAL_API_KEY }
   }
+  const hasLocalKeys = Object.values(providers).every(provider => Boolean(provider.key))
+  const proxyBaseUrl = String(env.AI_PROXY_BASE_URL || DEFAULT_AI_PROXY_BASE_URL).replace(/\/$/, '')
   const memory = new Map()
   const rubricDir = join(cacheRoot, 'rubrics')
 
+  async function callProxy(path, payload) {
+    const response = await fetch(`${proxyBaseUrl}${path}`, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(payload)
+    })
+    const data = await response.json().catch(() => null)
+    if (!response.ok || !data) throw new Error(`AI proxy ${path} returned ${response.status}`)
+    return data
+  }
+
   async function getRubric(jobDescription) {
-    const cacheKey = hash(`${jobDescription}|${Object.values(providers).map(item => item.model).join('|')}`)
+    const providerSignature = hasLocalKeys ? Object.values(providers).map(item => item.model).join('|') : `proxy:${proxyBaseUrl}`
+    const cacheKey = hash(`${jobDescription}|${providerSignature}`)
     if (memory.has(cacheKey)) return { ...memory.get(cacheKey), cacheHit: true }
     const file = join(rubricDir, `${cacheKey}.json`)
     try {
@@ -129,6 +144,15 @@ export function createAiService(env, cacheRoot) {
       memory.set(cacheKey, cached)
       return { ...cached, cacheHit: true }
     } catch {}
+
+    if (!hasLocalKeys) {
+      const proxied = await callProxy('/api/rubrics', { jobDescription })
+      const result = { ...proxied, cacheKey, proxied: true, cacheHit: false }
+      await mkdir(rubricDir, { recursive: true })
+      await writeFile(file, JSON.stringify(result, null, 2))
+      memory.set(cacheKey, result)
+      return result
+    }
 
     const settled = await Promise.allSettled(Object.entries(providers).map(async ([key, provider]) => {
       const response = await callProvider(provider, RUBRIC_PROMPT, { jobDescription }, 1800)
@@ -151,6 +175,8 @@ export function createAiService(env, cacheRoot) {
   }
 
   async function explain(candidates, rubric) {
+    if (!hasLocalKeys) return callProxy('/api/explain', { candidates, rubric })
+
     const settled = await Promise.allSettled(Object.entries(providers).map(async ([key, provider]) => {
       const response = await callProvider(provider, EXPLAIN_PROMPT, { rubric, candidates }, 2400)
       return [key, { ok: true, model: provider.model, latencyMs: response.latencyMs, assessments: response.parsed.assessments || [] }]
@@ -186,6 +212,6 @@ export function createAiService(env, cacheRoot) {
 
   return {
     getRubric, explain,
-    status: () => Object.fromEntries(Object.entries(providers).map(([key, provider]) => [key, { configured: Boolean(provider.key), model: provider.model }]))
+    status: () => Object.fromEntries(Object.entries(providers).map(([key, provider]) => [key, { configured: Boolean(provider.key) || !hasLocalKeys, model: provider.model, source: hasLocalKeys ? 'local' : 'proxy' }]))
   }
 }

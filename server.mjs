@@ -86,6 +86,14 @@ async function apiHandler(req, res) {
     } catch (error) { return sendJson(res, 500, { error: error.message }) }
   }
 
+  if (path === '/api/explain' && req.method === 'POST') {
+    try {
+      const body = await readJson(req, 1_500_000)
+      if (!Array.isArray(body.candidates)) return sendJson(res, 400, { error: 'Candidates are required' })
+      return sendJson(res, 200, await aiService.explain(body.candidates, body.rubric || {}))
+    } catch (error) { return sendJson(res, 500, { error: error.message || 'Explanation failed' }) }
+  }
+
   if (path === '/api/jobs' && req.method === 'POST') {
     try {
       const fileName = decodeURIComponent(String(req.headers['x-file-name'] || 'candidates.jsonl'))
